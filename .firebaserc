@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "tattoo-website-dev",
+    "prod": "tattoo-website-prod"
+  },
+  "targets": {},
+  "etags": {}
+}
