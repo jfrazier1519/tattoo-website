@@ -1,176 +1,168 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  FaInstagram,
-  FaFacebookF,
-  FaYoutube,
-  FaTwitter,
-  FaLinkedinIn,
-  FaEnvelope,
-  FaPhone,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaTiktok, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-black to-[#214045] text-white font-sans pt-14">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 pb-8 grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1.5fr] gap-10 items-start">
-        {/* Logo, Mission, Contact */}
-        <div className="flex flex-col gap-5 md:pr-8">
-          {/* Logo and Brand */}
-          <div className="flex items-center gap-4 mb-1">
-            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
-              <span className="text-3xl font-bold text-[#1a2a2e]">L</span>
+    <footer className="bg-cottage-bg-accent text-white">
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Brand Section */}
+          <div className="col-span-1 md:col-span-2">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary rounded-full flex items-center justify-center">
+                <span className="text-white text-xl font-bold">T</span>
+              </div>
+              <span className="text-2xl font-extrabold tracking-wide text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary">
+                Tattoo Studio
+              </span>
             </div>
-            <span className="text-2xl font-extrabold tracking-wide">
-              Tattoo Studio
-            </span>
+            <p className="text-cottage-text-muted mb-6 max-w-md">
+              Creating unique, dark, and edgy artwork that tells your story.
+              Specializing in gothic aesthetics with a cute twist.
+            </p>
+            <div className="flex space-x-4">
+              <a
+                href="#"
+                className="w-10 h-10 bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary rounded-full flex items-center justify-center hover:from-cottage-green-hover hover:to-cottage-emerald-hover transition-all duration-300"
+              >
+                <FaInstagram className="text-white" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 bg-cottage-gradient from-cottage-green-secondary to-cottage-green-primary rounded-full flex items-center justify-center hover:from-cottage-emerald-hover hover:to-cottage-green-hover transition-all duration-300"
+              >
+                <FaFacebook className="text-white" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 bg-cottage-gradient from-cottage-green-accent to-cottage-green-secondary rounded-full flex items-center justify-center hover:from-cottage-green-hover hover:to-cottage-emerald-hover transition-all duration-300"
+              >
+                <FaTiktok className="text-white" />
+              </a>
+            </div>
           </div>
-          <p className="text-white/80 text-base leading-relaxed mb-2">
-            Empowering startups with tailored digital solutions for immediate
-            impact and sustainable growth.
-          </p>
-          <div className="flex flex-col gap-2 text-white/80 text-sm mb-2 mt-2">
-            <div className="flex items-center gap-2">
-              <FaEnvelope className="text-teal-400" />{" "}
-              support@launchdigitalservices.com
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-cottage-green-primary">
+              Quick Links
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  to="/"
+                  className="text-cottage-text-muted hover:text-cottage-green-primary transition-colors"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="text-cottage-text-muted hover:text-cottage-green-primary transition-colors"
+                >
+                  About Me
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/gallery"
+                  className="text-cottage-text-muted hover:text-cottage-green-primary transition-colors"
+                >
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="text-cottage-text-muted hover:text-cottage-green-primary transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-cottage-green-primary">
+              Services
+            </h3>
+            <ul className="space-y-2">
+              <li>
+                <span className="text-cottage-text-muted">Custom Tattoos</span>
+              </li>
+              <li>
+                <span className="text-cottage-text-muted">Flash Art</span>
+              </li>
+              <li>
+                <span className="text-cottage-text-muted">Cover-ups</span>
+              </li>
+              <li>
+                <span className="text-cottage-text-muted">Consultations</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Contact Info */}
+        <div className="border-t border-cottage-bg-border mt-12 pt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary rounded-full flex items-center justify-center">
+                <FaEnvelope className="text-white" />
+              </div>
+              <div>
+                <p className="text-sm text-cottage-text-subtle">Email</p>
+                <p className="text-cottage-text-secondary">
+                  contact@tattoostudio.com
+                </p>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <FaPhone className="text-teal-400" /> +1 (800) 999-9999
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-cottage-gradient from-cottage-green-secondary to-cottage-green-primary rounded-full flex items-center justify-center">
+                <span className="text-white text-lg">📍</span>
+              </div>
+              <div>
+                <p className="text-sm text-cottage-text-subtle">Location</p>
+                <p className="text-cottage-text-secondary">
+                  Booth Rental • By Appointment
+                </p>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <FaMapMarkerAlt className="text-teal-400" /> 456 Awesome Blvd, San
-              Francisco, CA
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-cottage-gradient from-cottage-green-accent to-cottage-green-secondary rounded-full flex items-center justify-center">
+                <span className="text-white text-lg">🕐</span>
+              </div>
+              <div>
+                <p className="text-sm text-cottage-text-subtle">Hours</p>
+                <p className="text-cottage-text-secondary">
+                  By Appointment Only
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Quick Links */}
-        <div className="mt-2">
-          <h4 className="text-base font-semibold mb-4">Quick Links</h4>
-          <ul className="space-y-2 text-sm text-white/80">
-            <li>
-              <Link to="/about">About Us</Link>
-            </li>
-            <li>
-              <Link to="/services">Our Services</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact Us</Link>
-            </li>
-            <li>
-              <Link to="/faq">FAQ</Link>
-            </li>
-            <li>
-              <Link to="/blog">Blog</Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Our Services */}
-        <div className="mt-2">
-          <h4 className="text-base font-semibold mb-4">Our Services</h4>
-          <ul className="space-y-2 text-sm text-white/80">
-            <li>
-              <Link to="/services">Website Development</Link>
-            </li>
-            <li>
-              <Link to="/services">Branding & Design</Link>
-            </li>
-            <li>
-              <Link to="/services">Digital Marketing</Link>
-            </li>
-            <li>
-              <Link to="/services">MVP Development</Link>
-            </li>
-            <li>
-              <Link to="/website-market">Website Templates</Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Newsletter */}
-        <div className="mt-2 flex flex-col gap-4">
-          <h4 className="text-base font-semibold mb-4">Stay Updated</h4>
-          <p className="text-sm text-white/80 mb-2">
-            Join our newsletter to stay informed about updates and new features.
+        {/* Bottom Bar */}
+        <div className="border-t border-cottage-bg-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-cottage-text-subtle text-sm">
+            © 2024 Tattoo Studio. All rights reserved.
           </p>
-          <form className="flex max-w-md mb-2">
-            <input
-              type="email"
-              placeholder="Your Email Here"
-              className="flex-1 px-4 py-2 rounded-l-full text-sm text-black"
-            />
-            <button
-              type="submit"
-              className="px-5 py-2 bg-white text-black font-bold rounded-r-full text-sm hover:bg-gray-200 transition"
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <Link
+              to="/privacy-policy"
+              className="text-sm text-cottage-text-subtle hover:text-cottage-green-primary transition-colors"
             >
-              Join
-            </button>
-          </form>
-          <p className="text-[11px] mt-2 text-white/50">
-            By subscribing, you agree to our Privacy Policy and consent to
-            receive updates.
-          </p>
-        </div>
-      </div>
-
-      {/* Divider */}
-      <div className="border-t border-white/20 my-4" />
-
-      {/* Bottom Bar */}
-      <div className="px-6 md:px-12 text-white/60 text-xs pb-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 flex-wrap">
-          <div className="flex flex-row items-center gap-4 flex-wrap">
-            <span>
-              &copy; {new Date().getFullYear()} Tattoo Studio. All rights
-              reserved.
-            </span>
-            <span className="hidden md:inline">|</span>
-            <Link to="/privacy-policy" className="hover:underline">
               Privacy Policy
             </Link>
-            <span className="hidden md:inline">|</span>
-            <Link to="/terms" className="hover:underline">
-              Terms of Use
+            <Link
+              to="/terms-and-conditions"
+              className="text-sm text-cottage-text-subtle hover:text-cottage-green-primary transition-colors"
+            >
+              Terms & Conditions
             </Link>
-          </div>
-          <div className="flex gap-4 mt-2 md:mt-0">
-            <a
-              href="#"
-              aria-label="Instagram"
-              className="hover:text-teal-400 transition"
-            >
-              <FaInstagram size={18} />
-            </a>
-            <a
-              href="#"
-              aria-label="Facebook"
-              className="hover:text-teal-400 transition"
-            >
-              <FaFacebookF size={18} />
-            </a>
-            <a
-              href="#"
-              aria-label="Twitter"
-              className="hover:text-teal-400 transition"
-            >
-              <FaTwitter size={18} />
-            </a>
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              className="hover:text-teal-400 transition"
-            >
-              <FaLinkedinIn size={18} />
-            </a>
-            <a
-              href="#"
-              aria-label="YouTube"
-              className="hover:text-teal-400 transition"
-            >
-              <FaYoutube size={18} />
-            </a>
           </div>
         </div>
       </div>

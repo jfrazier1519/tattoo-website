@@ -1,163 +1,256 @@
 import React, { useState } from "react";
 import Button from "../shared/Button";
 
-const topics = [
-  "General Inquiry",
-  "Partnership",
-  "Support",
-  "Feedback",
-  "Other",
-];
-
-const roles = [
-  "Startup Founder",
-  "Investor",
-  "Service Provider",
-  "Consultant",
-  "Other Interest",
-  "Other",
-];
-
 const ContactForm = ({ cardMode = false }) => {
-  const [form, setForm] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
-    topic: "",
-    roles: [],
+    phone: "",
+    tattooType: "",
+    bodyLocation: "",
+    size: "",
+    preferredDate: "",
+    description: "",
     message: "",
-    agree: false,
   });
+
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    if (type === "checkbox" && name === "roles") {
-      setForm((prev) => ({
-        ...prev,
-        roles: checked
-          ? [...prev.roles, value]
-          : prev.roles.filter((r) => r !== value),
-      }));
-    } else if (type === "checkbox") {
-      setForm((prev) => ({ ...prev, [name]: checked }));
-    } else {
-      setForm((prev) => ({ ...prev, [name]: value }));
-    }
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Add form submission logic
+    // Here you would typically send the form data to your backend
+    console.log("Form submitted:", formData);
     setSubmitted(true);
+
+    // Reset form after submission
+    setTimeout(() => {
+      setSubmitted(false);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        tattooType: "",
+        bodyLocation: "",
+        size: "",
+        preferredDate: "",
+        description: "",
+        message: "",
+      });
+    }, 5000);
   };
 
-  // Conditional classes for card mode
-  const formClass = cardMode
-    ? "text-black"
-    : "bg-gradient-to-b from-black to-[#214045] text-white";
   const inputClass = cardMode
-    ? "w-full p-2 rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-400 text-black"
-    : "w-full p-2 rounded bg-[#1a2a2e] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-400 text-white";
+    ? "w-full p-3 rounded-lg bg-cottage-bg-card border border-cottage-bg-border focus:outline-none focus:ring-2 focus:ring-cottage-green-primary text-white placeholder-cottage-text-subtle"
+    : "w-full p-3 rounded-lg bg-cottage-bg-card border border-cottage-bg-border focus:outline-none focus:ring-2 focus:ring-cottage-green-primary text-white placeholder-cottage-text-subtle";
   const textareaClass = cardMode
-    ? "w-full p-2 rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-400 text-black"
-    : "w-full p-2 rounded bg-[#1a2a2e] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-400 text-white";
+    ? "w-full p-3 rounded-lg bg-cottage-bg-card border border-cottage-bg-border focus:outline-none focus:ring-2 focus:ring-cottage-green-primary text-white placeholder-cottage-text-subtle"
+    : "w-full p-3 rounded-lg bg-cottage-bg-card border border-cottage-bg-border focus:outline-none focus:ring-2 focus:ring-cottage-green-primary text-white placeholder-cottage-text-subtle";
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className={`${formClass} rounded-xl p-0 md:p-0 shadow-none`}
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Personal Information */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="block mb-1 font-semibold">Name</label>
+          <label className="block mb-2 font-semibold text-cottage-green-primary">
+            Name *
+          </label>
           <input
             type="text"
             name="name"
-            value={form.name}
+            value={formData.name}
             onChange={handleChange}
-            className={inputClass}
             required
+            className={inputClass}
+            placeholder="Your full name"
           />
         </div>
         <div>
-          <label className="block mb-1 font-semibold">Email</label>
+          <label className="block mb-2 font-semibold text-cottage-green-primary">
+            Email *
+          </label>
           <input
             type="email"
             name="email"
-            value={form.email}
+            value={formData.email}
             onChange={handleChange}
-            className={inputClass}
             required
+            className={inputClass}
+            placeholder="your.email@example.com"
           />
         </div>
       </div>
-      <div className="mb-4">
-        <label className="block mb-1 font-semibold">Select a Topic</label>
-        <select
-          name="topic"
-          value={form.topic}
-          onChange={handleChange}
-          className={inputClass}
-          required
-        >
-          <option value="">Choose one...</option>
-          {topics.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="mb-4">
-        <label className="block mb-1 font-semibold">
-          Your Role or Interest
-        </label>
-        <div className="flex flex-wrap gap-4">
-          {roles.map((role) => (
-            <label key={role} className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                name="roles"
-                value={role}
-                checked={form.roles.includes(role)}
-                onChange={handleChange}
-                className="accent-teal-500"
-              />
-              <span>{role}</span>
-            </label>
-          ))}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label className="block mb-2 font-semibold text-cottage-green-primary">
+            Phone
+          </label>
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            className={inputClass}
+            placeholder="(555) 123-4567"
+          />
+        </div>
+        <div>
+          <label className="block mb-2 font-semibold text-cottage-green-primary">
+            Preferred Date
+          </label>
+          <input
+            type="date"
+            name="preferredDate"
+            value={formData.preferredDate}
+            onChange={handleChange}
+            className={inputClass}
+          />
         </div>
       </div>
-      <div className="mb-4">
-        <label className="block mb-1 font-semibold">Message</label>
+
+      {/* Tattoo Details */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label className="block mb-2 font-semibold text-cottage-green-primary">
+            Tattoo Type *
+          </label>
+          <select
+            name="tattooType"
+            value={formData.tattooType}
+            onChange={handleChange}
+            required
+            className={inputClass}
+          >
+            <option value="">Select tattoo type</option>
+            <option value="custom">Custom Design</option>
+            <option value="flash">Flash Art</option>
+            <option value="coverup">Cover-up</option>
+            <option value="touchup">Touch-up</option>
+          </select>
+        </div>
+        <div>
+          <label className="block mb-2 font-semibold text-cottage-green-primary">
+            Body Location
+          </label>
+          <select
+            name="bodyLocation"
+            value={formData.bodyLocation}
+            onChange={handleChange}
+            className={inputClass}
+          >
+            <option value="">Select location</option>
+            <option value="arm">Arm</option>
+            <option value="leg">Leg</option>
+            <option value="back">Back</option>
+            <option value="chest">Chest</option>
+            <option value="shoulder">Shoulder</option>
+            <option value="ankle">Ankle</option>
+            <option value="wrist">Wrist</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label className="block mb-2 font-semibold text-cottage-green-primary">
+            Size
+          </label>
+          <select
+            name="size"
+            value={formData.size}
+            onChange={handleChange}
+            className={inputClass}
+          >
+            <option value="">Select size</option>
+            <option value="small">Small (1-3 inches)</option>
+            <option value="medium">Medium (3-6 inches)</option>
+            <option value="large">Large (6+ inches)</option>
+            <option value="sleeve">Sleeve</option>
+            <option value="full-back">Full Back</option>
+          </select>
+        </div>
+        <div>
+          <label className="block mb-2 font-semibold text-cottage-green-primary">
+            Budget Range
+          </label>
+          <select
+            name="budget"
+            value={formData.budget}
+            onChange={handleChange}
+            className={inputClass}
+          >
+            <option value="">Select budget range</option>
+            <option value="100-300">$100 - $300</option>
+            <option value="300-500">$300 - $500</option>
+            <option value="500-800">$500 - $800</option>
+            <option value="800-1200">$800 - $1,200</option>
+            <option value="1200+">$1,200+</option>
+          </select>
+        </div>
+      </div>
+
+      {/* Description */}
+      <div>
+        <label className="block mb-2 font-semibold text-cottage-green-primary">
+          Tattoo Description *
+        </label>
+        <textarea
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          required
+          rows={4}
+          className={textareaClass}
+          placeholder="Describe your tattoo idea, style preferences, colors, and any specific elements you'd like included..."
+        />
+      </div>
+
+      {/* Additional Message */}
+      <div>
+        <label className="block mb-2 font-semibold text-cottage-green-primary">
+          Additional Message
+        </label>
         <textarea
           name="message"
-          value={form.message}
+          value={formData.message}
           onChange={handleChange}
-          rows={5}
+          rows={3}
           className={textareaClass}
-          required
+          placeholder="Any other details, questions, or special requests..."
         />
       </div>
-      <div className="flex items-center mb-4">
-        <input
-          type="checkbox"
-          name="agree"
-          checked={form.agree}
-          onChange={handleChange}
-          className="accent-teal-500 mr-2"
-          required
-        />
-        <span>I agree to Terms</span>
-      </div>
-      <Button type="submit" size="sm">
-        Submit
+
+      {/* Submit Button */}
+      <Button
+        type="submit"
+        size="lg"
+        className="w-full bg-cottage-gradient from-cottage-green-secondary to-cottage-green-accent hover:from-cottage-green-hover hover:to-cottage-emerald-hover text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-cottage"
+      >
+        Send Message
       </Button>
+
+      {/* Success Message */}
       {submitted && (
-        <div className="mt-4 text-green-600 font-semibold">
-          Thank you for contacting us!
+        <div className="mt-4 p-4 bg-cottage-green-primary/20 border border-cottage-green-primary/30 rounded-lg text-cottage-green-primary font-semibold text-center">
+          Thank you for your message! I'll get back to you within 24-48 hours to
+          discuss your tattoo idea.
         </div>
       )}
+
+      {/* Note */}
+      <p className="text-sm text-cottage-text-subtle text-center">
+        * Required fields. I'll respond within 24-48 hours to discuss your
+        tattoo idea and schedule a consultation.
+      </p>
     </form>
   );
 };

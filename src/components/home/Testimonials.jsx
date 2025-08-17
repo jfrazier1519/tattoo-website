@@ -1,37 +1,38 @@
 import React from "react";
 import { Star } from "lucide-react";
+import { FaRegHeart } from "react-icons/fa";
 import Button from "../shared/Button";
 
 const testimonials = [
   {
-    name: "Jessica White",
-    title: "Lead, Innovate Now",
-    text: "They helped us navigate the complexities of launching our product with ease!",
+    name: "Emma Blackwood",
+    title: "Gothic Rose Enthusiast",
+    text: "The artist's attention to detail is incredible! My gothic rose tattoo is exactly what I envisioned - dark, elegant, and perfectly executed.",
   },
   {
-    name: "Kevin Brown",
-    title: "CTO, Future Tech",
-    text: "The results speak for themselves; we couldn't be happier with their services!",
+    name: "Marcus Nightshade",
+    title: "Dark Art Collector",
+    text: "I've been getting tattoos for years, but this studio is something special. The manor atmosphere and artistic vision are unmatched.",
   },
   {
-    name: "Laura Green",
-    title: "VP, Growth Solutions",
-    text: "Tattoo Studio is a game changer for startups looking to make an impact!",
+    name: "Luna Moon",
+    title: "Cute Demon Lover",
+    text: "My adorable demon tattoo is perfect! It's edgy but cute, exactly the style I was looking for. The artist really understood my vision.",
   },
   {
-    name: "Mark Thompson",
-    title: "Founder, SmartStart",
-    text: "Their team is responsive, knowledgeable, and truly invested in our success!",
+    name: "Raven Storm",
+    title: "Cover-up Success Story",
+    text: "Transformed my old tattoo into a beautiful new piece that I absolutely love. The artist's skill with cover-ups is remarkable.",
   },
   {
-    name: "Sarah Lee",
-    title: "CMO, Creative Co.",
-    text: "We achieved our goals faster than we ever thought possible, thanks to Launch Digital!",
+    name: "Shadow Phoenix",
+    title: "Custom Design Client",
+    text: "From the initial consultation to the final result, every step was perfect. My custom design tells my story beautifully.",
   },
   {
-    name: "John Smith",
-    title: "Founder, Vision Co.",
-    text: "The support and guidance we received were invaluable in our launch process!",
+    name: "Violet Thorn",
+    title: "Victorian Style Admirer",
+    text: "The manor aesthetic and attention to detail make every visit feel special. My tattoos are works of art I'll treasure forever.",
   },
 ];
 
@@ -39,65 +40,101 @@ const TestimonialsSection = () => {
   return (
     <section
       id="testimonials"
-      className="py-16 px-6 md:px-12 relative overflow-visible"
+      className="py-20 bg-cottage-bg-leather relative overflow-visible"
     >
+      {/* Decorative border */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cottage-amber-primary via-cottage-copper-primary to-cottage-burgundy-primary"></div>
+
+      {/* Manor atmosphere */}
+      <div className="absolute inset-0 bg-wood-texture opacity-5"></div>
+
       {/* Large faint quote icon accent */}
-      <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/3 text-teal-100 text-[10rem] opacity-20 z-0 select-none pointer-events-none">
-        <svg
-          width="120"
-          height="120"
-          viewBox="0 0 120 120"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <text x="0" y="100" fontSize="120" fontFamily="serif">
-            "
-          </text>
-        </svg>
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/3 text-cottage-amber-primary/20 text-[10rem] z-0 select-none pointer-events-none font-gothic">
+        "
       </div>
-      {/* Accent dots */}
-      <span className="absolute top-16 left-8 w-8 h-8 bg-teal-400 rounded-full opacity-25 z-0"></span>
-      <span className="absolute top-32 right-12 w-5 h-5 bg-teal-300 rounded-full opacity-30 z-0"></span>
-      <span className="absolute bottom-20 left-1/3 w-6 h-6 bg-teal-200 rounded-full opacity-20 z-0"></span>
-      <div className="max-w-5xl mx-auto w-full relative z-10">
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <span className="w-3 h-3 rounded-full bg-teal-400 inline-block" />
-          <h2 className="text-4xl md:text-5xl font-sans font-bold text-center text-black">
-            What Our Clients Say
+
+      {/* Atmospheric elements */}
+      <div className="absolute top-16 left-8 w-8 h-8 bg-cottage-amber-primary rounded-full opacity-25 animate-flicker"></div>
+      <div className="absolute top-32 right-12 w-5 h-5 bg-cottage-copper-primary rounded-full opacity-30 animate-float"></div>
+      <div className="absolute bottom-20 left-1/3 w-6 h-6 bg-cottage-burgundy-primary rounded-full opacity-20 animate-glow"></div>
+
+      <div className="max-w-6xl mx-auto w-full relative z-10 px-6 md:px-12">
+        <div className="text-center mb-16">
+          {/* Decorative icon */}
+          <div className="w-16 h-16 bg-gradient-to-r from-cottage-burgundy-primary to-cottage-copper-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-victorian">
+            <FaRegHeart className="w-8 h-8 text-cottage-cream-primary" />
+          </div>
+
+          <h2 className="text-4xl md:text-5xl font-gothic font-bold text-cottage-cream-primary mb-4">
+            Client Testimonials
           </h2>
+          <p className="text-xl text-cottage-cream-secondary max-w-2xl mx-auto font-elegant">
+            Hear from those who have experienced the magic of the manor
+          </p>
         </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
           {testimonials.map(({ name, title, text }, idx) => (
             <div
               key={idx}
-              className={`bg-white rounded-3xl p-8 shadow-xl border-0 min-h-[180px] flex flex-col justify-between relative
-                ${idx % 3 === 1 ? "md:-rotate-2 md:-translate-y-2" : ""} ${
-                idx % 3 === 2 ? "md:rotate-2 md:translate-y-2" : ""
+              className={`bg-cottage-bg-paper/90 backdrop-blur-sm rounded-xl p-8 shadow-cottage hover:shadow-gothic border-2 border-cottage-copper-primary/30 hover:border-cottage-amber-primary/50 min-h-[220px] flex flex-col justify-between relative transition-all duration-300 hover:-translate-y-2
+                ${idx % 3 === 1 ? "md:-rotate-1 md:-translate-y-1" : ""} ${
+                idx % 3 === 2 ? "md:rotate-1 md:translate-y-1" : ""
               }`}
             >
-              <div className="absolute -top-6 -left-6 text-teal-100 text-6xl opacity-30 z-0 select-none pointer-events-none">
+              {/* Decorative quote mark */}
+              <div className="absolute -top-4 -left-4 text-cottage-amber-primary/30 text-4xl font-gothic select-none pointer-events-none">
                 "
               </div>
-              <div className="flex text-yellow-400 mb-2 z-10">
+
+              {/* Star rating */}
+              <div className="flex text-cottage-amber-primary mb-4 z-10">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-yellow-400" />
+                  <Star
+                    key={i}
+                    className="w-5 h-5 fill-cottage-amber-primary"
+                  />
                 ))}
               </div>
-              <p className="text-lg text-black/80 mb-4 leading-relaxed z-10">
+
+              {/* Testimonial text */}
+              <p className="text-lg text-cottage-cream-secondary mb-6 leading-relaxed z-10 font-elegant flex-grow">
                 "{text}"
               </p>
-              <p className="text-base font-semibold text-black z-10">
-                {name}
-                <br />
-                <span className="font-normal">{title}</span>
-              </p>
+
+              {/* Client info */}
+              <div className="z-10">
+                <p className="text-base font-bold text-cottage-cream-primary font-gothic">
+                  {name}
+                </p>
+                <p className="text-sm text-cottage-cream-secondary font-elegant">
+                  {title}
+                </p>
+              </div>
+
+              {/* Decorative corner accent */}
+              <div className="absolute top-0 right-0 w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] border-t-cottage-amber-primary/20"></div>
             </div>
           ))}
         </div>
-        <div className="flex justify-center mt-8">
-          <Button to="/contact" size="sm">
-            Get Started
+
+        <div className="text-center">
+          <Button
+            to="/contact"
+            size="lg"
+            className="bg-gradient-to-r from-cottage-burgundy-primary to-cottage-copper-primary hover:from-cottage-burgundy-hover hover:to-cottage-copper-secondary text-white font-bold px-8 py-4 text-lg shadow-victorian border border-cottage-amber-primary/30"
+          >
+            Join the Manor Family
           </Button>
+        </div>
+
+        {/* Manor wisdom */}
+        <div className="text-center mt-16">
+          <p className="text-cottage-cream-secondary/80 font-elegant italic text-lg">
+            "The greatest compliment an artist can receive is not just praise
+            for their work, but the trust of those who choose to wear their art
+            forever."
+          </p>
         </div>
       </div>
     </section>

@@ -1,118 +1,183 @@
 import React from "react";
-import ContactForm from "../components/contact/ContactForm";
+import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
 import Button from "../components/shared/Button";
-import {
-  FaEnvelope,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaCogs,
-  FaLightbulb,
-  FaChartBar,
-} from "react-icons/fa";
-
-const iconWrapper =
-  "mb-3 flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-md border-2 border-teal-100";
-const iconClass = "text-4xl text-teal-500";
+import ContactForm from "../components/contact/ContactForm";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-gradient-to-b from-black via-[#214045] to-white">
-      {/* Main Content */}
-      <div className="flex flex-col md:flex-row max-w-5xl mx-auto w-full mt-32 md:mt-40 px-4 gap-12 relative">
-        {/* Accent dots */}
-        <span className="absolute top-8 left-8 w-10 h-10 bg-teal-400 rounded-full opacity-20 z-0"></span>
-        <span className="absolute top-24 right-12 w-6 h-6 bg-teal-300 rounded-full opacity-25 z-0"></span>
-        <span className="absolute bottom-16 left-1/4 w-8 h-8 bg-teal-200 rounded-full opacity-30 z-0"></span>
-        {/* Contact Details */}
-        <div className="md:w-1/2 w-full flex flex-col justify-center text-white space-y-8">
-          <div>
-            <h1 className="text-4xl font-bold mb-2">Get in Touch</h1>
-            <p className="text-lg text-gray-300 mb-6">
-              Empowering startups with tailored digital solutions for immediate
-              impact and sustainable growth.
-            </p>
-          </div>
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <FaEnvelope className="text-teal-400 text-xl" />
-              <span>hello@yourdomain.com</span>
+    <div className="min-h-screen bg-cottage-bg-primary text-white">
+      {/* Hero Section */}
+      <section className="relative py-20 bg-cottage-gradient from-cottage-bg-accent via-cottage-bg-secondary to-cottage-bg-accent">
+        <div className="absolute inset-0 bg-cottage-bg-accent/50"></div>
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary">
+            Get In Touch
+          </h1>
+          <p className="text-xl text-cottage-text-secondary max-w-2xl mx-auto">
+            Ready to start your tattoo journey? Let's discuss your ideas and
+            create something beautiful together.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Information */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Contact Details */}
+            <div>
+              <h2 className="text-3xl font-bold mb-8 text-cottage-green-primary">
+                Let's Connect
+              </h2>
+
+              <div className="space-y-8">
+                {/* Location */}
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-xl">📍</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                      Location
+                    </h3>
+                    <p className="text-cottage-text-muted">
+                      I rent a booth at a local tattoo shop. The exact location
+                      will be provided when you book your appointment.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Hours */}
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-cottage-gradient from-cottage-green-secondary to-cottage-green-primary rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-xl">🕐</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                      Hours
+                    </h3>
+                    <p className="text-cottage-text-muted">
+                      By appointment only. I'm flexible with scheduling and can
+                      work around your availability.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Social Media */}
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-cottage-gradient from-cottage-green-accent to-cottage-green-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-xl">📱</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                      Follow My Work
+                    </h3>
+                    <p className="text-cottage-text-muted mb-4">
+                      Check out my latest artwork and behind-the-scenes content.
+                    </p>
+                    <div className="flex space-x-4">
+                      <a
+                        href="#"
+                        className="w-12 h-12 bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary rounded-full flex items-center justify-center hover:from-cottage-green-hover hover:to-cottage-emerald-hover transition-all duration-300"
+                      >
+                        <FaInstagram className="text-white text-xl" />
+                      </a>
+                      <a
+                        href="#"
+                        className="w-12 h-12 bg-cottage-gradient from-cottage-green-secondary to-cottage-green-primary rounded-full flex items-center justify-center hover:from-cottage-emerald-hover hover:to-cottage-green-hover transition-all duration-300"
+                      >
+                        <FaFacebook className="text-white text-xl" />
+                      </a>
+                      <a
+                        href="#"
+                        className="w-12 h-12 bg-cottage-gradient from-cottage-green-accent to-cottage-green-secondary rounded-full flex items-center justify-center hover:from-cottage-green-hover hover:to-cottage-emerald-hover transition-all duration-300"
+                      >
+                        <FaTiktok className="text-white text-xl" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* What to Expect */}
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-cottage-gradient from-cottage-green-secondary to-cottage-green-primary rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-xl">💬</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                      What to Expect
+                    </h3>
+                    <p className="text-cottage-text-muted">
+                      We'll start with a consultation to discuss your ideas,
+                      placement, and style preferences. I'll create a custom
+                      design just for you.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-3">
-              <FaPhone className="text-teal-400 text-xl" />
-              <span>+1 (800) 999-9999</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <FaMapMarkerAlt className="text-teal-400 text-xl" />
-              <span>456 Awesome Blvd, San Francisco, CA 94105</span>
+
+            {/* Contact Form */}
+            <div>
+              <h2 className="text-3xl font-bold mb-8 text-cottage-green-primary">
+                Send Me a Message
+              </h2>
+              <ContactForm />
             </div>
           </div>
         </div>
-        {/* Contact Form as white card */}
-        <div className="md:w-1/2 w-full flex items-center">
-          <div className="w-full bg-white rounded-xl shadow-lg p-8">
-            <ContactForm cardMode />
-          </div>
-        </div>
-      </div>
-      {/* Features Row Section - horizontal on desktop, vertical on mobile, with wave accent */}
-      <div className="relative mt-24 mb-20 px-4 overflow-hidden">
-        {/* Accent dots */}
-        <span className="absolute top-16 left-8 w-8 h-8 bg-teal-400 rounded-full opacity-20 z-0"></span>
-        <span className="absolute bottom-24 right-12 w-6 h-6 bg-teal-300 rounded-full opacity-25 z-0"></span>
-        {/* Wave SVG background accent */}
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[160px] pointer-events-none z-0 opacity-30">
-          <svg
-            viewBox="0 0 600 160"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-full"
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-cottage-bg-secondary">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6 text-white">
+            Have Questions?
+          </h2>
+          <p className="text-lg text-cottage-text-muted mb-8 max-w-2xl mx-auto">
+            Check out our FAQ section for answers to common questions about the
+            tattooing process, aftercare, and what to expect during your
+            appointment.
+          </p>
+          <Button
+            to="/faq"
+            size="lg"
+            className="bg-cottage-gradient from-cottage-green-secondary to-cottage-green-accent hover:from-cottage-green-hover hover:to-cottage-emerald-hover text-white font-bold"
           >
-            <path
-              d="M0,60 Q150,120 300,60 T600,60 V160 H0 Z"
-              fill="#2dd4bf"
-              fillOpacity="0.18"
-            />
-          </svg>
+            View FAQ
+          </Button>
         </div>
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-10 md:gap-8 items-start justify-between relative z-10">
-          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-            <div className={iconWrapper}>
-              <FaCogs className={iconClass} />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-1">
-              Comprehensive Digital Solutions
-            </h3>
-            <p className="text-gray-700">
-              Turn your vision into effective solutions via experience and
-              data-driven strategies. Start your digital journey today.
-            </p>
-          </div>
-          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-            <div className={iconWrapper}>
-              <FaLightbulb className={iconClass} />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-1">
-              Expert Branding Services
-            </h3>
-            <p className="text-gray-700">
-              Build a memorable, compelling identity with our strategic
-              creativity & brand support services.
-            </p>
-          </div>
-          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-            <div className={iconWrapper}>
-              <FaChartBar className={iconClass} />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-1">
-              Data-Driven Marketing
-            </h3>
-            <p className="text-gray-700">
-              Integrate our proven services to supercharge marketing strategies
-              and accelerate measurable growth.
-            </p>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-cottage-gradient from-cottage-bg-accent via-cottage-bg-secondary to-cottage-bg-accent">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6 text-white">
+            Ready to Get Started?
+          </h2>
+          <p className="text-xl text-cottage-text-secondary mb-8 max-w-2xl mx-auto">
+            Don't wait to start your tattoo journey. Book your appointment today
+            and let's create something amazing together.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              to="/gallery"
+              size="lg"
+              className="bg-white text-cottage-bg-accent hover:bg-cottage-text-primary font-bold px-8 py-4 text-lg"
+            >
+              Browse Gallery
+            </Button>
+            <Button
+              to="/about"
+              size="lg"
+              variant="outline"
+              className="border-2 border-cottage-amber-primary text-cottage-amber-primary hover:bg-cottage-amber-primary hover:text-cottage-bg-accent font-bold px-8 py-4 text-lg"
+            >
+              Learn More About Me
+            </Button>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

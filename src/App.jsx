@@ -8,12 +8,7 @@ import Navbar from "./components/Navbar";
 import FAQ from "./pages/FAQ";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ScrollToTop from "./components/ScrollToTop";
-import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
-import Success from "./pages/Success";
-import Services from "./pages/Services";
-import WebsiteMarket from "./pages/WebsiteMarket";
-import Blog from "./pages/Blog";
+import Gallery from "./pages/Gallery";
 
 const App = () => {
   return (
@@ -25,15 +20,10 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/success" element={<Success />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/website-market" element={<WebsiteMarket />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/blog" element={<Blog />} />
             {/* Catch-all route for 404 Not Found */}
             <Route path="*" element={<NotFound />} />
           </Routes>

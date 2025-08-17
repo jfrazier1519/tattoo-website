@@ -14,24 +14,26 @@ const Button = ({
   ...props
 }) => {
   const baseClasses =
-    "inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+    "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cottage-amber-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variants = {
-    primary: "bg-teal-500 hover:bg-teal-600 text-white shadow hover:shadow-lg",
+    primary:
+      "bg-cottage-burgundy-primary hover:bg-cottage-burgundy-hover text-cottage-cream-primary shadow-cottage hover:shadow-gothic",
     secondary:
-      "border-2 border-white text-white hover:bg-white hover:text-black",
+      "border-2 border-cottage-cream-primary text-cottage-cream-primary hover:bg-cottage-cream-primary hover:text-cottage-bg-accent",
     outline:
-      "border-2 border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white",
-    ghost: "text-teal-500 hover:text-teal-700 underline",
+      "border-2 border-cottage-amber-primary text-cottage-amber-primary hover:bg-cottage-amber-primary hover:text-cottage-bg-accent",
+    ghost:
+      "text-cottage-cream-secondary hover:text-cottage-amber-primary underline",
     white:
-      "bg-white/10 hover:bg-white/20 text-teal-500 border-2 border-teal-400",
+      "bg-cottage-bg-paper/10 hover:bg-cottage-bg-paper/20 text-cottage-amber-primary border-2 border-cottage-amber-primary",
   };
 
   const sizes = {
     sm: "px-4 py-2 text-sm",
-    md: "px-6 py-2 text-sm uppercase tracking-wide",
-    lg: "px-8 py-3 text-lg",
-    xl: "px-10 py-3 text-lg",
+    md: "px-6 py-3 text-sm uppercase tracking-wide",
+    lg: "px-8 py-4 text-lg",
+    xl: "px-10 py-4 text-lg",
   };
 
   const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`;
