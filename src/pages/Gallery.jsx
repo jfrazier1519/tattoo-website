@@ -127,7 +127,7 @@ const Gallery = () => {
             <button className="px-8 py-4 bg-cottage-gradient from-cottage-green-secondary to-cottage-green-accent text-white font-bold rounded-full hover:from-cottage-green-hover hover:to-cottage-emerald-hover transition-all duration-300 shadow-cottage hover:shadow-cottage-lg">
               Book Appointment
             </button>
-            <button className="px-8 py-4 border-2 border-cottage-amber-primary text-cottage-amber-primary font-bold rounded-full hover:bg-cottage-amber-primary hover:text-cottage-bg-accent transition-all duration-300">
+            <button className="px-8 py-4 border-2 border-cottage-teal-primary text-cottage-teal-primary font-bold rounded-full hover:bg-cottage-teal-primary hover:text-cottage-bg-accent transition-all duration-300">
               Contact Me
             </button>
           </div>

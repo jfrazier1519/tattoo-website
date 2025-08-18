@@ -82,7 +82,7 @@ const QuoteForm = () => {
       <form className="w-full flex flex-col gap-6" onSubmit={handleSubmit}>
         {/* Title */}
         <div className="text-center mb-6">
-          <div className="w-12 h-12 bg-gradient-to-r from-cottage-burgundy-primary to-cottage-copper-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-victorian">
+          <div className="w-12 h-12 bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-victorian">
             <FaPalette className="w-6 h-6 text-cottage-cream-primary" />
           </div>
           <h3 className="text-2xl font-gothic font-bold text-cottage-cream-primary">
@@ -98,7 +98,7 @@ const QuoteForm = () => {
             className={`mb-4 px-4 py-3 rounded-lg text-center font-elegant ${
               status === "success"
                 ? "bg-cottage-green-primary/20 text-cottage-green-light border border-cottage-green-primary/30"
-                : "bg-cottage-burgundy-primary/20 text-cottage-burgundy-accent border border-cottage-burgundy-primary/30"
+                : "bg-cottage-green-hover/20 text-cottage-green-light border border-cottage-green-hover/30"
             }`}
           >
             {message}
@@ -118,7 +118,7 @@ const QuoteForm = () => {
               onChange={handleChange}
               placeholder="First Name"
               required
-              className="w-full rounded-lg border border-cottage-copper-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-amber-primary focus:border-cottage-amber-primary text-cottage-cream-secondary placeholder-cottage-text-subtle transition-all duration-300 font-elegant"
+              className="w-full rounded-lg border border-cottage-sage-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-teal-primary focus:border-cottage-teal-primary text-cottage-cream-secondary placeholder-cottage-text-subtle transition-all duration-300 font-elegant"
             />
           </div>
           <div>
@@ -132,7 +132,7 @@ const QuoteForm = () => {
               onChange={handleChange}
               placeholder="Last Name"
               required
-              className="w-full rounded-lg border border-cottage-copper-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-amber-primary focus:border-cottage-amber-primary text-cottage-cream-secondary placeholder-cottage-text-subtle transition-all duration-300 font-elegant"
+              className="w-full rounded-lg border border-cottage-sage-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-teal-primary focus:border-cottage-teal-primary text-cottage-cream-secondary placeholder-cottage-text-subtle transition-all duration-300 font-elegant"
             />
           </div>
         </div>
@@ -150,7 +150,7 @@ const QuoteForm = () => {
               onChange={handleChange}
               placeholder="Email"
               required
-              className="w-full rounded-lg border border-cottage-copper-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-amber-primary focus:border-cottage-amber-primary text-cottage-cream-secondary placeholder-cottage-text-subtle transition-all duration-300 font-elegant"
+              className="w-full rounded-lg border border-cottage-sage-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-teal-primary focus:border-cottage-teal-primary text-cottage-cream-secondary placeholder-cottage-text-subtle transition-all duration-300 font-elegant"
             />
           </div>
           <div>
@@ -163,7 +163,7 @@ const QuoteForm = () => {
               value={values.phone}
               onChange={handleChange}
               placeholder="Phone Number"
-              className="w-full rounded-lg border border-cottage-copper-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-amber-primary focus:border-cottage-amber-primary text-cottage-cream-secondary placeholder-cottage-text-subtle transition-all duration-300 font-elegant"
+              className="w-full rounded-lg border border-cottage-sage-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-teal-primary focus:border-cottage-teal-primary text-cottage-cream-secondary placeholder-cottage-text-subtle transition-all duration-300 font-elegant"
             />
           </div>
         </div>
@@ -178,7 +178,7 @@ const QuoteForm = () => {
             value={values.tattooType}
             onChange={handleChange}
             required
-            className="w-full rounded-lg border border-cottage-copper-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-amber-primary focus:border-cottage-amber-primary text-cottage-cream-secondary transition-all duration-300 font-elegant appearance-none"
+            className="w-full rounded-lg border border-cottage-sage-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-teal-primary focus:border-cottage-teal-primary text-cottage-cream-secondary transition-all duration-300 font-elegant appearance-none"
           >
             {tattooTypeOptions.map((opt) => (
               <option
@@ -203,7 +203,7 @@ const QuoteForm = () => {
               value={values.placement}
               onChange={handleChange}
               required
-              className="w-full rounded-lg border border-cottage-copper-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-amber-primary focus:border-cottage-amber-primary text-cottage-cream-secondary transition-all duration-300 font-elegant appearance-none"
+              className="w-full rounded-lg border border-cottage-sage-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-teal-primary focus:border-cottage-teal-primary text-cottage-cream-secondary transition-all duration-300 font-elegant appearance-none"
             >
               {placementOptions.map((opt) => (
                 <option
@@ -225,7 +225,7 @@ const QuoteForm = () => {
               value={values.size}
               onChange={handleChange}
               required
-              className="w-full rounded-lg border border-cottage-copper-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-amber-primary focus:border-cottage-amber-primary text-cottage-cream-secondary transition-all duration-300 font-elegant appearance-none"
+              className="w-full rounded-lg border border-cottage-sage-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-teal-primary focus:border-cottage-teal-primary text-cottage-cream-secondary transition-all duration-300 font-elegant appearance-none"
             >
               {sizeOptions.map((opt) => (
                 <option
@@ -250,7 +250,7 @@ const QuoteForm = () => {
             value={values.style}
             onChange={handleChange}
             required
-            className="w-full rounded-lg border border-cottage-copper-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-amber-primary focus:border-cottage-amber-primary text-cottage-cream-secondary transition-all duration-300 font-elegant appearance-none"
+            className="w-full rounded-lg border border-cottage-sage-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-teal-primary focus:border-cottage-teal-primary text-cottage-cream-secondary transition-all duration-300 font-elegant appearance-none"
           >
             {styleOptions.map((opt) => (
               <option
@@ -275,7 +275,7 @@ const QuoteForm = () => {
             onChange={handleChange}
             rows={4}
             placeholder="Describe your tattoo idea, any specific elements you want, colors, or inspiration..."
-            className="w-full rounded-lg border border-cottage-copper-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-amber-primary focus:border-cottage-amber-primary text-cottage-cream-secondary placeholder-cottage-text-subtle transition-all duration-300 font-elegant resize-none"
+            className="w-full rounded-lg border border-cottage-sage-primary/30 bg-cottage-bg-paper/50 px-4 py-3 focus:ring-2 focus:ring-cottage-teal-primary focus:border-cottage-teal-primary text-cottage-cream-secondary placeholder-cottage-text-subtle transition-all duration-300 font-elegant resize-none"
             required
           />
         </div>
@@ -287,7 +287,7 @@ const QuoteForm = () => {
             name="terms"
             checked={values.terms}
             onChange={handleChange}
-            className="accent-cottage-amber-primary rounded border-cottage-copper-primary/30"
+            className="accent-cottage-teal-primary rounded border-cottage-sage-primary/30"
             required
           />
           <span className="text-sm text-cottage-cream-secondary font-elegant">
@@ -299,7 +299,7 @@ const QuoteForm = () => {
         <Button
           type="submit"
           size="xl"
-          className="mt-4 bg-gradient-to-r from-cottage-burgundy-primary to-cottage-copper-primary hover:from-cottage-burgundy-hover hover:to-cottage-copper-secondary text-white font-bold shadow-victorian border border-cottage-amber-primary/30"
+          className="mt-4 bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary hover:from-cottage-burgundy-hover hover:to-cottage-sage-secondary text-white font-bold shadow-victorian border border-cottage-teal-primary/30"
         >
           <FaPaperPlane className="w-5 h-5 mr-2" />
           Send Quote Request

@@ -70,14 +70,14 @@ const Home = () => {
         <div className="absolute inset-0 bg-wood-texture opacity-20"></div>
 
         {/* Artistic inspiration overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cottage-bg-accent/20 via-transparent to-cottage-burgundy-primary/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-cottage-bg-accent/20 via-transparent to-cottage-green-hover/20"></div>
 
         {/* Content - left side */}
         <div className="relative z-10 w-1/2 flex items-center justify-center text-white">
           <div className="text-center max-w-2xl mx-auto px-8">
-            <div className="mb-8 mx-auto w-32 h-1 bg-gradient-to-r from-cottage-amber-primary via-cottage-burgundy-primary to-cottage-copper-primary rounded-full"></div>
+            <div className="mb-8 mx-auto w-32 h-1 bg-gradient-to-r from-cottage-teal-primary via-cottage-green-hover to-cottage-sage-primary rounded-full"></div>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-amber-primary via-cottage-cream-primary to-cottage-burgundy-primary">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-teal-primary via-cottage-cream-primary to-cottage-green-hover">
               Taylor Jae Tattoo
             </h1>
 
@@ -90,7 +90,7 @@ const Home = () => {
               <Button
                 to="/contact"
                 size="lg"
-                className="bg-gradient-to-r from-cottage-burgundy-primary to-cottage-copper-primary hover:from-cottage-burgundy-hover hover:to-cottage-copper-secondary text-white font-bold px-8 py-4 text-lg shadow-victorian border border-cottage-amber-primary/30"
+                className="bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary hover:from-cottage-burgundy-hover hover:to-cottage-sage-secondary text-white font-bold px-8 py-4 text-lg shadow-victorian border border-cottage-teal-primary/30"
               >
                 Book Your Session
               </Button>
@@ -98,7 +98,7 @@ const Home = () => {
                 to="/gallery"
                 size="lg"
                 variant="outline"
-                className="border-2 border-cottage-amber-primary text-cottage-amber-primary hover:bg-cottage-amber-primary hover:text-cottage-bg-accent font-bold px-8 py-4 text-lg shadow-gothic"
+                className="border-2 border-cottage-teal-primary text-cottage-teal-primary hover:bg-cottage-teal-primary hover:text-cottage-bg-accent font-bold px-8 py-4 text-lg shadow-gothic"
               >
                 View Gallery
               </Button>
@@ -107,9 +107,9 @@ const Home = () => {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-cottage-amber-primary animate-bounce">
-          <div className="w-6 h-10 border-2 border-cottage-amber-primary rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-cottage-amber-primary rounded-full mt-2 animate-bounce"></div>
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-cottage-teal-primary animate-bounce">
+          <div className="w-6 h-10 border-2 border-cottage-teal-primary rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-cottage-teal-primary rounded-full mt-2 animate-bounce"></div>
           </div>
         </div>
       </section>
@@ -127,22 +127,22 @@ const Home = () => {
         <div className="absolute inset-0 bg-wood-texture opacity-20"></div>
 
         {/* Atmospheric particles */}
-        <div className="absolute top-20 left-8 w-12 h-12 bg-cottage-amber-primary rounded-full opacity-20 animate-glow animate-float animate-flicker blur-sm"></div>
-        <div className="absolute top-40 right-12 w-10 h-10 bg-cottage-copper-primary rounded-full opacity-15 animate-glow animate-float animate-flicker blur-sm"></div>
-        <div className="absolute bottom-20 left-1/3 w-8 h-8 bg-cottage-burgundy-primary rounded-full opacity-25 animate-glow animate-float animate-flicker blur-sm"></div>
+        <div className="absolute top-20 left-8 w-12 h-12 bg-cottage-teal-primary rounded-full opacity-20 animate-glow animate-float animate-flicker blur-sm"></div>
+        <div className="absolute top-40 right-12 w-10 h-10 bg-cottage-sage-primary rounded-full opacity-15 animate-glow animate-float animate-flicker blur-sm"></div>
+        <div className="absolute bottom-20 left-1/3 w-8 h-8 bg-cottage-green-hover rounded-full opacity-25 animate-glow animate-float animate-flicker blur-sm"></div>
 
         <div className="relative z-10 container mx-auto px-8 py-20">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold text-cottage-cream-primary mb-6">
               My Process
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-cottage-amber-primary via-cottage-burgundy-primary to-cottage-copper-primary rounded-full mx-auto"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-cottage-teal-primary via-cottage-green-hover to-cottage-sage-primary rounded-full mx-auto"></div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-12">
             {/* Vision */}
             <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-r from-cottage-amber-primary to-cottage-copper-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 bg-gradient-to-r from-cottage-teal-primary to-cottage-sage-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg
                   className="w-10 h-10 text-cottage-bg-accent"
                   fill="none"
@@ -174,7 +174,7 @@ const Home = () => {
 
             {/* Consultation */}
             <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-r from-cottage-burgundy-primary to-cottage-copper-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg
                   className="w-10 h-10 text-cottage-bg-accent"
                   fill="none"
@@ -200,7 +200,7 @@ const Home = () => {
 
             {/* Creation */}
             <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-r from-cottage-copper-primary to-cottage-amber-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 bg-gradient-to-r from-cottage-sage-primary to-cottage-teal-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                 <svg
                   className="w-10 h-10 text-cottage-bg-accent"
                   fill="none"
@@ -240,16 +240,16 @@ const Home = () => {
         <div className="absolute inset-0 bg-wood-texture opacity-20"></div>
 
         {/* Atmospheric particles */}
-        <div className="absolute top-20 left-8 w-12 h-12 bg-cottage-amber-primary rounded-full opacity-20 animate-glow animate-float animate-flicker blur-sm"></div>
-        <div className="absolute top-40 right-12 w-10 h-10 bg-cottage-copper-primary rounded-full opacity-15 animate-glow animate-float animate-flicker blur-sm"></div>
-        <div className="absolute bottom-20 left-1/3 w-8 h-8 bg-cottage-burgundy-primary rounded-full opacity-25 animate-glow animate-float animate-flicker blur-sm"></div>
+        <div className="absolute top-20 left-8 w-12 h-12 bg-cottage-teal-primary rounded-full opacity-20 animate-glow animate-float animate-flicker blur-sm"></div>
+        <div className="absolute top-40 right-12 w-10 h-10 bg-cottage-sage-primary rounded-full opacity-15 animate-glow animate-float animate-flicker blur-sm"></div>
+        <div className="absolute bottom-20 left-1/3 w-8 h-8 bg-cottage-green-hover rounded-full opacity-25 animate-glow animate-float animate-flicker blur-sm"></div>
 
         <div className="relative z-10 container mx-auto px-8 py-20">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold text-cottage-cream-primary mb-6">
               Featured Work
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-cottage-amber-primary via-cottage-burgundy-primary to-cottage-copper-primary rounded-full mx-auto"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-cottage-teal-primary via-cottage-green-hover to-cottage-sage-primary rounded-full mx-auto"></div>
             <p className="text-cottage-cream-secondary text-xl mt-6 max-w-3xl mx-auto">
               A glimpse into the dark artistry and gothic elegance that defines
               my work
@@ -306,7 +306,7 @@ const Home = () => {
             <Button
               to="/gallery"
               size="lg"
-              className="bg-gradient-to-r from-cottage-burgundy-primary to-cottage-copper-primary hover:from-cottage-burgundy-hover hover:to-cottage-copper-secondary text-white font-bold px-12 py-4 text-xl shadow-victorian border border-cottage-amber-primary/30"
+              className="bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary hover:from-cottage-burgundy-hover hover:to-cottage-sage-secondary text-white font-bold px-12 py-4 text-xl shadow-victorian border border-cottage-teal-primary/30"
             >
               View Full Gallery
             </Button>

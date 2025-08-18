@@ -179,7 +179,7 @@ const About = () => {
             </div>
 
             {/* Consultations */}
-            <div className="bg-cottage-bg-card rounded-lg p-8 border-l-4 border-cottage-amber-primary border border-cottage-bg-border">
+            <div className="bg-cottage-bg-card rounded-lg p-8 border-l-4 border-cottage-teal-primary border border-cottage-bg-border">
               <h3 className="text-2xl font-bold text-white mb-4">
                 Consultations
               </h3>
@@ -288,7 +288,7 @@ const About = () => {
               to="/gallery"
               size="lg"
               variant="outline"
-              className="border-2 border-cottage-amber-primary text-cottage-amber-primary hover:bg-cottage-amber-primary hover:text-cottage-bg-accent font-bold px-8 py-4 text-lg"
+              className="border-2 border-cottage-teal-primary text-cottage-teal-primary hover:bg-cottage-teal-primary hover:text-cottage-bg-accent font-bold px-8 py-4 text-lg"
             >
               View My Work
             </Button>

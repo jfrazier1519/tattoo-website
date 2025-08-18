@@ -29,24 +29,24 @@ const FinalCTASection = () => {
   return (
     <section className="py-20 bg-gradient-to-b from-cottage-bg-accent via-cottage-bg-velvet to-cottage-bg-accent relative">
       {/* Decorative border */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cottage-amber-primary via-cottage-copper-primary to-cottage-burgundy-primary"></div>
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cottage-teal-primary via-cottage-sage-primary to-cottage-green-hover"></div>
 
       {/* Manor grand hall atmosphere */}
       <div className="absolute inset-0 bg-wood-texture opacity-5"></div>
 
       {/* Candlelight effects */}
-      <div className="absolute top-20 left-20 w-3 h-3 bg-cottage-amber-primary rounded-full animate-flicker opacity-60"></div>
-      <div className="absolute top-40 right-32 w-2 h-2 bg-cottage-amber-secondary rounded-full animate-flicker opacity-50"></div>
+      <div className="absolute top-20 left-20 w-3 h-3 bg-cottage-teal-primary rounded-full animate-flicker opacity-60"></div>
+      <div className="absolute top-40 right-32 w-2 h-2 bg-cottage-teal-secondary rounded-full animate-flicker opacity-50"></div>
       <div className="absolute bottom-40 left-32 w-2.5 h-2.5 bg-cottage-amber-warm rounded-full animate-flicker opacity-70"></div>
-      <div className="absolute bottom-20 right-20 w-1.5 h-1.5 bg-cottage-amber-primary rounded-full animate-flicker opacity-40"></div>
+      <div className="absolute bottom-20 right-20 w-1.5 h-1.5 bg-cottage-teal-primary rounded-full animate-flicker opacity-40"></div>
 
       <div className="max-w-4xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="bg-cottage-bg-paper/90 backdrop-blur-sm rounded-2xl shadow-gothic border-2 border-cottage-copper-primary/30 p-12 text-center relative">
+        <div className="bg-cottage-bg-paper/90 backdrop-blur-sm rounded-2xl shadow-gothic border-2 border-cottage-sage-primary/30 p-12 text-center relative">
           {/* Decorative corner elements */}
-          <div className="absolute top-0 left-0 w-0 h-0 border-l-[30px] border-l-transparent border-t-[30px] border-t-cottage-amber-primary/30"></div>
-          <div className="absolute top-0 right-0 w-0 h-0 border-r-[30px] border-r-transparent border-t-[30px] border-t-cottage-burgundy-primary/30"></div>
-          <div className="absolute bottom-0 left-0 w-0 h-0 border-l-[30px] border-l-transparent border-b-[30px] border-b-cottage-copper-primary/30"></div>
-          <div className="absolute bottom-0 right-0 w-0 h-0 border-r-[30px] border-r-transparent border-b-[30px] border-b-cottage-amber-primary/30"></div>
+          <div className="absolute top-0 left-0 w-0 h-0 border-l-[30px] border-l-transparent border-t-[30px] border-t-cottage-teal-primary/30"></div>
+          <div className="absolute top-0 right-0 w-0 h-0 border-r-[30px] border-r-transparent border-t-[30px] border-t-cottage-green-hover/30"></div>
+          <div className="absolute bottom-0 left-0 w-0 h-0 border-l-[30px] border-l-transparent border-b-[30px] border-b-cottage-sage-primary/30"></div>
+          <div className="absolute bottom-0 right-0 w-0 h-0 border-r-[30px] border-r-transparent border-b-[30px] border-b-cottage-teal-primary/30"></div>
 
           {/* Decorative border */}
           <div className="relative mb-8">
@@ -59,7 +59,7 @@ const FinalCTASection = () => {
               <span className="relative inline-block pb-2">
                 Artistic Journey?
                 <span className="block relative h-4">
-                  <div className="w-full h-1 bg-gradient-to-r from-cottage-amber-primary via-cottage-copper-primary to-cottage-burgundy-primary rounded-full"></div>
+                  <div className="w-full h-1 bg-gradient-to-r from-cottage-teal-primary via-cottage-sage-primary to-cottage-green-hover rounded-full"></div>
                 </span>
               </span>
             </h2>
@@ -75,7 +75,7 @@ const FinalCTASection = () => {
             <Button
               to="/contact"
               size="xl"
-              className="bg-gradient-to-r from-cottage-burgundy-primary to-cottage-copper-primary hover:from-cottage-burgundy-hover hover:to-cottage-copper-secondary text-white font-bold px-10 py-5 text-lg shadow-victorian border border-cottage-amber-primary/30"
+              className="bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary hover:from-cottage-burgundy-hover hover:to-cottage-sage-secondary text-white font-bold px-10 py-5 text-lg shadow-victorian border border-cottage-teal-primary/30"
             >
               Book Your Session
             </Button>
@@ -83,18 +83,18 @@ const FinalCTASection = () => {
               to="/gallery"
               size="xl"
               variant="outline"
-              className="border-2 border-cottage-amber-primary text-cottage-amber-primary hover:bg-cottage-amber-primary hover:text-cottage-bg-accent font-bold px-10 py-5 text-lg shadow-gothic"
+              className="border-2 border-cottage-teal-primary text-cottage-teal-primary hover:bg-cottage-teal-primary hover:text-cottage-bg-accent font-bold px-10 py-5 text-lg shadow-gothic"
             >
               View Portfolio
             </Button>
           </div>
 
-          <div className="border-t border-cottage-copper-primary/30 pt-6">
+          <div className="border-t border-cottage-sage-primary/30 pt-6">
             <Button
               to="/about"
               variant="ghost"
               size="sm"
-              className="text-cottage-cream-secondary hover:text-cottage-amber-primary font-elegant"
+              className="text-cottage-cream-secondary hover:text-cottage-teal-primary font-elegant"
             >
               Want to know more about the artist? Visit my studio
             </Button>

@@ -40,28 +40,28 @@ const TestimonialsSection = () => {
   return (
     <section
       id="testimonials"
-      className="py-20 bg-cottage-bg-leather relative overflow-visible"
+      className="py-20 bg-cottage-bg-accent relative overflow-visible"
     >
       {/* Decorative border */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cottage-amber-primary via-cottage-copper-primary to-cottage-burgundy-primary"></div>
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cottage-teal-primary via-cottage-sage-primary to-cottage-green-hover"></div>
 
       {/* Manor atmosphere */}
       <div className="absolute inset-0 bg-wood-texture opacity-5"></div>
 
       {/* Large faint quote icon accent */}
-      <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/3 text-cottage-amber-primary/20 text-[10rem] z-0 select-none pointer-events-none font-gothic">
+      <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/3 text-cottage-teal-primary/20 text-[10rem] z-0 select-none pointer-events-none font-gothic">
         "
       </div>
 
       {/* Atmospheric elements */}
-      <div className="absolute top-16 left-8 w-8 h-8 bg-cottage-amber-primary rounded-full opacity-25 animate-flicker"></div>
-      <div className="absolute top-32 right-12 w-5 h-5 bg-cottage-copper-primary rounded-full opacity-30 animate-float"></div>
-      <div className="absolute bottom-20 left-1/3 w-6 h-6 bg-cottage-burgundy-primary rounded-full opacity-20 animate-glow"></div>
+      <div className="absolute top-16 left-8 w-8 h-8 bg-cottage-teal-primary rounded-full opacity-25 animate-flicker"></div>
+      <div className="absolute top-32 right-12 w-5 h-5 bg-cottage-sage-primary rounded-full opacity-30 animate-float"></div>
+      <div className="absolute bottom-20 left-1/3 w-6 h-6 bg-cottage-green-hover rounded-full opacity-20 animate-glow"></div>
 
       <div className="max-w-6xl mx-auto w-full relative z-10 px-6 md:px-12">
         <div className="text-center mb-16">
           {/* Decorative icon */}
-          <div className="w-16 h-16 bg-gradient-to-r from-cottage-burgundy-primary to-cottage-copper-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-victorian">
+          <div className="w-16 h-16 bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-victorian">
             <FaRegHeart className="w-8 h-8 text-cottage-cream-primary" />
           </div>
 
@@ -77,23 +77,20 @@ const TestimonialsSection = () => {
           {testimonials.map(({ name, title, text }, idx) => (
             <div
               key={idx}
-              className={`bg-cottage-bg-paper/90 backdrop-blur-sm rounded-xl p-8 shadow-cottage hover:shadow-gothic border-2 border-cottage-copper-primary/30 hover:border-cottage-amber-primary/50 min-h-[220px] flex flex-col justify-between relative transition-all duration-300 hover:-translate-y-2
+              className={`bg-cottage-bg-paper/90 backdrop-blur-sm rounded-xl p-8 shadow-cottage hover:shadow-gothic border-2 border-cottage-sage-primary/30 hover:border-cottage-teal-primary/50 min-h-[220px] flex flex-col justify-between relative transition-all duration-300 hover:-translate-y-2
                 ${idx % 3 === 1 ? "md:-rotate-1 md:-translate-y-1" : ""} ${
                 idx % 3 === 2 ? "md:rotate-1 md:translate-y-1" : ""
               }`}
             >
               {/* Decorative quote mark */}
-              <div className="absolute -top-4 -left-4 text-cottage-amber-primary/30 text-4xl font-gothic select-none pointer-events-none">
+              <div className="absolute -top-4 -left-4 text-cottage-teal-primary/30 text-4xl font-gothic select-none pointer-events-none">
                 "
               </div>
 
               {/* Star rating */}
-              <div className="flex text-cottage-amber-primary mb-4 z-10">
+              <div className="flex text-cottage-teal-primary mb-4 z-10">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 fill-cottage-amber-primary"
-                  />
+                  <Star key={i} className="w-5 h-5 fill-cottage-teal-primary" />
                 ))}
               </div>
 
@@ -113,7 +110,7 @@ const TestimonialsSection = () => {
               </div>
 
               {/* Decorative corner accent */}
-              <div className="absolute top-0 right-0 w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] border-t-cottage-amber-primary/20"></div>
+              <div className="absolute top-0 right-0 w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] border-t-cottage-teal-primary/20"></div>
             </div>
           ))}
         </div>
@@ -122,7 +119,7 @@ const TestimonialsSection = () => {
           <Button
             to="/contact"
             size="lg"
-            className="bg-gradient-to-r from-cottage-burgundy-primary to-cottage-copper-primary hover:from-cottage-burgundy-hover hover:to-cottage-copper-secondary text-white font-bold px-8 py-4 text-lg shadow-victorian border border-cottage-amber-primary/30"
+            className="bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary hover:from-cottage-burgundy-hover hover:to-cottage-sage-secondary text-white font-bold px-8 py-4 text-lg shadow-victorian border border-cottage-teal-primary/30"
           >
             Join the Manor Family
           </Button>

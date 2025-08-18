@@ -171,7 +171,7 @@ const Contact = () => {
               to="/about"
               size="lg"
               variant="outline"
-              className="border-2 border-cottage-amber-primary text-cottage-amber-primary hover:bg-cottage-amber-primary hover:text-cottage-bg-accent font-bold px-8 py-4 text-lg"
+              className="border-2 border-cottage-teal-primary text-cottage-teal-primary hover:bg-cottage-teal-primary hover:text-cottage-bg-accent font-bold px-8 py-4 text-lg"
             >
               Learn More About Me
             </Button>

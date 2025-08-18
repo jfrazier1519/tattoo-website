@@ -52,7 +52,7 @@ const FAQ = () => {
             you still need help,{" "}
             <Link
               to="/contact"
-              className="relative transition after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-cottage-amber-primary hover:after:w-full"
+              className="relative transition after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-cottage-teal-primary hover:after:w-full"
             >
               contact us
             </Link>{" "}
@@ -64,9 +64,9 @@ const FAQ = () => {
           {faqData.faq.questions.map((item, index) => (
             <div
               key={index}
-              className="bg-cottage-bg-card p-6 border-[2px] border-cottage-amber-primary/50 shadow-cottage text-left"
+              className="bg-cottage-bg-card p-6 border-[2px] border-cottage-teal-primary/50 shadow-cottage text-left"
             >
-              <h3 className="text-xl font-gothic uppercase tracking-wide text-cottage-amber-primary mb-3">
+              <h3 className="text-xl font-gothic uppercase tracking-wide text-cottage-teal-primary mb-3">
                 {item.question}
               </h3>
               <p
@@ -79,7 +79,7 @@ const FAQ = () => {
       </section>
 
       {/* Bottom Divider */}
-      <div className="h-[2px] w-full bg-cottage-amber-primary" />
+      <div className="h-[2px] w-full bg-cottage-teal-primary" />
     </>
   );
 };
