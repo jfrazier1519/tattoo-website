@@ -42,44 +42,51 @@ const FAQ = () => {
 
   return (
     <>
-      <section className="bg-cottage-bg-accent pt-32 pb-20 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-gothic uppercase tracking-wide text-cottage-cream-primary mb-6">
-            Frequently Asked Questions
-          </h1>
-          <p className="text-cottage-cream-secondary max-w-3xl mx-auto text-base md:text-lg mb-12">
-            Here you’ll find answers to our most frequently asked questions. If
-            you still need help,{" "}
-            <Link
-              to="/contact"
-              className="relative transition after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-cottage-teal-primary hover:after:w-full"
-            >
-              contact us
-            </Link>{" "}
-            — we’re happy to help.
-          </p>
-        </div>
+      {/* Hero Section - Grey */}
+      <div className="bg-[#1c1917]">
+        <section className="relative py-12 md:py-20">
+          <div className="relative z-10 container mx-auto px-4 text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary">
+              Frequently Asked Questions
+            </h1>
+            <p className="text-lg sm:text-xl text-cottage-text-secondary max-w-2xl mx-auto">
+              Here you'll find answers to our most frequently asked questions. If
+              you still need help,{" "}
+              <Link
+                to="/contact"
+                className="text-cottage-green-primary hover:text-cottage-green-secondary transition-colors underline"
+              >
+                contact us
+              </Link>{" "}
+              — we're happy to help.
+            </p>
+          </div>
+        </section>
+      </div>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          {faqData.faq.questions.map((item, index) => (
-            <div
-              key={index}
-              className="bg-cottage-bg-card p-6 border-[2px] border-cottage-teal-primary/50 shadow-cottage text-left"
-            >
-              <h3 className="text-xl font-gothic uppercase tracking-wide text-cottage-teal-primary mb-3">
-                {item.question}
-              </h3>
-              <p
-                className="text-cottage-cream-secondary text-sm leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: item.answer }}
-              />
+      {/* FAQ Content - Grey to Charcoal */}
+      <div className="bg-gradient-to-b from-[#1c1917] to-[#0c0a09]">
+        <section className="py-12 md:py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+              {faqData.faq.questions.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-cottage-bg-card/60 backdrop-blur-sm p-4 sm:p-6 rounded-lg border border-cottage-bg-border shadow-cottage text-left"
+                >
+                  <h3 className="text-lg sm:text-xl font-bold text-cottage-green-primary mb-2 md:mb-3">
+                    {item.question}
+                  </h3>
+                  <p
+                    className="text-cottage-text-muted text-sm sm:text-base leading-relaxed"
+                    dangerouslySetInnerHTML={{ __html: item.answer }}
+                  />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Bottom Divider */}
-      <div className="h-[2px] w-full bg-cottage-teal-primary" />
+          </div>
+        </section>
+      </div>
     </>
   );
 };

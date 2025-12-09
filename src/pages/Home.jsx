@@ -46,283 +46,298 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-cottage-bg-primary">
-      {/* Hero Section - The Vision */}
-      <section
-        ref={visionRef}
-        className="relative h-screen flex items-center overflow-hidden transition-opacity duration-1000"
-        style={{
-          background:
-            "linear-gradient(135deg, #0c0a09 0%, #1c1917 25%, #292524 50%, #1c1917 75%, #0c0a09 100%)",
-        }}
-      >
-        {/* Hero background image - right side */}
-        <div className="absolute right-0 top-0 w-1/2 h-full">
-          <img
-            src="/src/assets/home/hero.jpg"
-            alt="Taylor Jae Tattoo"
-            className="w-full h-full object-cover opacity-40 grayscale"
-          />
-          <div className="absolute inset-0 bg-gradient-to-l from-black/20 via-transparent to-transparent"></div>
-        </div>
+    <>
+      {/* Hero Section - Gray */}
+      <div className="bg-[#1c1917]">
+        <section
+          ref={visionRef}
+          className="relative min-h-screen flex items-center overflow-hidden transition-opacity duration-1000 py-20 md:py-0"
+        >
+          {/* Hero background image - right side */}
+          <div className="absolute right-0 top-0 w-full md:w-1/2 h-full">
+            <img
+              src="/assets/home/hero.jpg"
+              alt="Taylor Jae Tattoo"
+              className="w-full h-full object-cover opacity-40 grayscale"
+            />
+            <div className="absolute inset-0 bg-gradient-to-l from-black/20 via-transparent to-transparent"></div>
+          </div>
 
-        {/* Wood texture overlay */}
-        <div className="absolute inset-0 bg-wood-texture opacity-20"></div>
+          {/* Wood texture overlay */}
+          <div className="absolute inset-0 bg-wood-texture opacity-20"></div>
 
-        {/* Artistic inspiration overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cottage-bg-accent/20 via-transparent to-cottage-green-hover/20"></div>
+          {/* Artistic inspiration overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-cottage-bg-accent/20 via-transparent to-cottage-green-hover/20"></div>
 
-        {/* Content - left side */}
-        <div className="relative z-10 w-1/2 flex items-center justify-center text-white">
-          <div className="text-center max-w-2xl mx-auto px-8">
-            <div className="mb-8 mx-auto w-32 h-1 bg-gradient-to-r from-cottage-teal-primary via-cottage-green-hover to-cottage-sage-primary rounded-full"></div>
+          {/* Content - left side */}
+          <div className="relative z-10 w-full md:w-1/2 flex items-center justify-center text-white px-4 md:px-8">
+            <div className="text-center max-w-2xl mx-auto">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-teal-primary via-cottage-cream-primary to-cottage-green-hover">
+                Taylor Jae Tattoo
+              </h1>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-teal-primary via-cottage-cream-primary to-cottage-green-hover">
-              Taylor Jae Tattoo
-            </h1>
+              <p className="text-lg sm:text-xl md:text-2xl text-cottage-cream-secondary mb-6 md:mb-8 max-w-2xl mx-auto font-elegant">
+                Where your tattoo vision becomes reality. Gothic, dark, and
+                adorable artwork brought to life on your skin.
+              </p>
 
-            <p className="text-xl md:text-2xl text-cottage-cream-secondary mb-8 max-w-2xl mx-auto font-elegant">
-              Where your tattoo vision becomes reality. Gothic, dark, and
-              adorable artwork brought to life on your skin.
-            </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  to="/contact"
+                  size="lg"
+                  className="bg-gradient-to-r from-cottage-green-primary to-cottage-teal-primary hover:from-cottage-green-secondary hover:to-cottage-green-primary text-white font-semibold px-6 py-3 md:px-8 md:py-4 text-base md:text-lg shadow-lg border-0"
+                >
+                  Book Your Session
+                </Button>
+                <Button
+                  to="/gallery"
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-cottage-teal-primary text-cottage-teal-primary hover:bg-cottage-teal-primary hover:text-white font-semibold px-6 py-3 md:px-8 md:py-4 text-base md:text-lg shadow-lg"
+                >
+                  View Gallery
+                </Button>
+              </div>
+            </div>
+          </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                to="/contact"
-                size="lg"
-                className="bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary hover:from-cottage-burgundy-hover hover:to-cottage-sage-secondary text-white font-bold px-8 py-4 text-lg shadow-victorian border border-cottage-teal-primary/30"
-              >
-                Book Your Session
-              </Button>
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-cottage-teal-primary animate-bounce">
+            <div className="w-6 h-10 border-2 border-cottage-teal-primary rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-cottage-teal-primary rounded-full mt-2 animate-bounce"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* My Process Section - Gray */}
+      <div className="bg-[#1c1917]">
+        <section
+          ref={consultationRef}
+          className="relative pt-16 md:pt-20 lg:pt-24 pb-12 md:pb-16 lg:pb-20 overflow-hidden transition-opacity duration-1000"
+        >
+          {/* Wood texture overlay */}
+          <div className="absolute inset-0 bg-wood-texture opacity-20"></div>
+
+          {/* Atmospheric particles */}
+          <div className="absolute top-20 left-8 w-12 h-12 bg-cottage-teal-primary rounded-full opacity-20 animate-glow animate-float animate-flicker blur-sm"></div>
+          <div className="absolute top-40 right-12 w-10 h-10 bg-cottage-sage-primary rounded-full opacity-15 animate-glow animate-float animate-flicker blur-sm"></div>
+          <div className="absolute bottom-20 left-1/3 w-8 h-8 bg-cottage-green-hover rounded-full opacity-25 animate-glow animate-float animate-flicker blur-sm"></div>
+
+          <div className="relative z-10 container mx-auto px-4 md:px-8">
+            {/* Decorative Divider */}
+            <div className="flex items-center justify-center gap-3 mb-8 md:mb-12">
+              <div className="h-px w-12 md:w-20 bg-gradient-to-r from-transparent via-cottage-teal-primary/40 to-cottage-teal-primary"></div>
+              <div className="w-1.5 h-1.5 bg-cottage-teal-primary rounded-full"></div>
+              <div className="h-px flex-1 max-w-xs bg-gradient-to-r from-cottage-teal-primary via-cottage-green-primary to-cottage-teal-primary"></div>
+              <div className="w-1.5 h-1.5 bg-cottage-green-primary rounded-full"></div>
+              <div className="h-px w-12 md:w-20 bg-gradient-to-l from-transparent via-cottage-green-primary/40 to-cottage-green-primary"></div>
+            </div>
+            <div className="text-center mb-8 md:mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-teal-primary via-cottage-cream-primary to-cottage-green-hover">
+                My Process
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+              {/* Vision */}
+              <div className="group h-full p-4 md:p-6 rounded-xl bg-cottage-bg-card/80 backdrop-blur-sm border border-cottage-green-primary/20 hover:border-cottage-teal-primary/50 relative transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cottage-green-primary/20">
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-cottage-green-primary/0 to-cottage-teal-primary/0 group-hover:from-cottage-green-primary/5 group-hover:to-cottage-teal-primary/5 transition-opacity duration-300 pointer-events-none"></div>
+                <div className="relative z-10 text-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-cottage-teal-primary to-cottage-sage-primary rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <span className="text-2xl md:text-3xl font-bold text-white">
+                      1
+                    </span>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">
+                    Vision
+                  </h3>
+                  <p className="text-sm md:text-base text-cottage-text-muted leading-relaxed">
+                    We start with your idea, your story, your vision. Every
+                    tattoo begins with understanding what you want to express.
+                  </p>
+                </div>
+              </div>
+
+              {/* Consultation */}
+              <div className="group h-full p-4 md:p-6 rounded-xl bg-cottage-bg-card/80 backdrop-blur-sm border border-cottage-green-primary/20 hover:border-cottage-teal-primary/50 relative transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cottage-green-primary/20">
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-cottage-green-primary/0 to-cottage-teal-primary/0 group-hover:from-cottage-green-primary/5 group-hover:to-cottage-teal-primary/5 transition-opacity duration-300 pointer-events-none"></div>
+                <div className="relative z-10 text-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <span className="text-2xl md:text-3xl font-bold text-white">
+                      2
+                    </span>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">
+                    Consultation
+                  </h3>
+                  <p className="text-sm md:text-base text-cottage-text-muted leading-relaxed">
+                    We discuss placement, size, style, and bring your vision to
+                    life through sketches and planning.
+                  </p>
+                </div>
+              </div>
+
+              {/* Creation */}
+              <div className="group h-full p-4 md:p-6 rounded-xl bg-cottage-bg-card/80 backdrop-blur-sm border border-cottage-green-primary/20 hover:border-cottage-teal-primary/50 relative transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cottage-green-primary/20">
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-cottage-green-primary/0 to-cottage-teal-primary/0 group-hover:from-cottage-green-primary/5 group-hover:to-cottage-teal-primary/5 transition-opacity duration-300 pointer-events-none"></div>
+                <div className="relative z-10 text-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-cottage-sage-primary to-cottage-teal-primary rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <span className="text-2xl md:text-3xl font-bold text-white">
+                      3
+                    </span>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">
+                    Creation
+                  </h3>
+                  <p className="text-sm md:text-base text-cottage-text-muted leading-relaxed">
+                    With precision and artistry, I bring your vision to life,
+                    creating a piece that's uniquely yours.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* Featured Work - Gray to Charcoal */}
+      <div className="bg-gradient-to-b from-[#1c1917] to-[#0c0a09]">
+        <section
+          ref={studioRef}
+          className="relative py-12 md:py-16 lg:py-20 overflow-hidden transition-opacity duration-1000"
+        >
+          {/* Wood texture overlay */}
+          <div className="absolute inset-0 bg-wood-texture opacity-20"></div>
+
+          {/* Atmospheric particles */}
+          <div className="absolute top-20 left-8 w-12 h-12 bg-cottage-teal-primary rounded-full opacity-20 animate-glow animate-float animate-flicker blur-sm"></div>
+          <div className="absolute top-40 right-12 w-10 h-10 bg-cottage-sage-primary rounded-full opacity-15 animate-glow animate-float animate-flicker blur-sm"></div>
+          <div className="absolute bottom-20 left-1/3 w-8 h-8 bg-cottage-green-hover rounded-full opacity-25 animate-glow animate-float animate-flicker blur-sm"></div>
+
+          <div className="relative z-10 container mx-auto px-4 md:px-8">
+            {/* Decorative Divider */}
+            <div className="flex items-center justify-center gap-3 mb-8 md:mb-12">
+              <div className="h-px w-12 md:w-20 bg-gradient-to-r from-transparent via-cottage-teal-primary/40 to-cottage-teal-primary"></div>
+              <div className="w-1.5 h-1.5 bg-cottage-teal-primary rounded-full"></div>
+              <div className="h-px flex-1 max-w-xs bg-gradient-to-r from-cottage-teal-primary via-cottage-green-primary to-cottage-teal-primary"></div>
+              <div className="w-1.5 h-1.5 bg-cottage-green-primary rounded-full"></div>
+              <div className="h-px w-12 md:w-20 bg-gradient-to-l from-transparent via-cottage-green-primary/40 to-cottage-green-primary"></div>
+            </div>
+            <div className="text-center mb-8 md:mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-teal-primary via-cottage-cream-primary to-cottage-green-hover">
+                Featured Work
+              </h2>
+              <p className="text-cottage-text-muted text-lg sm:text-xl mt-4 md:mt-6 max-w-3xl mx-auto px-4">
+                A glimpse into the dark artistry and gothic elegance that
+                defines my work
+              </p>
+            </div>
+
+            {/* Gallery Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mb-8 md:mb-12">
+              {/* Gothic Artwork */}
+              <div className="group relative overflow-hidden rounded-lg shadow-gothic">
+                <img
+                  src="/assets/gallery/image50.jpeg"
+                  alt="Gothic Artwork"
+                  className="w-full max-h-80 min-h-48 object-contain bg-cottage-bg-card"
+                />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="text-cottage-cream-primary text-lg font-semibold">
+                    Gothic Artwork
+                  </span>
+                </div>
+              </div>
+
+              {/* Dark Elegance */}
+              <div className="group relative overflow-hidden rounded-lg shadow-gothic">
+                <img
+                  src="/assets/gallery/image51.jpeg"
+                  alt="Dark Elegance"
+                  className="w-full max-h-80 min-h-48 object-contain bg-cottage-bg-card"
+                />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="text-cottage-cream-primary text-lg font-semibold">
+                    Dark Elegance
+                  </span>
+                </div>
+              </div>
+
+              {/* Victorian Style */}
+              <div className="group relative overflow-hidden rounded-lg shadow-gothic">
+                <img
+                  src="/assets/gallery/image46.jpeg"
+                  alt="Victorian Style"
+                  className="w-full max-h-80 min-h-48 object-contain bg-cottage-bg-card"
+                />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="text-cottage-cream-primary text-lg font-semibold">
+                    Victorian Style
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA to Full Gallery */}
+            <div className="text-center px-4">
               <Button
                 to="/gallery"
                 size="lg"
-                variant="outline"
-                className="border-2 border-cottage-teal-primary text-cottage-teal-primary hover:bg-cottage-teal-primary hover:text-cottage-bg-accent font-bold px-8 py-4 text-lg shadow-gothic"
+                className="bg-gradient-to-r from-cottage-green-primary to-cottage-teal-primary hover:from-cottage-green-secondary hover:to-cottage-green-primary text-white font-semibold px-8 md:px-12 py-3 md:py-4 text-lg md:text-xl shadow-lg border-0"
               >
-                View Gallery
+                View Full Gallery
               </Button>
+              <p className="text-cottage-text-muted mt-4 text-base md:text-lg">
+                Discover more of my dark artistry and gothic masterpieces
+              </p>
             </div>
           </div>
-        </div>
+        </section>
+      </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-cottage-teal-primary animate-bounce">
-          <div className="w-6 h-10 border-2 border-cottage-teal-primary rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-cottage-teal-primary rounded-full mt-2 animate-bounce"></div>
-          </div>
-        </div>
-      </section>
+      {/* My Services - Charcoal to Black */}
+      <div className="bg-gradient-to-b from-[#0c0a09] to-[#0a0a0a]">
+        <ServicesSection />
+      </div>
 
-      {/* My Process Section */}
-      <section
-        ref={consultationRef}
-        className="relative min-h-screen flex items-center overflow-hidden transition-opacity duration-1000"
-        style={{
-          background:
-            "linear-gradient(135deg, #0c0a09 0%, #1c1917 25%, #292524 50%, #1c1917 75%, #0c0a09 100%)",
-        }}
-      >
-        {/* Wood texture overlay */}
-        <div className="absolute inset-0 bg-wood-texture opacity-20"></div>
+      {/* Request Quote - Black (continues from Services) - Hidden on mobile */}
+      <div className="bg-[#0a0a0a] hidden md:block">
+        <RequestQuoteSection />
+      </div>
 
-        {/* Atmospheric particles */}
-        <div className="absolute top-20 left-8 w-12 h-12 bg-cottage-teal-primary rounded-full opacity-20 animate-glow animate-float animate-flicker blur-sm"></div>
-        <div className="absolute top-40 right-12 w-10 h-10 bg-cottage-sage-primary rounded-full opacity-15 animate-glow animate-float animate-flicker blur-sm"></div>
-        <div className="absolute bottom-20 left-1/3 w-8 h-8 bg-cottage-green-hover rounded-full opacity-25 animate-glow animate-float animate-flicker blur-sm"></div>
-
-        <div className="relative z-10 container mx-auto px-8 py-20">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-cottage-cream-primary mb-6">
-              My Process
+      {/* Mobile CTA - Show on mobile only, directs to contact */}
+      <div className="bg-[#0a0a0a] md:hidden">
+        <section className="py-12 px-4">
+          <div className="max-w-md mx-auto text-center">
+            <h2 className="text-2xl font-bold mb-4 text-white">
+              Ready to Get Started?
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-cottage-teal-primary via-cottage-green-hover to-cottage-sage-primary rounded-full mx-auto"></div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-12">
-            {/* Vision */}
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-r from-cottage-teal-primary to-cottage-sage-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <svg
-                  className="w-10 h-10 text-cottage-bg-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-cottage-cream-primary mb-4">
-                The Vision
-              </h3>
-              <p className="text-cottage-cream-secondary text-lg">
-                We start with your idea, your story, your vision. Every tattoo
-                begins with understanding what you want to express.
-              </p>
-            </div>
-
-            {/* Consultation */}
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <svg
-                  className="w-10 h-10 text-cottage-bg-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-cottage-cream-primary mb-4">
-                The Consultation
-              </h3>
-              <p className="text-cottage-cream-secondary text-lg">
-                We discuss placement, size, style, and bring your vision to life
-                through sketches and planning.
-              </p>
-            </div>
-
-            {/* Creation */}
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-r from-cottage-sage-primary to-cottage-teal-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <svg
-                  className="w-10 h-10 text-cottage-bg-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-cottage-cream-primary mb-4">
-                The Creation
-              </h3>
-              <p className="text-cottage-cream-secondary text-lg">
-                With precision and artistry, I bring your vision to life,
-                creating a piece that's uniquely yours.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Showcase Section */}
-      <section
-        ref={studioRef}
-        className="relative min-h-screen flex items-center overflow-hidden transition-opacity duration-1000"
-        style={{
-          background:
-            "linear-gradient(135deg, #0c0a09 0%, #1c1917 25%, #292524 50%, #1c1917 75%, #0c0a09 100%)",
-        }}
-      >
-        {/* Wood texture overlay */}
-        <div className="absolute inset-0 bg-wood-texture opacity-20"></div>
-
-        {/* Atmospheric particles */}
-        <div className="absolute top-20 left-8 w-12 h-12 bg-cottage-teal-primary rounded-full opacity-20 animate-glow animate-float animate-flicker blur-sm"></div>
-        <div className="absolute top-40 right-12 w-10 h-10 bg-cottage-sage-primary rounded-full opacity-15 animate-glow animate-float animate-flicker blur-sm"></div>
-        <div className="absolute bottom-20 left-1/3 w-8 h-8 bg-cottage-green-hover rounded-full opacity-25 animate-glow animate-float animate-flicker blur-sm"></div>
-
-        <div className="relative z-10 container mx-auto px-8 py-20">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-cottage-cream-primary mb-6">
-              Featured Work
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-cottage-teal-primary via-cottage-green-hover to-cottage-sage-primary rounded-full mx-auto"></div>
-            <p className="text-cottage-cream-secondary text-xl mt-6 max-w-3xl mx-auto">
-              A glimpse into the dark artistry and gothic elegance that defines
-              my work
+            <p className="text-cottage-text-muted mb-6 text-sm">
+              Let's discuss your tattoo vision and create something amazing
+              together.
             </p>
-          </div>
-
-          {/* Gallery Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {/* Gothic Artwork */}
-            <div className="group relative overflow-hidden rounded-lg shadow-gothic">
-              <img
-                src="/src/assets/gallery/image50.jpeg"
-                alt="Gothic Artwork"
-                className="w-full max-h-80 min-h-48 object-contain bg-cottage-bg-card"
-              />
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-cottage-cream-primary text-lg font-semibold">
-                  Gothic Artwork
-                </span>
-              </div>
-            </div>
-
-            {/* Dark Elegance */}
-            <div className="group relative overflow-hidden rounded-lg shadow-gothic">
-              <img
-                src="/src/assets/gallery/image51.jpeg"
-                alt="Dark Elegance"
-                className="w-full max-h-80 min-h-48 object-contain bg-cottage-bg-card"
-              />
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-cottage-cream-primary text-lg font-semibold">
-                  Dark Elegance
-                </span>
-              </div>
-            </div>
-
-            {/* Victorian Style */}
-            <div className="group relative overflow-hidden rounded-lg shadow-gothic">
-              <img
-                src="/src/assets/gallery/image46.jpeg"
-                alt="Victorian Style"
-                className="w-full max-h-80 min-h-48 object-contain bg-cottage-bg-card"
-              />
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-cottage-cream-primary text-lg font-semibold">
-                  Victorian Style
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA to Full Gallery */}
-          <div className="text-center">
             <Button
-              to="/gallery"
+              to="/contact"
               size="lg"
-              className="bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary hover:from-cottage-burgundy-hover hover:to-cottage-sage-secondary text-white font-bold px-12 py-4 text-xl shadow-victorian border border-cottage-teal-primary/30"
+              className="w-full bg-gradient-to-r from-cottage-green-primary to-cottage-teal-primary hover:from-cottage-green-secondary hover:to-cottage-green-primary text-white font-semibold px-6 py-3 text-base shadow-lg border-0"
             >
-              View Full Gallery
+              Book Your Session
             </Button>
-            <p className="text-cottage-cream-secondary mt-4 text-lg">
-              Discover more of my dark artistry and gothic masterpieces
-            </p>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
-      {/* Traditional sections with manor theming */}
-      <ServicesSection />
-      <RequestQuoteSection />
-      <Testimonials />
-      <FinalCTASection />
-    </div>
+      {/* Testimonials - Black (continues) */}
+      <div className="bg-[#0a0a0a]">
+        <Testimonials />
+      </div>
+
+      {/* Final CTA - Black (stays dark) */}
+      <div className="bg-[#0a0a0a]">
+        <FinalCTASection />
+      </div>
+    </>
   );
 };
 

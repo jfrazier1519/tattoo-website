@@ -31,7 +31,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link
             to="/"
-            className="text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary"
+            className="text-lg sm:text-xl md:text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary"
           >
             TATTOO STUDIO
           </Link>
@@ -77,6 +77,16 @@ const Navbar = () => {
               }`}
             >
               CONTACT
+            </Link>
+            <Link
+              to="/faq"
+              className={`relative pb-1 transition ${
+                isActive("/faq")
+                  ? "text-cottage-green-primary after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-cottage-green-primary"
+                  : "text-white/80 hover:text-cottage-green-primary hover:after:absolute hover:after:-bottom-1 hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-cottage-green-primary/50"
+              }`}
+            >
+              FAQ
             </Link>
           </div>
 
@@ -166,6 +176,17 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
               >
                 CONTACT
+              </Link>
+              <Link
+                to="/faq"
+                className={`block py-2 transition ${
+                  isActive("/faq")
+                    ? "text-cottage-green-primary"
+                    : "text-white/80 hover:text-cottage-green-primary"
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                FAQ
               </Link>
               <div className="pt-4">
                 <Button

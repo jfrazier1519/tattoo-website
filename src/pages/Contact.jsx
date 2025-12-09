@@ -1,32 +1,33 @@
 import React from "react";
 import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
-import Button from "../components/shared/Button";
 import ContactForm from "../components/contact/ContactForm";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-cottage-bg-primary text-white">
-      {/* Hero Section */}
-      <section className="relative py-20 bg-cottage-gradient from-cottage-bg-accent via-cottage-bg-secondary to-cottage-bg-accent">
-        <div className="absolute inset-0 bg-cottage-bg-accent/50"></div>
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary">
+    <>
+      {/* Hero Section - Grey */}
+      <div className="bg-[#1c1917]">
+        <section className="relative py-12 md:py-20">
+          <div className="relative z-10 container mx-auto px-4 text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary">
             Get In Touch
           </h1>
-          <p className="text-xl text-cottage-text-secondary max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-cottage-text-secondary max-w-2xl mx-auto">
             Ready to start your tattoo journey? Let's discuss your ideas and
             create something beautiful together.
           </p>
         </div>
-      </section>
+        </section>
+      </div>
 
-      {/* Contact Information */}
-      <section className="py-20">
+      {/* Contact Information - Grey to Charcoal */}
+      <div className="bg-gradient-to-b from-[#1c1917] to-[#0c0a09]">
+        <section className="py-12 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
             {/* Contact Details */}
-            <div>
-              <h2 className="text-3xl font-bold mb-8 text-cottage-green-primary">
+            <div className="order-2 lg:order-1">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-cottage-green-primary">
                 Let's Connect
               </h2>
 
@@ -118,67 +119,17 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-bold mb-8 text-cottage-green-primary">
+            <div className="order-1 lg:order-2">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-cottage-green-primary">
                 Send Me a Message
               </h2>
               <ContactForm />
             </div>
           </div>
         </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-cottage-bg-secondary">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-white">
-            Have Questions?
-          </h2>
-          <p className="text-lg text-cottage-text-muted mb-8 max-w-2xl mx-auto">
-            Check out our FAQ section for answers to common questions about the
-            tattooing process, aftercare, and what to expect during your
-            appointment.
-          </p>
-          <Button
-            to="/faq"
-            size="lg"
-            className="bg-cottage-gradient from-cottage-green-secondary to-cottage-green-accent hover:from-cottage-green-hover hover:to-cottage-emerald-hover text-white font-bold"
-          >
-            View FAQ
-          </Button>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-cottage-gradient from-cottage-bg-accent via-cottage-bg-secondary to-cottage-bg-accent">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-white">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl text-cottage-text-secondary mb-8 max-w-2xl mx-auto">
-            Don't wait to start your tattoo journey. Book your appointment today
-            and let's create something amazing together.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              to="/gallery"
-              size="lg"
-              className="bg-white text-cottage-bg-accent hover:bg-cottage-text-primary font-bold px-8 py-4 text-lg"
-            >
-              Browse Gallery
-            </Button>
-            <Button
-              to="/about"
-              size="lg"
-              variant="outline"
-              className="border-2 border-cottage-teal-primary text-cottage-teal-primary hover:bg-cottage-teal-primary hover:text-cottage-bg-accent font-bold px-8 py-4 text-lg"
-            >
-              Learn More About Me
-            </Button>
-          </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 };
 

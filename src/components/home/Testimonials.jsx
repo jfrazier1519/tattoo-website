@@ -1,7 +1,4 @@
 import React from "react";
-import { Star } from "lucide-react";
-import { FaRegHeart } from "react-icons/fa";
-import Button from "../shared/Button";
 
 const testimonials = [
   {
@@ -12,7 +9,7 @@ const testimonials = [
   {
     name: "Marcus Nightshade",
     title: "Dark Art Collector",
-    text: "I've been getting tattoos for years, but this studio is something special. The manor atmosphere and artistic vision are unmatched.",
+    text: "I've been getting tattoos for years, but this studio is something special. The artistic vision and attention to detail are unmatched.",
   },
   {
     name: "Luna Moon",
@@ -31,8 +28,8 @@ const testimonials = [
   },
   {
     name: "Violet Thorn",
-    title: "Victorian Style Admirer",
-    text: "The manor aesthetic and attention to detail make every visit feel special. My tattoos are works of art I'll treasure forever.",
+    title: "Gothic Style Admirer",
+    text: "The dark aesthetic and attention to detail make every visit feel special. My tattoos are works of art I'll treasure forever.",
   },
 ];
 
@@ -40,98 +37,71 @@ const TestimonialsSection = () => {
   return (
     <section
       id="testimonials"
-      className="py-20 bg-cottage-bg-accent relative overflow-visible"
+      className="py-12 md:py-16 lg:py-20 relative overflow-visible z-10"
     >
-      {/* Decorative border */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cottage-teal-primary via-cottage-sage-primary to-cottage-green-hover"></div>
 
-      {/* Manor atmosphere */}
-      <div className="absolute inset-0 bg-wood-texture opacity-5"></div>
-
-      {/* Large faint quote icon accent */}
-      <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/3 text-cottage-teal-primary/20 text-[10rem] z-0 select-none pointer-events-none font-gothic">
-        "
-      </div>
-
-      {/* Atmospheric elements */}
-      <div className="absolute top-16 left-8 w-8 h-8 bg-cottage-teal-primary rounded-full opacity-25 animate-flicker"></div>
-      <div className="absolute top-32 right-12 w-5 h-5 bg-cottage-sage-primary rounded-full opacity-30 animate-float"></div>
-      <div className="absolute bottom-20 left-1/3 w-6 h-6 bg-cottage-green-hover rounded-full opacity-20 animate-glow"></div>
-
-      <div className="max-w-6xl mx-auto w-full relative z-10 px-6 md:px-12">
-        <div className="text-center mb-16">
-          {/* Decorative icon */}
-          <div className="w-16 h-16 bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-victorian">
-            <FaRegHeart className="w-8 h-8 text-cottage-cream-primary" />
-          </div>
-
-          <h2 className="text-4xl md:text-5xl font-gothic font-bold text-cottage-cream-primary mb-4">
-            Client Testimonials
+      <div className="max-w-6xl mx-auto w-full relative z-10 px-4 sm:px-6 md:px-12">
+        {/* Decorative Divider */}
+        <div className="flex items-center justify-center gap-3 mb-8 md:mb-12">
+          <div className="h-px w-12 md:w-20 bg-gradient-to-r from-transparent via-cottage-teal-primary/40 to-cottage-teal-primary"></div>
+          <div className="w-1.5 h-1.5 bg-cottage-teal-primary rounded-full"></div>
+          <div className="h-px flex-1 max-w-xs bg-gradient-to-r from-cottage-teal-primary via-cottage-green-primary to-cottage-teal-primary"></div>
+          <div className="w-1.5 h-1.5 bg-cottage-green-primary rounded-full"></div>
+          <div className="h-px w-12 md:w-20 bg-gradient-to-l from-transparent via-cottage-green-primary/40 to-cottage-green-primary"></div>
+        </div>
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-teal-primary via-cottage-cream-primary to-cottage-green-hover">
+            What Clients Say
           </h2>
-          <p className="text-xl text-cottage-cream-secondary max-w-2xl mx-auto font-elegant">
-            Hear from those who have experienced the magic of the manor
+          <p className="text-lg sm:text-xl text-cottage-text-muted">
+            Real ink, real stories
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
-          {testimonials.map(({ name, title, text }, idx) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8">
+          {testimonials.slice(0, 3).map(({ name, title, text }, idx) => (
             <div
               key={idx}
-              className={`bg-cottage-bg-paper/90 backdrop-blur-sm rounded-xl p-8 shadow-cottage hover:shadow-gothic border-2 border-cottage-sage-primary/30 hover:border-cottage-teal-primary/50 min-h-[220px] flex flex-col justify-between relative transition-all duration-300 hover:-translate-y-2
-                ${idx % 3 === 1 ? "md:-rotate-1 md:-translate-y-1" : ""} ${
-                idx % 3 === 2 ? "md:rotate-1 md:translate-y-1" : ""
-              }`}
+              className="bg-cottage-bg-card/60 backdrop-blur-sm rounded-lg p-4 md:p-5 border-l-2 border-cottage-green-primary/50 hover:border-cottage-teal-primary transition-all duration-300"
             >
-              {/* Decorative quote mark */}
-              <div className="absolute -top-4 -left-4 text-cottage-teal-primary/30 text-4xl font-gothic select-none pointer-events-none">
-                "
-              </div>
-
-              {/* Star rating */}
-              <div className="flex text-cottage-teal-primary mb-4 z-10">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-cottage-teal-primary" />
-                ))}
-              </div>
-
               {/* Testimonial text */}
-              <p className="text-lg text-cottage-cream-secondary mb-6 leading-relaxed z-10 font-elegant flex-grow">
-                "{text}"
+              <p className="text-xs sm:text-sm text-cottage-text-muted mb-3 md:mb-4 leading-relaxed">
+                {text}
               </p>
 
               {/* Client info */}
-              <div className="z-10">
-                <p className="text-base font-bold text-cottage-cream-primary font-gothic">
+              <div>
+                <p className="text-xs sm:text-sm font-bold text-white font-gothic">
                   {name}
                 </p>
-                <p className="text-sm text-cottage-cream-secondary font-elegant">
+                <p className="text-xs text-cottage-text-muted uppercase tracking-wide">
                   {title}
                 </p>
               </div>
-
-              {/* Decorative corner accent */}
-              <div className="absolute top-0 right-0 w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] border-t-cottage-teal-primary/20"></div>
             </div>
           ))}
-        </div>
+          {/* Show remaining testimonials on desktop */}
+          {testimonials.slice(3).map(({ name, title, text }, idx) => (
+            <div
+              key={idx + 3}
+              className="hidden md:block bg-cottage-bg-card/60 backdrop-blur-sm rounded-lg p-5 border-l-2 border-cottage-green-primary/50 hover:border-cottage-teal-primary transition-all duration-300"
+            >
+              {/* Testimonial text */}
+              <p className="text-sm text-cottage-text-muted mb-4 leading-relaxed">
+                {text}
+              </p>
 
-        <div className="text-center">
-          <Button
-            to="/contact"
-            size="lg"
-            className="bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary hover:from-cottage-burgundy-hover hover:to-cottage-sage-secondary text-white font-bold px-8 py-4 text-lg shadow-victorian border border-cottage-teal-primary/30"
-          >
-            Join the Manor Family
-          </Button>
-        </div>
-
-        {/* Manor wisdom */}
-        <div className="text-center mt-16">
-          <p className="text-cottage-cream-secondary/80 font-elegant italic text-lg">
-            "The greatest compliment an artist can receive is not just praise
-            for their work, but the trust of those who choose to wear their art
-            forever."
-          </p>
+              {/* Client info */}
+              <div>
+                <p className="text-sm font-bold text-white font-gothic">
+                  {name}
+                </p>
+                <p className="text-xs text-cottage-text-muted uppercase tracking-wide">
+                  {title}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

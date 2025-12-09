@@ -5,10 +5,10 @@ import { FaInstagram, FaFacebook, FaTiktok, FaEnvelope } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className="bg-cottage-bg-accent text-white">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 py-8 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {/* Brand Section */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="col-span-1 sm:col-span-2">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary rounded-full flex items-center justify-center">
                 <span className="text-white text-xl font-bold">T</span>
@@ -106,60 +106,21 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Contact Info */}
-        <div className="border-t border-cottage-bg-border mt-12 pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary rounded-full flex items-center justify-center">
-                <FaEnvelope className="text-white" />
-              </div>
-              <div>
-                <p className="text-sm text-cottage-text-subtle">Email</p>
-                <p className="text-cottage-text-secondary">
-                  contact@tattoostudio.com
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-cottage-gradient from-cottage-green-secondary to-cottage-green-primary rounded-full flex items-center justify-center">
-                <span className="text-white text-lg">📍</span>
-              </div>
-              <div>
-                <p className="text-sm text-cottage-text-subtle">Location</p>
-                <p className="text-cottage-text-secondary">
-                  Booth Rental • By Appointment
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-cottage-gradient from-cottage-green-accent to-cottage-green-secondary rounded-full flex items-center justify-center">
-                <span className="text-white text-lg">🕐</span>
-              </div>
-              <div>
-                <p className="text-sm text-cottage-text-subtle">Hours</p>
-                <p className="text-cottage-text-secondary">
-                  By Appointment Only
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Bottom Bar */}
-        <div className="border-t border-cottage-bg-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-cottage-text-subtle text-sm">
+        <div className="border-t border-cottage-bg-border mt-6 md:mt-8 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-cottage-text-subtle text-xs sm:text-sm text-center md:text-left">
             © 2024 Tattoo Studio. All rights reserved.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 items-center">
             <Link
               to="/privacy-policy"
-              className="text-sm text-cottage-text-subtle hover:text-cottage-green-primary transition-colors"
+              className="text-xs sm:text-sm text-cottage-text-subtle hover:text-cottage-green-primary transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               to="/terms-and-conditions"
-              className="text-sm text-cottage-text-subtle hover:text-cottage-green-primary transition-colors"
+              className="text-xs sm:text-sm text-cottage-text-subtle hover:text-cottage-green-primary transition-colors"
             >
               Terms & Conditions
             </Link>

@@ -1,6 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { Palette, Sparkles, Heart, Zap } from "lucide-react";
 import Button from "../shared/Button";
 
 const services = [
@@ -8,123 +6,92 @@ const services = [
     title: "Custom Tattoo Designs",
     description:
       "Unique artwork created specifically for you, blending your ideas with my signature dark and cute aesthetic.",
-    icon: <Palette className="w-10 h-10 text-cottage-teal-primary" />,
-    sectionId: "custom-tattoos",
   },
   {
     title: "Flash Art Collection",
     description:
       "Pre-designed pieces in my signature style, ready to bring to life on your skin with precision and care.",
-    icon: <Zap className="w-10 h-10 text-cottage-green-light" />,
-    sectionId: "flash-art",
   },
   {
     title: "Cover-up Transformations",
     description:
       "Transform old tattoos into beautiful new pieces that you'll love, using advanced techniques and artistic vision.",
-    icon: <Sparkles className="w-10 h-10 text-cottage-green-hover" />,
-    sectionId: "cover-ups",
   },
   {
     title: "Consultation & Design",
     description:
       "Personal consultation to discuss your vision, with custom sketches and design development for your perfect piece.",
-    icon: <Heart className="w-10 h-10 text-cottage-green-primary" />,
-    sectionId: "consultation",
   },
 ];
 
 const ServicesSection = () => {
-  const navigate = useNavigate();
-
-  const handleLearnMore = (sectionId) => {
-    navigate("/gallery");
-    // Use setTimeout to ensure navigation completes before scrolling
-    setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 100);
-  };
-
   return (
-    <section id="services" className="py-20 bg-cottage-bg-primary relative">
-      {/* Decorative elements for manor library feel */}
-      <div className="absolute inset-0 bg-wood-texture opacity-5"></div>
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cottage-green-primary via-cottage-teal-primary to-cottage-green-secondary"></div>
+    <section
+      id="services"
+      className="py-12 md:py-16 lg:py-20 relative overflow-hidden z-10"
+    >
+      {/* Artistic floating elements */}
+      <div className="absolute top-20 left-8 w-12 h-12 bg-cottage-teal-primary rounded-full opacity-10 animate-float blur-xl"></div>
+      <div
+        className="absolute top-40 right-12 w-10 h-10 bg-cottage-green-primary rounded-full opacity-10 animate-float blur-xl"
+        style={{ animationDelay: "1s" }}
+      ></div>
+      <div
+        className="absolute bottom-20 left-1/3 w-8 h-8 bg-cottage-green-secondary rounded-full opacity-10 animate-float blur-xl"
+        style={{ animationDelay: "2s" }}
+      ></div>
 
-      {/* Library atmosphere elements */}
-      <div className="absolute top-20 left-8 w-12 h-12 bg-cottage-teal-primary rounded-full opacity-20 animate-glow animate-float animate-flicker blur-sm"></div>
-      <div className="absolute top-40 right-12 w-10 h-10 bg-cottage-green-primary rounded-full opacity-15 animate-glow animate-float animate-flicker blur-sm"></div>
-      <div className="absolute bottom-20 left-1/3 w-8 h-8 bg-cottage-green-secondary rounded-full opacity-25 animate-glow animate-float animate-flicker blur-sm"></div>
-
-      <div className="max-w-7xl mx-auto w-full relative z-10 px-6 md:px-12">
-        <div className="text-center mb-16">
-          {/* Decorative library icon */}
-          <div className="w-20 h-20 bg-gradient-to-r from-cottage-green-secondary to-cottage-green-primary rounded-full flex items-center justify-center mx-auto mb-6 shadow-victorian">
-            <span className="text-cottage-cream-primary text-3xl">📚</span>
-          </div>
-
-          <p className="text-sm text-cottage-cream-secondary mb-2 font-semibold font-elegant">
-            The Artist's Library
-          </p>
-          <h2 className="text-4xl md:text-5xl font-gothic font-bold mb-4 text-cottage-cream-primary">
+      <div className="max-w-7xl mx-auto w-full relative z-10 px-4 sm:px-6 md:px-12">
+        {/* Decorative Divider */}
+        <div className="flex items-center justify-center gap-3 mb-8 md:mb-12">
+          <div className="h-px w-12 md:w-20 bg-gradient-to-r from-transparent via-cottage-teal-primary/40 to-cottage-teal-primary"></div>
+          <div className="w-1.5 h-1.5 bg-cottage-teal-primary rounded-full"></div>
+          <div className="h-px flex-1 max-w-xs bg-gradient-to-r from-cottage-teal-primary via-cottage-green-primary to-cottage-teal-primary"></div>
+          <div className="w-1.5 h-1.5 bg-cottage-green-primary rounded-full"></div>
+          <div className="h-px w-12 md:w-20 bg-gradient-to-l from-transparent via-cottage-green-primary/40 to-cottage-green-primary"></div>
+        </div>
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-teal-primary via-cottage-cream-primary to-cottage-green-hover">
             My Services
           </h2>
-          <p className="text-xl text-cottage-cream-secondary max-w-2xl mx-auto font-elegant">
-            From concept to completion, every piece is crafted with passion and
-            precision
+          <p className="text-lg sm:text-xl text-cottage-text-muted max-w-2xl mx-auto px-4">
+            From dark and gothic to cute and cartoony, every piece is crafted
+            with artistic vision and attention to detail
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map(({ title, description, icon, sectionId }, idx) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+          {services.map(({ title, description }, idx) => (
             <div
               key={idx}
-              className={`group h-full min-h-[380px] p-8 rounded-lg text-left flex flex-col justify-between shadow-cottage hover:shadow-gothic bg-cottage-bg-paper/90 backdrop-blur-sm border-2 border-cottage-green-primary/30 hover:border-cottage-teal-primary/60 relative transition-all duration-300 hover:-translate-y-2
-                ${idx % 2 === 1 ? "md:-mt-8" : ""} ${
-                idx % 2 === 0 ? "md:mt-8" : ""
-              }`}
+              className="group h-full p-4 md:p-6 rounded-xl bg-cottage-bg-card/80 backdrop-blur-sm border border-cottage-green-primary/20 hover:border-cottage-teal-primary/50 relative transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cottage-green-primary/20"
             >
-              {/* Decorative corner accent */}
-              <div className="absolute top-0 right-0 w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] border-t-cottage-teal-primary/20 group-hover:border-t-cottage-teal-primary/40 transition-colors duration-300"></div>
+              {/* Subtle glow on hover */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-cottage-green-primary/0 to-cottage-teal-primary/0 group-hover:from-cottage-green-primary/5 group-hover:to-cottage-teal-primary/5 transition-opacity duration-300 pointer-events-none"></div>
 
-              <div>
-                <div className="mb-6 w-16 h-16 flex items-center justify-center rounded-xl shadow-victorian bg-gradient-to-r from-cottage-bg-leather to-cottage-bg-velvet border border-cottage-green-primary/30 mx-auto md:mx-0 group-hover:animate-glow">
-                  {icon}
-                </div>
-                <h3 className="text-xl font-bold mb-3 leading-snug text-cottage-cream-primary font-gothic">
+              <div className="relative z-10 text-center">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">
                   {title}
                 </h3>
-                <p className="text-base text-cottage-cream-secondary leading-relaxed font-elegant">
+                <p className="text-sm md:text-base text-cottage-text-muted leading-relaxed">
                   {description}
                 </p>
               </div>
-
-              <Button
-                onClick={() => handleLearnMore(sectionId)}
-                size="sm"
-                className="bg-gradient-to-r from-cottage-green-secondary to-cottage-green-primary hover:from-cottage-green-hover hover:to-cottage-green-secondary text-white font-bold shadow-victorian border border-cottage-teal-primary/30"
-              >
-                Learn More
-              </Button>
             </div>
           ))}
         </div>
 
-        {/* Library catalog reference */}
-        <div className="text-center mt-16">
-          <p className="text-cottage-cream-secondary font-elegant mb-4">
-            "Every great library contains the knowledge of ages, and every great
-            tattoo tells a story worth preserving."
+        {/* CTA */}
+        <div className="text-center mt-8 md:mt-16">
+          <p className="text-cottage-text-muted mb-4 md:mb-6 text-base md:text-lg px-4">
+            Ready to see more? Explore my portfolio of work
           </p>
           <Button
             to="/gallery"
             size="lg"
-            className="bg-gradient-to-r from-cottage-green-secondary to-cottage-green-primary hover:from-cottage-green-hover hover:to-cottage-green-secondary text-white font-bold px-8 py-4 text-lg shadow-victorian border border-cottage-teal-primary/30"
+            className="bg-gradient-to-r from-cottage-green-primary to-cottage-teal-primary hover:from-cottage-green-secondary hover:to-cottage-green-primary text-white font-semibold px-6 py-3 md:px-8 md:py-4 text-base md:text-lg shadow-lg border-0"
           >
-            Browse the Full Collection
+            View Gallery
           </Button>
         </div>
       </div>
