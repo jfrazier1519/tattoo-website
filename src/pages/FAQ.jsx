@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSiteContent } from "../hooks/useSiteContent.js";
+import FinalCTASection from "../components/home/FinalCTASection";
 
 const FAQ = () => {
   const { faq } = useSiteContent();
@@ -50,6 +51,10 @@ const FAQ = () => {
             </div>
           </div>
         </section>
+      </div>
+
+      <div className="bg-[#0a0a0a]">
+        <FinalCTASection />
       </div>
     </>
   );

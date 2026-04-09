@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../components/shared/Button";
+import SiteCTASection from "../components/shared/SiteCTASection";
 import { useSiteContent } from "../hooks/useSiteContent.js";
 
 const About = () => {
@@ -80,32 +80,14 @@ const About = () => {
         </section>
       </div>
 
-      {/* CTA Section - Black */}
       <div className="bg-[#0a0a0a]">
-        <section className="py-12 md:py-20">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-white">
-              {about.ctaTitle}
-            </h2>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <Button
-                to="/contact"
-                size="lg"
-                className="bg-cottage-gradient from-cottage-green-secondary to-cottage-green-accent hover:from-cottage-green-hover hover:to-cottage-emerald-hover text-white font-bold px-6 py-3 md:px-8 md:py-4 text-base md:text-lg shadow-cottage"
-              >
-                {about.getInTouch}
-              </Button>
-              <Button
-                to="/gallery"
-                size="lg"
-                variant="outline"
-                className="border-2 border-cottage-teal-primary text-cottage-teal-primary hover:bg-cottage-teal-primary hover:text-cottage-bg-accent font-bold px-6 py-3 md:px-8 md:py-4 text-base md:text-lg"
-              >
-                {about.viewGallery}
-              </Button>
-            </div>
-          </div>
-        </section>
+        <SiteCTASection
+          variant="full"
+          title={about.ctaTitle}
+          subtitle={about.ctaSubtitle}
+          primary={{ to: "/contact", label: about.getInTouch }}
+          secondary={{ to: "/gallery", label: about.viewGallery }}
+        />
       </div>
     </>
   );

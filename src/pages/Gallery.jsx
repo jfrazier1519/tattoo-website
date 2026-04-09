@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSiteContent } from "../hooks/useSiteContent.js";
+import FinalCTASection from "../components/home/FinalCTASection";
 
 const Gallery = () => {
   const { gallery } = useSiteContent();
@@ -62,25 +63,11 @@ const Gallery = () => {
               </div>
             ))}
           </div>
-
-          {/* Call to Action */}
-          <div className="text-center mt-8 md:mt-16 py-8 md:py-12 rounded-2xl border border-cottage-bg-border px-4">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3 md:mb-4 text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary">
-              {gallery.ctaTitle}
-            </h2>
-            <p className="text-cottage-text-muted mb-6 md:mb-8 max-w-2xl mx-auto text-sm sm:text-base">
-              {gallery.ctaBody}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <button className="px-6 py-3 md:px-8 md:py-4 bg-cottage-gradient from-cottage-green-secondary to-cottage-green-accent text-white font-bold rounded-full hover:from-cottage-green-hover hover:to-cottage-emerald-hover transition-all duration-300 shadow-cottage hover:shadow-cottage-lg text-sm md:text-base">
-                {gallery.bookAppointment}
-              </button>
-              <button className="px-6 py-3 md:px-8 md:py-4 border-2 border-cottage-teal-primary text-cottage-teal-primary font-bold rounded-full hover:bg-cottage-teal-primary hover:text-cottage-bg-accent transition-all duration-300 text-sm md:text-base">
-                {gallery.contactMe}
-              </button>
-            </div>
-          </div>
         </div>
+      </div>
+
+      <div className="bg-[#0a0a0a]">
+        <FinalCTASection />
       </div>
     </>
   );

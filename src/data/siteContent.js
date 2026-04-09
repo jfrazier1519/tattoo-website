@@ -15,6 +15,7 @@ export const siteContent = {
       { path: "/", label: "HOME" },
       { path: "/about", label: "ABOUT" },
       { path: "/gallery", label: "GALLERY" },
+      { path: "/events", label: "EVENTS" },
       { path: "/contact", label: "CONTACT" },
       { path: "/faq", label: "FAQ" },
     ],
@@ -31,6 +32,7 @@ export const siteContent = {
       { path: "/", label: "Home" },
       { path: "/about", label: "About Me" },
       { path: "/gallery", label: "Gallery" },
+      { path: "/events", label: "Events" },
       { path: "/contact", label: "Contact" },
     ],
     servicesTitle: "Services",
@@ -83,15 +85,131 @@ export const siteContent = {
         { image: "/assets/gallery/image51.jpeg", label: "Dark Elegance" },
         { image: "/assets/gallery/image46.jpeg", label: "Victorian Style" },
       ],
-      cta: "View Full Gallery",
-      ctaSubtext:
-        "Discover more of my dark artistry and gothic masterpieces",
+      galleryCta: "View full gallery",
+      eventsCta: "Upcoming events",
+      eventsPath: "/events",
     },
-    mobileCta: {
-      title: "Ready to Get Started?",
-      body: "Let's discuss your tattoo vision and create something amazing together.",
-      button: "Book Your Session",
-    },
+  },
+
+  /**
+   * Events / appearances — all fields optional except slug, categoryId, title, startDate
+   * unless you use dateDisplay instead of startDate for sorting (startDate still used for sort).
+   */
+  eventsPage: {
+    heroTitle: "Events & appearances",
+    heroSubtitle:
+      "Conventions, guest spots, shop happenings, and shout-outs to artists I love. Filter on the left, or scroll the timeline—each card is only as detailed as it needs to be.",
+    filterLegend: "Key",
+    filterLegendSub:
+      "Pick a category to narrow the list. Choose “All” to see everything in date order.",
+    filterAllId: "all",
+    categories: [
+      {
+        id: "all",
+        label: "All appearances",
+        description: "Everything coming up and recent, in order.",
+      },
+      {
+        id: "convention",
+        label: "Conventions",
+        description: "Weekend shows, expos, and travel ink.",
+      },
+      {
+        id: "shop",
+        label: "Shop & guest spots",
+        description: "Days at the booth, guest spots, and shop-hosted events.",
+      },
+      {
+        id: "shop_special",
+        label: "Shop specials",
+        description: "Flash days, promotions, or studio-specific announcements.",
+      },
+      {
+        id: "community",
+        label: "Friends & other artists",
+        description: "Events I’m not running—but want you to know about.",
+      },
+    ],
+    sectionUpcoming: "Coming up",
+    sectionPast: "Earlier",
+    emptyFiltered: "Nothing in this category yet. Try another filter or check back soon.",
+    readDetails: "Read more",
+    viewEventSite: "Official event link",
+    backToEvents: "← All events",
+    detailFallbackTitle: "Details",
+    notFoundTitle: "Event not found",
+    notFoundBody: "That event isn’t here anymore, or the link is wrong.",
+    notFoundCta: "Back to events",
+    noDetailPageBody:
+      "There isn’t a long write-up for this one—everything we’re sharing is on the card. Head back to the list anytime.",
+    linksHeading: "Links",
+    items: [
+      {
+        slug: "example-tattoo-con-2026",
+        categoryId: "convention",
+        title: "Example Tattoo Convention",
+        startDate: "2026-06-12",
+        endDate: "2026-06-14",
+        summary:
+          "Three-day show—I'll have select flash sheets, booking slots for small pieces, and a few one-off designs.",
+        location: "Salt Lake City, UT",
+        times: "Vendor floor Sat–Sun 10am–6pm; setup Friday",
+        externalUrl: "https://example.com",
+        detailIntro:
+          "I'm sharing a booth with a friend; half the table is my gothic-cute flash and half is their neotrad work. Stop by early if you want a same-day small piece—slots are limited.",
+        detailSections: [
+          {
+            heading: "Booth & hours",
+            body: "Booth 412, main hall. I'll be at the table most of Saturday and Sunday; Friday is mostly setup but say hi if you see me.",
+          },
+          {
+            heading: "Art I’m bringing",
+            body: "New flash sheets (dark florals + critters), a binder of customs for inspiration, and stickers for tips.",
+          },
+        ],
+        artGallery: {
+          caption: "Some of the sheets I’m packing",
+          items: [
+            { src: "/assets/gallery/image0.jpeg", alt: "Flash sample" },
+            { src: "/assets/gallery/image1.jpeg", alt: "Flash sample" },
+          ],
+        },
+        extraLinks: [
+          { label: "Floor map (PDF)", href: "https://example.com/map" },
+        ],
+      },
+      {
+        slug: "friday-the-13th-flash-2026",
+        categoryId: "shop_special",
+        title: "Friday the 13th flash day",
+        startDate: "2026-11-13",
+        summary:
+          "Classic flash specials at the shop—first come, limited designs. I'll post the sheet the week before.",
+        location: "At the shop (details when you book)",
+        times: "All day by appointment + limited walk-in",
+      },
+      {
+        slug: "guest-spot-november",
+        categoryId: "shop",
+        title: "Guest spot — sister shop weekend",
+        startDate: "2026-10-03",
+        endDate: "2026-10-05",
+        dateDisplay: "Oct 3–5, 2026",
+        summary: "",
+        location: "Portland, OR",
+        times: "",
+        externalUrl: "",
+      },
+      {
+        slug: "friend-pop-up",
+        categoryId: "community",
+        title: "Pop-up: friend’s art market (not my booth)",
+        startDate: "2026-05-17",
+        summary:
+          "I'm not vending—just want to support a talented friend. Amazing prints and small originals.",
+        externalUrl: "https://example.com/friend-event",
+      },
+    ],
   },
 
   servicesSection: {
@@ -120,8 +238,6 @@ export const siteContent = {
           "Personal consultation to discuss your vision, with custom sketches and design development for your perfect piece.",
       },
     ],
-    portfolioTeaser: "Ready to see more? Explore my portfolio of work",
-    viewGallery: "View Gallery",
   },
 
   requestQuoteSection: {
@@ -209,6 +325,7 @@ export const siteContent = {
       },
     ],
     ctaTitle: "Ready to Work Together?",
+    ctaSubtitle: "Let's make your vision permanent.",
     getInTouch: "Get In Touch",
     viewGallery: "View Gallery",
   },
@@ -337,11 +454,6 @@ export const siteContent = {
         description: "Adorable witch character with dark aesthetic",
       },
     ],
-    ctaTitle: "Love What You See?",
-    ctaBody:
-      "Ready to bring your vision to life? Let's create something unique together.",
-    bookAppointment: "Book Appointment",
-    contactMe: "Contact Me",
   },
 
   notFound: {

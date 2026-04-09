@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "../shared/Button";
 import { useSiteContent } from "../../hooks/useSiteContent.js";
 
 const ServicesSection = () => {
@@ -46,7 +45,6 @@ const ServicesSection = () => {
               key={idx}
               className="group h-full p-4 md:p-6 rounded-xl bg-cottage-bg-card/80 backdrop-blur-sm border border-cottage-green-primary/20 hover:border-cottage-teal-primary/50 relative transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cottage-green-primary/20"
             >
-              {/* Subtle glow on hover */}
               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-cottage-green-primary/0 to-cottage-teal-primary/0 group-hover:from-cottage-green-primary/5 group-hover:to-cottage-teal-primary/5 transition-opacity duration-300 pointer-events-none"></div>
 
               <div className="relative z-10 text-center">
@@ -59,20 +57,6 @@ const ServicesSection = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* CTA */}
-        <div className="text-center mt-8 md:mt-16">
-          <p className="text-cottage-text-muted mb-4 md:mb-6 text-base md:text-lg px-4">
-            {servicesSection.portfolioTeaser}
-          </p>
-          <Button
-            to="/gallery"
-            size="lg"
-            className="bg-gradient-to-r from-cottage-green-primary to-cottage-teal-primary hover:from-cottage-green-secondary hover:to-cottage-green-primary text-white font-semibold px-6 py-3 md:px-8 md:py-4 text-base md:text-lg shadow-lg border-0"
-          >
-            {servicesSection.viewGallery}
-          </Button>
         </div>
       </div>
     </section>

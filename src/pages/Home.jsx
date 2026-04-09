@@ -228,18 +228,25 @@ const Home = () => {
               ))}
             </div>
 
-            {/* CTA to Full Gallery */}
+            {/* Gallery + events — one row, no extra full-width CTA band */}
             <div className="text-center px-4">
-              <Button
-                to="/gallery"
-                size="lg"
-                className="bg-gradient-to-r from-cottage-green-primary to-cottage-teal-primary hover:from-cottage-green-secondary hover:to-cottage-green-primary text-white font-semibold px-8 md:px-12 py-3 md:py-4 text-lg md:text-xl shadow-lg border-0"
-              >
-                {home.featuredWork.cta}
-              </Button>
-              <p className="text-cottage-text-muted mt-4 text-base md:text-lg">
-                {home.featuredWork.ctaSubtext}
-              </p>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center max-w-lg sm:max-w-none mx-auto">
+                <Button
+                  to="/gallery"
+                  size="lg"
+                  className="bg-gradient-to-r from-cottage-green-primary to-cottage-teal-primary hover:from-cottage-green-secondary hover:to-cottage-green-primary text-white font-semibold px-8 md:px-10 py-3 md:py-4 text-base md:text-lg shadow-lg border-0 sm:min-w-[12rem]"
+                >
+                  {home.featuredWork.galleryCta}
+                </Button>
+                <Button
+                  to={home.featuredWork.eventsPath}
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-cottage-teal-primary text-cottage-teal-primary hover:bg-cottage-teal-primary hover:text-white font-semibold px-8 md:px-10 py-3 md:py-4 text-base md:text-lg shadow-lg sm:min-w-[12rem]"
+                >
+                  {home.featuredWork.eventsCta}
+                </Button>
+              </div>
             </div>
           </div>
         </section>
@@ -253,27 +260,6 @@ const Home = () => {
       {/* Request Quote - Black (continues from Services) - Hidden on mobile */}
       <div className="bg-[#0a0a0a] hidden md:block">
         <RequestQuoteSection />
-      </div>
-
-      {/* Mobile CTA - Show on mobile only, directs to contact */}
-      <div className="bg-[#0a0a0a] md:hidden">
-        <section className="py-12 px-4">
-          <div className="max-w-md mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-4 text-white">
-              {home.mobileCta.title}
-            </h2>
-            <p className="text-cottage-text-muted mb-6 text-sm">
-              {home.mobileCta.body}
-            </p>
-            <Button
-              to="/contact"
-              size="lg"
-              className="w-full bg-gradient-to-r from-cottage-green-primary to-cottage-teal-primary hover:from-cottage-green-secondary hover:to-cottage-green-primary text-white font-semibold px-6 py-3 text-base shadow-lg border-0"
-            >
-              {home.mobileCta.button}
-            </Button>
-          </div>
-        </section>
       </div>
 
       {/* Testimonials - Black (continues) */}
