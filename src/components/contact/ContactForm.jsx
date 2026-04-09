@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Button from "../shared/Button";
+import { useSiteContent } from "../../hooks/useSiteContent.js";
 
 const ContactForm = ({ cardMode = false }) => {
+  const { forms } = useSiteContent();
+  const fc = forms.contact;
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -9,6 +13,7 @@ const ContactForm = ({ cardMode = false }) => {
     tattooType: "",
     bodyLocation: "",
     size: "",
+    budget: "",
     preferredDate: "",
     description: "",
     message: "",
@@ -26,11 +31,9 @@ const ContactForm = ({ cardMode = false }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
     console.log("Form submitted:", formData);
     setSubmitted(true);
 
-    // Reset form after submission
     setTimeout(() => {
       setSubmitted(false);
       setFormData({
@@ -40,6 +43,7 @@ const ContactForm = ({ cardMode = false }) => {
         tattooType: "",
         bodyLocation: "",
         size: "",
+        budget: "",
         preferredDate: "",
         description: "",
         message: "",
@@ -56,11 +60,10 @@ const ContactForm = ({ cardMode = false }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Personal Information */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block mb-2 font-semibold text-cottage-green-primary">
-            Name *
+            {fc.labels.name}
           </label>
           <input
             type="text"
@@ -69,12 +72,12 @@ const ContactForm = ({ cardMode = false }) => {
             onChange={handleChange}
             required
             className={inputClass}
-            placeholder="Your full name"
+            placeholder={fc.placeholders.name}
           />
         </div>
         <div>
           <label className="block mb-2 font-semibold text-cottage-green-primary">
-            Email *
+            {fc.labels.email}
           </label>
           <input
             type="email"
@@ -83,7 +86,7 @@ const ContactForm = ({ cardMode = false }) => {
             onChange={handleChange}
             required
             className={inputClass}
-            placeholder="your.email@example.com"
+            placeholder={fc.placeholders.email}
           />
         </div>
       </div>
@@ -91,7 +94,7 @@ const ContactForm = ({ cardMode = false }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block mb-2 font-semibold text-cottage-green-primary">
-            Phone
+            {fc.labels.phone}
           </label>
           <input
             type="tel"
@@ -99,12 +102,12 @@ const ContactForm = ({ cardMode = false }) => {
             value={formData.phone}
             onChange={handleChange}
             className={inputClass}
-            placeholder="(555) 123-4567"
+            placeholder={fc.placeholders.phone}
           />
         </div>
         <div>
           <label className="block mb-2 font-semibold text-cottage-green-primary">
-            Preferred Date
+            {fc.labels.preferredDate}
           </label>
           <input
             type="date"
@@ -116,11 +119,10 @@ const ContactForm = ({ cardMode = false }) => {
         </div>
       </div>
 
-      {/* Tattoo Details */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block mb-2 font-semibold text-cottage-green-primary">
-            Tattoo Type *
+            {fc.labels.tattooType}
           </label>
           <select
             name="tattooType"
@@ -129,16 +131,17 @@ const ContactForm = ({ cardMode = false }) => {
             required
             className={inputClass}
           >
-            <option value="">Select tattoo type</option>
-            <option value="custom">Custom Design</option>
-            <option value="flash">Flash Art</option>
-            <option value="coverup">Cover-up</option>
-            <option value="touchup">Touch-up</option>
+            <option value="">{fc.selectPlaceholder.tattooType}</option>
+            {fc.tattooTypeOptions.map((opt) => (
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
           </select>
         </div>
         <div>
           <label className="block mb-2 font-semibold text-cottage-green-primary">
-            Body Location
+            {fc.labels.bodyLocation}
           </label>
           <select
             name="bodyLocation"
@@ -146,15 +149,12 @@ const ContactForm = ({ cardMode = false }) => {
             onChange={handleChange}
             className={inputClass}
           >
-            <option value="">Select location</option>
-            <option value="arm">Arm</option>
-            <option value="leg">Leg</option>
-            <option value="back">Back</option>
-            <option value="chest">Chest</option>
-            <option value="shoulder">Shoulder</option>
-            <option value="ankle">Ankle</option>
-            <option value="wrist">Wrist</option>
-            <option value="other">Other</option>
+            <option value="">{fc.selectPlaceholder.bodyLocation}</option>
+            {fc.bodyLocationOptions.map((opt) => (
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
           </select>
         </div>
       </div>
@@ -162,7 +162,7 @@ const ContactForm = ({ cardMode = false }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label className="block mb-2 font-semibold text-cottage-green-primary">
-            Size
+            {fc.labels.size}
           </label>
           <select
             name="size"
@@ -170,17 +170,17 @@ const ContactForm = ({ cardMode = false }) => {
             onChange={handleChange}
             className={inputClass}
           >
-            <option value="">Select size</option>
-            <option value="small">Small (1-3 inches)</option>
-            <option value="medium">Medium (3-6 inches)</option>
-            <option value="large">Large (6+ inches)</option>
-            <option value="sleeve">Sleeve</option>
-            <option value="full-back">Full Back</option>
+            <option value="">{fc.selectPlaceholder.size}</option>
+            {fc.sizeOptions.map((opt) => (
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
           </select>
         </div>
         <div>
           <label className="block mb-2 font-semibold text-cottage-green-primary">
-            Budget Range
+            {fc.labels.budget}
           </label>
           <select
             name="budget"
@@ -188,20 +188,19 @@ const ContactForm = ({ cardMode = false }) => {
             onChange={handleChange}
             className={inputClass}
           >
-            <option value="">Select budget range</option>
-            <option value="100-300">$100 - $300</option>
-            <option value="300-500">$300 - $500</option>
-            <option value="500-800">$500 - $800</option>
-            <option value="800-1200">$800 - $1,200</option>
-            <option value="1200+">$1,200+</option>
+            <option value="">{fc.selectPlaceholder.budget}</option>
+            {fc.budgetOptions.map((opt) => (
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
+              </option>
+            ))}
           </select>
         </div>
       </div>
 
-      {/* Description */}
       <div>
         <label className="block mb-2 font-semibold text-cottage-green-primary">
-          Tattoo Description *
+          {fc.labels.description}
         </label>
         <textarea
           name="description"
@@ -210,14 +209,13 @@ const ContactForm = ({ cardMode = false }) => {
           required
           rows={4}
           className={textareaClass}
-          placeholder="Describe your tattoo idea, style preferences, colors, and any specific elements you'd like included..."
+          placeholder={fc.placeholders.description}
         />
       </div>
 
-      {/* Additional Message */}
       <div>
         <label className="block mb-2 font-semibold text-cottage-green-primary">
-          Additional Message
+          {fc.labels.message}
         </label>
         <textarea
           name="message"
@@ -225,31 +223,26 @@ const ContactForm = ({ cardMode = false }) => {
           onChange={handleChange}
           rows={3}
           className={textareaClass}
-          placeholder="Any other details, questions, or special requests..."
+          placeholder={fc.placeholders.message}
         />
       </div>
 
-      {/* Submit Button */}
       <Button
         type="submit"
         size="lg"
         className="w-full bg-cottage-gradient from-cottage-green-secondary to-cottage-green-accent hover:from-cottage-green-hover hover:to-cottage-emerald-hover text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-cottage"
       >
-        Send Message
+        {fc.submit}
       </Button>
 
-      {/* Success Message */}
       {submitted && (
         <div className="mt-4 p-4 bg-cottage-green-primary/20 border border-cottage-green-primary/30 rounded-lg text-cottage-green-primary font-semibold text-center">
-          Thank you for your message! I'll get back to you within 24-48 hours to
-          discuss your tattoo idea.
+          {fc.success}
         </div>
       )}
 
-      {/* Note */}
       <p className="text-sm text-cottage-text-subtle text-center">
-        * Required fields. I'll respond within 24-48 hours to discuss your
-        tattoo idea and schedule a consultation.
+        {fc.footerNote}
       </p>
     </form>
   );

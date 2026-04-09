@@ -1,7 +1,10 @@
 import React from "react";
 import QuoteForm from "../contact/QuoteForm";
+import { useSiteContent } from "../../hooks/useSiteContent.js";
 
 const RequestQuoteSection = () => {
+  const { requestQuoteSection } = useSiteContent();
+
   return (
     <section className="py-12 md:py-16 lg:py-20 relative overflow-hidden z-10">
 
@@ -22,21 +25,17 @@ const RequestQuoteSection = () => {
           {/* Left: Heading and Description */}
           <div className="space-y-6 md:space-y-8 text-left max-w-md flex-1 order-2 md:order-1">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-teal-primary via-cottage-cream-primary to-cottage-green-hover">
-              Request a Quote
+              {requestQuoteSection.title}
             </h2>
 
           <p className="text-lg md:text-xl text-cottage-text-muted leading-relaxed">
-            Ready to bring your vision to life? Let's discuss your tattoo ideas
-            and create something extraordinary together. Every great piece
-            begins with a conversation.
+            {requestQuoteSection.intro}
           </p>
 
           {/* Quote box */}
           <div className="bg-cottage-bg-card/60 backdrop-blur-sm rounded-xl p-6 border border-cottage-green-primary/15">
             <p className="text-cottage-text-muted italic">
-              "The best tattoos are born from collaboration between artist and
-              client. Let's explore your ideas and create something uniquely
-              yours."
+              {requestQuoteSection.quote}
             </p>
           </div>
 

@@ -4,8 +4,10 @@ import ServicesSection from "../components/home/ServicesSection";
 import FinalCTASection from "../components/home/FinalCTASection";
 import RequestQuoteSection from "../components/home/RequestQuoteSection";
 import Testimonials from "../components/home/Testimonials";
+import { useSiteContent } from "../hooks/useSiteContent.js";
 
 const Home = () => {
+  const { home } = useSiteContent();
   const visionRef = useRef(null);
   const consultationRef = useRef(null);
   const studioRef = useRef(null);
@@ -57,7 +59,7 @@ const Home = () => {
           <div className="absolute right-0 top-0 w-full md:w-1/2 h-full">
             <img
               src="/assets/home/hero.jpg"
-              alt="Taylor Jae Tattoo"
+              alt={home.hero.imageAlt}
               className="w-full h-full object-cover opacity-40 grayscale"
             />
             <div className="absolute inset-0 bg-gradient-to-l from-black/20 via-transparent to-transparent"></div>
@@ -73,12 +75,11 @@ const Home = () => {
           <div className="relative z-10 w-full md:w-1/2 flex items-center justify-center text-white px-4 md:px-8">
             <div className="text-center max-w-2xl mx-auto">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-teal-primary via-cottage-cream-primary to-cottage-green-hover">
-                Taylor Jae Tattoo
+                {home.hero.title}
               </h1>
 
               <p className="text-lg sm:text-xl md:text-2xl text-cottage-cream-secondary mb-6 md:mb-8 max-w-2xl mx-auto font-elegant">
-                Where your tattoo vision becomes reality. Gothic, dark, and
-                adorable artwork brought to life on your skin.
+                {home.hero.subtitle}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -87,7 +88,7 @@ const Home = () => {
                   size="lg"
                   className="bg-gradient-to-r from-cottage-green-primary to-cottage-teal-primary hover:from-cottage-green-secondary hover:to-cottage-green-primary text-white font-semibold px-6 py-3 md:px-8 md:py-4 text-base md:text-lg shadow-lg border-0"
                 >
-                  Book Your Session
+                  {home.hero.primaryCta}
                 </Button>
                 <Button
                   to="/gallery"
@@ -95,7 +96,7 @@ const Home = () => {
                   variant="outline"
                   className="border-2 border-cottage-teal-primary text-cottage-teal-primary hover:bg-cottage-teal-primary hover:text-white font-semibold px-6 py-3 md:px-8 md:py-4 text-base md:text-lg shadow-lg"
                 >
-                  View Gallery
+                  {home.hero.secondaryCta}
                 </Button>
               </div>
             </div>
@@ -135,67 +136,40 @@ const Home = () => {
             </div>
             <div className="text-center mb-8 md:mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-teal-primary via-cottage-cream-primary to-cottage-green-hover">
-                My Process
+                {home.process.title}
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-              {/* Vision */}
-              <div className="group h-full p-4 md:p-6 rounded-xl bg-cottage-bg-card/80 backdrop-blur-sm border border-cottage-green-primary/20 hover:border-cottage-teal-primary/50 relative transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cottage-green-primary/20">
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-cottage-green-primary/0 to-cottage-teal-primary/0 group-hover:from-cottage-green-primary/5 group-hover:to-cottage-teal-primary/5 transition-opacity duration-300 pointer-events-none"></div>
-                <div className="relative z-10 text-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-cottage-teal-primary to-cottage-sage-primary rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <span className="text-2xl md:text-3xl font-bold text-white">
-                      1
-                    </span>
+              {home.process.steps.map((step, idx) => (
+                <div
+                  key={step.title}
+                  className="group h-full p-4 md:p-6 rounded-xl bg-cottage-bg-card/80 backdrop-blur-sm border border-cottage-green-primary/20 hover:border-cottage-teal-primary/50 relative transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cottage-green-primary/20"
+                >
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-cottage-green-primary/0 to-cottage-teal-primary/0 group-hover:from-cottage-green-primary/5 group-hover:to-cottage-teal-primary/5 transition-opacity duration-300 pointer-events-none"></div>
+                  <div className="relative z-10 text-center">
+                    <div
+                      className={`w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg ${
+                        idx === 0
+                          ? "bg-gradient-to-r from-cottage-teal-primary to-cottage-sage-primary"
+                          : idx === 1
+                            ? "bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary"
+                            : "bg-gradient-to-r from-cottage-sage-primary to-cottage-teal-primary"
+                      }`}
+                    >
+                      <span className="text-2xl md:text-3xl font-bold text-white">
+                        {step.number}
+                      </span>
+                    </div>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm md:text-base text-cottage-text-muted leading-relaxed">
+                      {step.body}
+                    </p>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">
-                    Vision
-                  </h3>
-                  <p className="text-sm md:text-base text-cottage-text-muted leading-relaxed">
-                    We start with your idea, your story, your vision. Every
-                    tattoo begins with understanding what you want to express.
-                  </p>
                 </div>
-              </div>
-
-              {/* Consultation */}
-              <div className="group h-full p-4 md:p-6 rounded-xl bg-cottage-bg-card/80 backdrop-blur-sm border border-cottage-green-primary/20 hover:border-cottage-teal-primary/50 relative transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cottage-green-primary/20">
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-cottage-green-primary/0 to-cottage-teal-primary/0 group-hover:from-cottage-green-primary/5 group-hover:to-cottage-teal-primary/5 transition-opacity duration-300 pointer-events-none"></div>
-                <div className="relative z-10 text-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-cottage-green-hover to-cottage-sage-primary rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <span className="text-2xl md:text-3xl font-bold text-white">
-                      2
-                    </span>
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">
-                    Consultation
-                  </h3>
-                  <p className="text-sm md:text-base text-cottage-text-muted leading-relaxed">
-                    We discuss placement, size, style, and bring your vision to
-                    life through sketches and planning.
-                  </p>
-                </div>
-              </div>
-
-              {/* Creation */}
-              <div className="group h-full p-4 md:p-6 rounded-xl bg-cottage-bg-card/80 backdrop-blur-sm border border-cottage-green-primary/20 hover:border-cottage-teal-primary/50 relative transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-cottage-green-primary/20">
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-cottage-green-primary/0 to-cottage-teal-primary/0 group-hover:from-cottage-green-primary/5 group-hover:to-cottage-teal-primary/5 transition-opacity duration-300 pointer-events-none"></div>
-                <div className="relative z-10 text-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-cottage-sage-primary to-cottage-teal-primary rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <span className="text-2xl md:text-3xl font-bold text-white">
-                      3
-                    </span>
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">
-                    Creation
-                  </h3>
-                  <p className="text-sm md:text-base text-cottage-text-muted leading-relaxed">
-                    With precision and artistry, I bring your vision to life,
-                    creating a piece that's uniquely yours.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -226,57 +200,32 @@ const Home = () => {
             </div>
             <div className="text-center mb-8 md:mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-teal-primary via-cottage-cream-primary to-cottage-green-hover">
-                Featured Work
+                {home.featuredWork.title}
               </h2>
               <p className="text-cottage-text-muted text-lg sm:text-xl mt-4 md:mt-6 max-w-3xl mx-auto px-4">
-                A glimpse into the dark artistry and gothic elegance that
-                defines my work
+                {home.featuredWork.subtitle}
               </p>
             </div>
 
             {/* Gallery Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mb-8 md:mb-12">
-              {/* Gothic Artwork */}
-              <div className="group relative overflow-hidden rounded-lg shadow-gothic">
-                <img
-                  src="/assets/gallery/image50.jpeg"
-                  alt="Gothic Artwork"
-                  className="w-full max-h-80 min-h-48 object-contain bg-cottage-bg-card"
-                />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-cottage-cream-primary text-lg font-semibold">
-                    Gothic Artwork
-                  </span>
+              {home.featuredWork.items.map((item) => (
+                <div
+                  key={item.image}
+                  className="group relative overflow-hidden rounded-lg shadow-gothic"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.label}
+                    className="w-full max-h-80 min-h-48 object-contain bg-cottage-bg-card"
+                  />
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-cottage-cream-primary text-lg font-semibold">
+                      {item.label}
+                    </span>
+                  </div>
                 </div>
-              </div>
-
-              {/* Dark Elegance */}
-              <div className="group relative overflow-hidden rounded-lg shadow-gothic">
-                <img
-                  src="/assets/gallery/image51.jpeg"
-                  alt="Dark Elegance"
-                  className="w-full max-h-80 min-h-48 object-contain bg-cottage-bg-card"
-                />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-cottage-cream-primary text-lg font-semibold">
-                    Dark Elegance
-                  </span>
-                </div>
-              </div>
-
-              {/* Victorian Style */}
-              <div className="group relative overflow-hidden rounded-lg shadow-gothic">
-                <img
-                  src="/assets/gallery/image46.jpeg"
-                  alt="Victorian Style"
-                  className="w-full max-h-80 min-h-48 object-contain bg-cottage-bg-card"
-                />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-cottage-cream-primary text-lg font-semibold">
-                    Victorian Style
-                  </span>
-                </div>
-              </div>
+              ))}
             </div>
 
             {/* CTA to Full Gallery */}
@@ -286,10 +235,10 @@ const Home = () => {
                 size="lg"
                 className="bg-gradient-to-r from-cottage-green-primary to-cottage-teal-primary hover:from-cottage-green-secondary hover:to-cottage-green-primary text-white font-semibold px-8 md:px-12 py-3 md:py-4 text-lg md:text-xl shadow-lg border-0"
               >
-                View Full Gallery
+                {home.featuredWork.cta}
               </Button>
               <p className="text-cottage-text-muted mt-4 text-base md:text-lg">
-                Discover more of my dark artistry and gothic masterpieces
+                {home.featuredWork.ctaSubtext}
               </p>
             </div>
           </div>
@@ -311,18 +260,17 @@ const Home = () => {
         <section className="py-12 px-4">
           <div className="max-w-md mx-auto text-center">
             <h2 className="text-2xl font-bold mb-4 text-white">
-              Ready to Get Started?
+              {home.mobileCta.title}
             </h2>
             <p className="text-cottage-text-muted mb-6 text-sm">
-              Let's discuss your tattoo vision and create something amazing
-              together.
+              {home.mobileCta.body}
             </p>
             <Button
               to="/contact"
               size="lg"
               className="w-full bg-gradient-to-r from-cottage-green-primary to-cottage-teal-primary hover:from-cottage-green-secondary hover:to-cottage-green-primary text-white font-semibold px-6 py-3 text-base shadow-lg border-0"
             >
-              Book Your Session
+              {home.mobileCta.button}
             </Button>
           </div>
         </section>

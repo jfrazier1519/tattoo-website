@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Button from "./shared/Button";
+import { useSiteContent } from "../hooks/useSiteContent.js";
 
 const Navbar = () => {
+  const { nav } = useSiteContent();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
@@ -33,61 +35,24 @@ const Navbar = () => {
             to="/"
             className="text-lg sm:text-xl md:text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary"
           >
-            TATTOO STUDIO
+            {nav.logo}
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link
-              to="/"
-              className={`relative pb-1 transition ${
-                isActive("/")
-                  ? "text-cottage-green-primary after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-cottage-green-primary"
-                  : "text-white/80 hover:text-cottage-green-primary hover:after:absolute hover:after:-bottom-1 hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-cottage-green-primary/50"
-              }`}
-            >
-              HOME
-            </Link>
-            <Link
-              to="/about"
-              className={`relative pb-1 transition ${
-                isActive("/about")
-                  ? "text-cottage-green-primary after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-cottage-green-primary"
-                  : "text-white/80 hover:text-cottage-green-primary hover:after:absolute hover:after:-bottom-1 hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-cottage-green-primary/50"
-              }`}
-            >
-              ABOUT
-            </Link>
-            <Link
-              to="/gallery"
-              className={`relative pb-1 transition ${
-                isActive("/gallery")
-                  ? "text-cottage-green-primary after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-cottage-green-primary"
-                  : "text-white/80 hover:text-cottage-green-primary hover:after:absolute hover:after:-bottom-1 hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-cottage-green-primary/50"
-              }`}
-            >
-              GALLERY
-            </Link>
-            <Link
-              to="/contact"
-              className={`relative pb-1 transition ${
-                isActive("/contact")
-                  ? "text-cottage-green-primary after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-cottage-green-primary"
-                  : "text-white/80 hover:text-cottage-green-primary hover:after:absolute hover:after:-bottom-1 hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-cottage-green-primary/50"
-              }`}
-            >
-              CONTACT
-            </Link>
-            <Link
-              to="/faq"
-              className={`relative pb-1 transition ${
-                isActive("/faq")
-                  ? "text-cottage-green-primary after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-cottage-green-primary"
-                  : "text-white/80 hover:text-cottage-green-primary hover:after:absolute hover:after:-bottom-1 hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-cottage-green-primary/50"
-              }`}
-            >
-              FAQ
-            </Link>
+            {nav.links.map(({ path, label }) => (
+              <Link
+                key={path}
+                to={path}
+                className={`relative pb-1 transition ${
+                  isActive(path)
+                    ? "text-cottage-green-primary after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-cottage-green-primary"
+                    : "text-white/80 hover:text-cottage-green-primary hover:after:absolute hover:after:-bottom-1 hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-cottage-green-primary/50"
+                }`}
+              >
+                {label}
+              </Link>
+            ))}
           </div>
 
           {/* Right: Book Appointment Button */}
@@ -96,7 +61,7 @@ const Navbar = () => {
             size="sm"
             className="hidden md:inline-block bg-cottage-gradient from-cottage-green-secondary to-cottage-green-accent hover:from-cottage-green-hover hover:to-cottage-emerald-hover shadow-cottage"
           >
-            Book Appointment
+            {nav.bookAppointment}
           </Button>
 
           {/* Mobile menu button */}
@@ -133,61 +98,20 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden bg-cottage-bg-accent/95 backdrop-blur-md border-t border-cottage-bg-border">
             <div className="px-4 py-6 space-y-4">
-              <Link
-                to="/"
-                className={`block py-2 transition ${
-                  isActive("/")
-                    ? "text-cottage-green-primary"
-                    : "text-white/80 hover:text-cottage-green-primary"
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                HOME
-              </Link>
-              <Link
-                to="/about"
-                className={`block py-2 transition ${
-                  isActive("/about")
-                    ? "text-cottage-green-primary"
-                    : "text-white/80 hover:text-cottage-green-primary"
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                ABOUT
-              </Link>
-              <Link
-                to="/gallery"
-                className={`block py-2 transition ${
-                  isActive("/gallery")
-                    ? "text-cottage-green-primary"
-                    : "text-white/80 hover:text-cottage-green-primary"
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                GALLERY
-              </Link>
-              <Link
-                to="/contact"
-                className={`block py-2 transition ${
-                  isActive("/contact")
-                    ? "text-cottage-green-primary"
-                    : "text-white/80 hover:text-cottage-green-primary"
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                CONTACT
-              </Link>
-              <Link
-                to="/faq"
-                className={`block py-2 transition ${
-                  isActive("/faq")
-                    ? "text-cottage-green-primary"
-                    : "text-white/80 hover:text-cottage-green-primary"
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                FAQ
-              </Link>
+              {nav.links.map(({ path, label }) => (
+                <Link
+                  key={path}
+                  to={path}
+                  className={`block py-2 transition ${
+                    isActive(path)
+                      ? "text-cottage-green-primary"
+                      : "text-white/80 hover:text-cottage-green-primary"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {label}
+                </Link>
+              ))}
               <div className="pt-4">
                 <Button
                   to="/contact"
@@ -195,7 +119,7 @@ const Navbar = () => {
                   className="w-full bg-cottage-gradient from-cottage-green-secondary to-cottage-green-accent hover:from-cottage-green-hover hover:to-cottage-emerald-hover"
                   onClick={() => setIsOpen(false)}
                 >
-                  Book Appointment
+                  {nav.bookAppointment}
                 </Button>
               </div>
             </div>

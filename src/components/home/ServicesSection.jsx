@@ -1,30 +1,11 @@
 import React from "react";
 import Button from "../shared/Button";
-
-const services = [
-  {
-    title: "Custom Tattoo Designs",
-    description:
-      "Unique artwork created specifically for you, blending your ideas with my signature dark and cute aesthetic.",
-  },
-  {
-    title: "Flash Art Collection",
-    description:
-      "Pre-designed pieces in my signature style, ready to bring to life on your skin with precision and care.",
-  },
-  {
-    title: "Cover-up Transformations",
-    description:
-      "Transform old tattoos into beautiful new pieces that you'll love, using advanced techniques and artistic vision.",
-  },
-  {
-    title: "Consultation & Design",
-    description:
-      "Personal consultation to discuss your vision, with custom sketches and design development for your perfect piece.",
-  },
-];
+import { useSiteContent } from "../../hooks/useSiteContent.js";
 
 const ServicesSection = () => {
+  const { servicesSection } = useSiteContent();
+  const { services } = servicesSection;
+
   return (
     <section
       id="services"
@@ -52,11 +33,10 @@ const ServicesSection = () => {
         </div>
         <div className="text-center mb-8 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-teal-primary via-cottage-cream-primary to-cottage-green-hover">
-            My Services
+            {servicesSection.title}
           </h2>
           <p className="text-lg sm:text-xl text-cottage-text-muted max-w-2xl mx-auto px-4">
-            From dark and gothic to cute and cartoony, every piece is crafted
-            with artistic vision and attention to detail
+            {servicesSection.subtitle}
           </p>
         </div>
 
@@ -84,14 +64,14 @@ const ServicesSection = () => {
         {/* CTA */}
         <div className="text-center mt-8 md:mt-16">
           <p className="text-cottage-text-muted mb-4 md:mb-6 text-base md:text-lg px-4">
-            Ready to see more? Explore my portfolio of work
+            {servicesSection.portfolioTeaser}
           </p>
           <Button
             to="/gallery"
             size="lg"
             className="bg-gradient-to-r from-cottage-green-primary to-cottage-teal-primary hover:from-cottage-green-secondary hover:to-cottage-green-primary text-white font-semibold px-6 py-3 md:px-8 md:py-4 text-base md:text-lg shadow-lg border-0"
           >
-            View Gallery
+            {servicesSection.viewGallery}
           </Button>
         </div>
       </div>

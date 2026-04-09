@@ -1,66 +1,14 @@
 import React, { useState } from "react";
+import { useSiteContent } from "../hooks/useSiteContent.js";
 
 const Gallery = () => {
+  const { gallery } = useSiteContent();
   const [selectedCategory, setSelectedCategory] = useState("all");
-
-  const categories = [
-    { id: "all", name: "All Artwork" },
-    { id: "tattoos", name: "Tattoos" },
-    { id: "drawings", name: "Drawings" },
-    { id: "flash", name: "Flash Art" },
-    { id: "custom", name: "Custom Designs" },
-  ];
-
-  // Gallery items using actual available images
-  const galleryItems = [
-    {
-      id: 1,
-      title: "Dark Rose",
-      category: "tattoos",
-      image: "/assets/gallery/image0.jpeg",
-      description: "Gothic rose design with dark shading",
-    },
-    {
-      id: 2,
-      title: "Cute Demon",
-      category: "drawings",
-      image: "/assets/gallery/image1.jpeg",
-      description: "Adorable demon character with edgy style",
-    },
-    {
-      id: 3,
-      title: "Moon & Stars",
-      category: "flash",
-      image: "/assets/gallery/image2.jpeg",
-      description: "Celestial flash art design",
-    },
-    {
-      id: 4,
-      title: "Skull & Flowers",
-      category: "custom",
-      image: "/assets/gallery/image3.jpeg",
-      description: "Custom skull design with floral elements",
-    },
-    {
-      id: 5,
-      title: "Gothic Cross",
-      category: "tattoos",
-      image: "/assets/gallery/image4.jpeg",
-      description: "Dark gothic cross with intricate details",
-    },
-    {
-      id: 6,
-      title: "Cute Witch",
-      category: "drawings",
-      image: "/assets/gallery/image5.jpeg",
-      description: "Adorable witch character with dark aesthetic",
-    },
-  ];
 
   const filteredItems =
     selectedCategory === "all"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === selectedCategory);
+      ? gallery.items
+      : gallery.items.filter((item) => item.category === selectedCategory);
 
   return (
     <>
@@ -70,11 +18,10 @@ const Gallery = () => {
           <div className="relative z-10 flex items-center justify-center h-full">
             <div className="text-center px-4">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary">
-                Art Gallery
+                {gallery.heroTitle}
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-cottage-text-secondary max-w-2xl mx-auto">
-                Explore my dark, edgy, and cute artwork. From gothic tattoos to
-                adorable demons.
+                {gallery.heroSubtitle}
               </p>
             </div>
           </div>
@@ -85,7 +32,7 @@ const Gallery = () => {
       <div className="bg-gradient-to-b from-[#1c1917] to-[#0c0a09]">
         <div className="container mx-auto px-4 py-6 md:py-8">
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 md:mb-8">
-            {categories.map((category) => (
+            {gallery.categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
@@ -119,18 +66,17 @@ const Gallery = () => {
           {/* Call to Action */}
           <div className="text-center mt-8 md:mt-16 py-8 md:py-12 rounded-2xl border border-cottage-bg-border px-4">
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 md:mb-4 text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary">
-              Love What You See?
+              {gallery.ctaTitle}
             </h2>
             <p className="text-cottage-text-muted mb-6 md:mb-8 max-w-2xl mx-auto text-sm sm:text-base">
-              Ready to bring your vision to life? Let's create something unique
-              together.
+              {gallery.ctaBody}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
               <button className="px-6 py-3 md:px-8 md:py-4 bg-cottage-gradient from-cottage-green-secondary to-cottage-green-accent text-white font-bold rounded-full hover:from-cottage-green-hover hover:to-cottage-emerald-hover transition-all duration-300 shadow-cottage hover:shadow-cottage-lg text-sm md:text-base">
-                Book Appointment
+                {gallery.bookAppointment}
               </button>
               <button className="px-6 py-3 md:px-8 md:py-4 border-2 border-cottage-teal-primary text-cottage-teal-primary font-bold rounded-full hover:bg-cottage-teal-primary hover:text-cottage-bg-accent transition-all duration-300 text-sm md:text-base">
-                Contact Me
+                {gallery.contactMe}
               </button>
             </div>
           </div>

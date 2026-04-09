@@ -1,39 +1,10 @@
 import React from "react";
-
-const testimonials = [
-  {
-    name: "Emma Blackwood",
-    title: "Gothic Rose Enthusiast",
-    text: "The artist's attention to detail is incredible! My gothic rose tattoo is exactly what I envisioned - dark, elegant, and perfectly executed.",
-  },
-  {
-    name: "Marcus Nightshade",
-    title: "Dark Art Collector",
-    text: "I've been getting tattoos for years, but this studio is something special. The artistic vision and attention to detail are unmatched.",
-  },
-  {
-    name: "Luna Moon",
-    title: "Cute Demon Lover",
-    text: "My adorable demon tattoo is perfect! It's edgy but cute, exactly the style I was looking for. The artist really understood my vision.",
-  },
-  {
-    name: "Raven Storm",
-    title: "Cover-up Success Story",
-    text: "Transformed my old tattoo into a beautiful new piece that I absolutely love. The artist's skill with cover-ups is remarkable.",
-  },
-  {
-    name: "Shadow Phoenix",
-    title: "Custom Design Client",
-    text: "From the initial consultation to the final result, every step was perfect. My custom design tells my story beautifully.",
-  },
-  {
-    name: "Violet Thorn",
-    title: "Gothic Style Admirer",
-    text: "The dark aesthetic and attention to detail make every visit feel special. My tattoos are works of art I'll treasure forever.",
-  },
-];
+import { useSiteContent } from "../../hooks/useSiteContent.js";
 
 const TestimonialsSection = () => {
+  const { testimonials: copy } = useSiteContent();
+  const { items: testimonials } = copy;
+
   return (
     <section
       id="testimonials"
@@ -51,10 +22,10 @@ const TestimonialsSection = () => {
         </div>
         <div className="text-center mb-8 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-teal-primary via-cottage-cream-primary to-cottage-green-hover">
-            What Clients Say
+            {copy.title}
           </h2>
           <p className="text-lg sm:text-xl text-cottage-text-muted">
-            Real ink, real stories
+            {copy.subtitle}
           </p>
         </div>
 

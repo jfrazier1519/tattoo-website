@@ -1,64 +1,39 @@
 import React, { useState } from "react";
 import Button from "../shared/Button";
 import { FaPalette, FaPaperPlane } from "react-icons/fa";
-
-const initialState = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  phone: "",
-  tattooType: "",
-  placement: "",
-  size: "",
-  style: "",
-  message: "",
-  terms: false,
-};
-
-const tattooTypeOptions = [
-  { value: "", label: "Choose one..." },
-  { value: "custom", label: "Custom Design" },
-  { value: "flash", label: "Flash Art" },
-  { value: "coverup", label: "Cover-up" },
-  { value: "touchup", label: "Touch-up" },
-  { value: "other", label: "Other" },
-];
-
-const placementOptions = [
-  { value: "", label: "Choose one..." },
-  { value: "arm", label: "Arm" },
-  { value: "leg", label: "Leg" },
-  { value: "back", label: "Back" },
-  { value: "chest", label: "Chest" },
-  { value: "shoulder", label: "Shoulder" },
-  { value: "ankle", label: "Ankle" },
-  { value: "wrist", label: "Wrist" },
-  { value: "other", label: "Other" },
-];
-
-const sizeOptions = [
-  { value: "", label: "Choose one..." },
-  { value: "small", label: "Small (1-3 inches)" },
-  { value: "medium", label: "Medium (3-6 inches)" },
-  { value: "large", label: "Large (6+ inches)" },
-  { value: "sleeve", label: "Sleeve" },
-  { value: "backpiece", label: "Back Piece" },
-];
-
-const styleOptions = [
-  { value: "", label: "Choose one..." },
-  { value: "gothic", label: "Gothic" },
-  { value: "dark-cute", label: "Dark & Cute" },
-  { value: "victorian", label: "Victorian" },
-  { value: "traditional", label: "Traditional" },
-  { value: "realistic", label: "Realistic" },
-  { value: "other", label: "Other" },
-];
+import { useSiteContent } from "../../hooks/useSiteContent.js";
 
 const QuoteForm = () => {
+  const { forms } = useSiteContent();
+  const fq = forms.quote;
+
+  const initialState = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    tattooType: "",
+    placement: "",
+    size: "",
+    style: "",
+    message: "",
+    terms: false,
+  };
+
   const [values, setValues] = useState(initialState);
   const [status, setStatus] = useState(null);
   const [message, setMessage] = useState("");
+
+  const tattooTypeOptions = [
+    { value: "", label: fq.chooseOne },
+    ...fq.tattooTypeOptions,
+  ];
+  const placementOptions = [
+    { value: "", label: fq.chooseOne },
+    ...fq.placementOptions,
+  ];
+  const sizeOptions = [{ value: "", label: fq.chooseOne }, ...fq.sizeOptions];
+  const styleOptions = [{ value: "", label: fq.chooseOne }, ...fq.styleOptions];
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -67,9 +42,8 @@ const QuoteForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Add validation and submission logic
     setStatus("success");
-    setMessage("Your quote request has been sent! I'll get back to you soon.");
+    setMessage(fq.success);
     setValues(initialState);
     setTimeout(() => {
       setStatus(null);
@@ -79,17 +53,19 @@ const QuoteForm = () => {
 
   return (
     <div className="w-full">
-      <form className="w-full flex flex-col gap-3 md:gap-4" onSubmit={handleSubmit}>
-        {/* Title */}
+      <form
+        className="w-full flex flex-col gap-3 md:gap-4"
+        onSubmit={handleSubmit}
+      >
         <div className="text-center mb-3 md:mb-4">
           <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-cottage-green-hover/80 to-cottage-sage-primary/80 rounded-full flex items-center justify-center mx-auto mb-2 md:mb-3 shadow-victorian">
             <FaPalette className="w-5 h-5 md:w-6 md:h-6 text-cottage-cream-primary" />
           </div>
           <h3 className="text-xl md:text-2xl font-gothic font-bold text-cottage-cream-primary">
-            Request Your Quote
+            {fq.title}
           </h3>
           <p className="text-sm md:text-base text-cottage-cream-secondary font-elegant">
-            Let's discuss your tattoo vision
+            {fq.subtitle}
           </p>
         </div>
 
@@ -105,73 +81,70 @@ const QuoteForm = () => {
           </div>
         )}
 
-        {/* First/Last Name */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div>
             <label className="block text-xs md:text-sm font-medium mb-1.5 text-cottage-cream-primary font-elegant">
-              First Name
+              {fq.fields.firstName}
             </label>
             <input
               type="text"
               name="firstName"
               value={values.firstName}
               onChange={handleChange}
-              placeholder="First Name"
+              placeholder={fq.placeholders.firstName}
               required
               className="w-full rounded-lg border border-white/10 bg-cottage-bg-card/60 px-3 py-2 md:px-4 md:py-2.5 focus:ring-1 focus:ring-white/20 focus:border-white/20 text-cottage-cream-secondary placeholder-cottage-text-subtle/60 transition-all duration-300 font-elegant text-sm"
             />
           </div>
           <div>
             <label className="block text-xs md:text-sm font-medium mb-1.5 text-cottage-cream-primary font-elegant">
-              Last Name
+              {fq.fields.lastName}
             </label>
             <input
               type="text"
               name="lastName"
               value={values.lastName}
               onChange={handleChange}
-              placeholder="Last Name"
+              placeholder={fq.placeholders.lastName}
               required
               className="w-full rounded-lg border border-white/10 bg-cottage-bg-card/60 px-3 py-2 md:px-4 md:py-2.5 focus:ring-1 focus:ring-white/20 focus:border-white/20 text-cottage-cream-secondary placeholder-cottage-text-subtle/60 transition-all duration-300 font-elegant text-sm"
             />
           </div>
         </div>
 
-        {/* Email/Phone */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div>
             <label className="block text-xs md:text-sm font-medium mb-1.5 text-cottage-cream-primary font-elegant">
-              Email
+              {fq.fields.email}
             </label>
             <input
               type="email"
               name="email"
               value={values.email}
               onChange={handleChange}
-              placeholder="Email"
+              placeholder={fq.placeholders.email}
               required
               className="w-full rounded-lg border border-white/10 bg-cottage-bg-card/60 px-3 py-2 md:px-4 md:py-2.5 focus:ring-1 focus:ring-white/20 focus:border-white/20 text-cottage-cream-secondary placeholder-cottage-text-subtle/60 transition-all duration-300 font-elegant text-sm"
             />
           </div>
           <div>
             <label className="block text-xs md:text-sm font-medium mb-1.5 text-cottage-cream-primary font-elegant">
-              Phone Number
+              {fq.fields.phone}
             </label>
             <input
               type="tel"
               name="phone"
               value={values.phone}
               onChange={handleChange}
-              placeholder="Phone Number"
+              placeholder={fq.placeholders.phone}
               className="w-full rounded-lg border border-white/10 bg-cottage-bg-card/60 px-3 py-2 md:px-4 md:py-2.5 focus:ring-1 focus:ring-white/20 focus:border-white/20 text-cottage-cream-secondary placeholder-cottage-text-subtle/60 transition-all duration-300 font-elegant text-sm"
             />
           </div>
         </div>
 
-        {/* Tattoo Type */}
         <div>
           <label className="block text-xs md:text-sm font-medium mb-1.5 text-cottage-cream-primary font-elegant">
-            Tattoo Type
+            {fq.fields.tattooType}
           </label>
           <select
             name="tattooType"
@@ -192,11 +165,10 @@ const QuoteForm = () => {
           </select>
         </div>
 
-        {/* Placement and Size */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div>
             <label className="block text-xs md:text-sm font-medium mb-1.5 text-cottage-cream-primary font-elegant">
-              Placement
+              {fq.fields.placement}
             </label>
             <select
               name="placement"
@@ -218,7 +190,7 @@ const QuoteForm = () => {
           </div>
           <div>
             <label className="block text-xs md:text-sm font-medium mb-1.5 text-cottage-cream-primary font-elegant">
-              Size
+              {fq.fields.size}
             </label>
             <select
               name="size"
@@ -240,10 +212,9 @@ const QuoteForm = () => {
           </div>
         </div>
 
-        {/* Style */}
         <div>
           <label className="block text-xs md:text-sm font-medium mb-1.5 text-cottage-cream-primary font-elegant">
-            Preferred Style
+            {fq.fields.style}
           </label>
           <select
             name="style"
@@ -264,23 +235,21 @@ const QuoteForm = () => {
           </select>
         </div>
 
-        {/* Message */}
         <div>
           <label className="block text-xs md:text-sm font-medium mb-1.5 text-cottage-cream-primary font-elegant">
-            Tell me about your vision
+            {fq.fields.message}
           </label>
           <textarea
             name="message"
             value={values.message}
             onChange={handleChange}
             rows={3}
-            placeholder="Describe your tattoo idea, any specific elements you want, colors, or inspiration..."
+            placeholder={fq.placeholders.message}
             className="w-full rounded-lg border border-white/10 bg-cottage-bg-card/60 px-3 py-2 md:px-4 md:py-2.5 focus:ring-1 focus:ring-white/20 focus:border-white/20 text-cottage-cream-secondary placeholder-cottage-text-subtle/60 transition-all duration-300 font-elegant resize-none text-sm"
             required
           />
         </div>
 
-        {/* Terms */}
         <div className="flex items-center gap-2">
           <input
             type="checkbox"
@@ -291,18 +260,17 @@ const QuoteForm = () => {
             required
           />
           <span className="text-xs md:text-sm text-cottage-cream-secondary font-elegant">
-            I agree to the terms and conditions
+            {fq.terms}
           </span>
         </div>
 
-        {/* Submit */}
         <Button
           type="submit"
           size="xl"
           className="mt-2 md:mt-3 bg-gradient-to-r from-cottage-green-hover/90 to-cottage-sage-primary/90 hover:from-cottage-green-hover hover:to-cottage-sage-primary text-white font-bold shadow-victorian border border-cottage-teal-primary/20 py-2.5 md:py-3 text-sm md:text-base"
         >
           <FaPaperPlane className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-          Send Quote Request
+          {fq.submit}
         </Button>
       </form>
     </div>

@@ -1,7 +1,7 @@
 {
   "projects": {
-    "default": "tattoo-website-534d3",
-    "prod": "tattoo-website-534d3"
+    "default": "tattoo-booking-platform",
+    "prod": "tattoo-booking-platform"
   },
   "targets": {},
   "etags": {}

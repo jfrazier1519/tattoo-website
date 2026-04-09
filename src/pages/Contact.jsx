@@ -1,8 +1,17 @@
 import React from "react";
 import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
 import ContactForm from "../components/contact/ContactForm";
+import { useSiteContent } from "../hooks/useSiteContent.js";
 
 const Contact = () => {
+  const { contact } = useSiteContent();
+  const [
+    locationBlock,
+    hoursBlock,
+    socialBlock,
+    expectBlock,
+  ] = contact.blocks;
+
   return (
     <>
       {/* Hero Section - Grey */}
@@ -10,11 +19,10 @@ const Contact = () => {
         <section className="relative py-12 md:py-20">
           <div className="relative z-10 container mx-auto px-4 text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary">
-            Get In Touch
+            {contact.heroTitle}
           </h1>
           <p className="text-lg sm:text-xl text-cottage-text-secondary max-w-2xl mx-auto">
-            Ready to start your tattoo journey? Let's discuss your ideas and
-            create something beautiful together.
+            {contact.heroSubtitle}
           </p>
         </div>
         </section>
@@ -28,22 +36,21 @@ const Contact = () => {
             {/* Contact Details */}
             <div className="order-2 lg:order-1">
               <h2 className="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-cottage-green-primary">
-                Let's Connect
+                {contact.connectTitle}
               </h2>
 
               <div className="space-y-8">
                 {/* Location */}
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xl">📍</span>
+                    <span className="text-white text-xl">{locationBlock.icon}</span>
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-2">
-                      Location
+                      {locationBlock.title}
                     </h3>
                     <p className="text-cottage-text-muted">
-                      I rent a booth at a local tattoo shop. The exact location
-                      will be provided when you book your appointment.
+                      {locationBlock.body}
                     </p>
                   </div>
                 </div>
@@ -51,15 +58,14 @@ const Contact = () => {
                 {/* Hours */}
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-cottage-gradient from-cottage-green-secondary to-cottage-green-primary rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xl">🕐</span>
+                    <span className="text-white text-xl">{hoursBlock.icon}</span>
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-2">
-                      Hours
+                      {hoursBlock.title}
                     </h3>
                     <p className="text-cottage-text-muted">
-                      By appointment only. I'm flexible with scheduling and can
-                      work around your availability.
+                      {hoursBlock.body}
                     </p>
                   </div>
                 </div>
@@ -67,14 +73,14 @@ const Contact = () => {
                 {/* Social Media */}
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-cottage-gradient from-cottage-green-accent to-cottage-green-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xl">📱</span>
+                    <span className="text-white text-xl">{socialBlock.icon}</span>
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-2">
-                      Follow My Work
+                      {socialBlock.title}
                     </h3>
                     <p className="text-cottage-text-muted mb-4">
-                      Check out my latest artwork and behind-the-scenes content.
+                      {socialBlock.body}
                     </p>
                     <div className="flex space-x-4">
                       <a
@@ -102,16 +108,14 @@ const Contact = () => {
                 {/* What to Expect */}
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-cottage-gradient from-cottage-green-secondary to-cottage-green-primary rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xl">💬</span>
+                    <span className="text-white text-xl">{expectBlock.icon}</span>
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-white mb-2">
-                      What to Expect
+                      {expectBlock.title}
                     </h3>
                     <p className="text-cottage-text-muted">
-                      We'll start with a consultation to discuss your ideas,
-                      placement, and style preferences. I'll create a custom
-                      design just for you.
+                      {expectBlock.body}
                     </p>
                   </div>
                 </div>
@@ -121,7 +125,7 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="order-1 lg:order-2">
               <h2 className="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-cottage-green-primary">
-                Send Me a Message
+                {contact.formColumnTitle}
               </h2>
               <ContactForm />
             </div>
