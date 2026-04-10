@@ -8,6 +8,8 @@ const FinalCTASection = () => {
   return (
     <SiteCTASection
       variant="full"
+      tone="editorial"
+      showDivider={false}
       title={finalCta.title}
       subtitle={finalCta.subtitle}
       primary={{ to: "/contact", label: finalCta.primaryCta }}

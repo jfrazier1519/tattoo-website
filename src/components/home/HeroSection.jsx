@@ -49,10 +49,10 @@ const HeroSection = ({ backgroundImage }) => {
 
         {/* CTA buttons */}
         <div className="flex justify-center gap-4 flex-wrap mb-12">
-          <Button to="/contact" variant="secondary">
+          <Button to="/contact" variant="primary" size="lg">
             Get Started
           </Button>
-          <Button to="/about" variant="secondary">
+          <Button to="/about" variant="secondary" size="lg">
             Learn More
           </Button>
         </div>

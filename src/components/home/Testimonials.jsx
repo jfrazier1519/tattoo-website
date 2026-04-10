@@ -1,80 +1,145 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useSiteContent } from "../../hooks/useSiteContent.js";
+import HomeSection from "./HomeSection";
+import Button from "../shared/Button";
+import { homeBody, homeSectionTitle, homeSubtitle } from "./homeTypography.js";
+
+const CAROUSEL_MS = 6500;
+
+function usePerView() {
+  const [perView, setPerView] = useState(1);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setPerView(mq.matches ? 2 : 1);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  return perView;
+}
 
 const TestimonialsSection = () => {
   const { testimonials: copy } = useSiteContent();
   const { items: testimonials } = copy;
+  const perView = usePerView();
+
+  const pageCount = useMemo(
+    () => Math.max(1, Math.ceil(testimonials.length / perView)),
+    [testimonials.length, perView],
+  );
+
+  const [page, setPage] = useState(0);
+
+  useEffect(() => {
+    setPage((p) => Math.min(p, pageCount - 1));
+  }, [pageCount]);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setPage((p) => (p + 1) % pageCount);
+    }, CAROUSEL_MS);
+    return () => window.clearInterval(id);
+  }, [pageCount]);
+
+  const visible = testimonials.slice(
+    page * perView,
+    page * perView + perView,
+  );
+
+  if (!testimonials.length) {
+    return null;
+  }
 
   return (
     <section
       id="testimonials"
-      className="py-12 md:py-16 lg:py-20 relative overflow-visible z-10"
+      className="scroll-mt-20 border-t border-white/[0.06] pt-20 md:pt-28 lg:pt-32 pb-16 md:pb-24 lg:pb-28 relative overflow-visible z-10"
     >
-
-      <div className="max-w-6xl mx-auto w-full relative z-10 px-4 sm:px-6 md:px-12">
-        {/* Decorative Divider */}
-        <div className="flex items-center justify-center gap-3 mb-8 md:mb-12">
-          <div className="h-px w-12 md:w-20 bg-gradient-to-r from-transparent via-cottage-teal-primary/40 to-cottage-teal-primary"></div>
-          <div className="w-1.5 h-1.5 bg-cottage-teal-primary rounded-full"></div>
-          <div className="h-px flex-1 max-w-xs bg-gradient-to-r from-cottage-teal-primary via-cottage-green-primary to-cottage-teal-primary"></div>
-          <div className="w-1.5 h-1.5 bg-cottage-green-primary rounded-full"></div>
-          <div className="h-px w-12 md:w-20 bg-gradient-to-l from-transparent via-cottage-green-primary/40 to-cottage-green-primary"></div>
-        </div>
-        <div className="text-center mb-8 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cottage-teal-primary via-cottage-cream-primary to-cottage-green-hover">
-            {copy.title}
-          </h2>
-          <p className="text-lg sm:text-xl text-cottage-text-muted">
-            {copy.subtitle}
-          </p>
+      <HomeSection>
+        <div className="text-center md:text-left mb-12 md:mb-16 max-w-2xl mx-auto md:mx-0">
+          <h2 className={`${homeSectionTitle} mb-4 md:mb-5`}>{copy.title}</h2>
+          <p className={`${homeSubtitle} mx-auto md:mx-0`}>{copy.subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8">
-          {testimonials.slice(0, 3).map(({ name, title, text }, idx) => (
-            <div
-              key={idx}
-              className="bg-cottage-bg-card/60 backdrop-blur-sm rounded-lg p-4 md:p-5 border-l-2 border-cottage-green-primary/50 hover:border-cottage-teal-primary transition-all duration-300"
+        <div
+          key={page}
+          className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 lg:gap-16 min-h-[11rem] md:min-h-[10rem] animate-testimonial-in"
+          aria-live="polite"
+        >
+          {visible.map((t, i) => (
+            <article
+              key={`${page}-${i}`}
+              className={`flex flex-col justify-center text-center md:text-left ${
+                visible.length === 1 && perView === 2
+                  ? "md:col-span-2 max-w-2xl mx-auto md:mx-0"
+                  : ""
+              }`}
             >
-              {/* Testimonial text */}
-              <p className="text-xs sm:text-sm text-cottage-text-muted mb-3 md:mb-4 leading-relaxed">
-                {text}
+              <p
+                className={`${homeBody} text-base md:text-lg italic text-stone-400`}
+              >
+                “{t.text}”
               </p>
-
-              {/* Client info */}
-              <div>
-                <p className="text-xs sm:text-sm font-bold text-white font-gothic">
-                  {name}
+              <footer className="mt-6 md:mt-8">
+                <p className="text-sm md:text-base font-medium text-stone-200">
+                  {t.name}
                 </p>
-                <p className="text-xs text-cottage-text-muted uppercase tracking-wide">
-                  {title}
+                <p className="text-xs md:text-sm text-stone-500 uppercase tracking-wide mt-1">
+                  {t.title}
                 </p>
-              </div>
-            </div>
-          ))}
-          {/* Show remaining testimonials on desktop */}
-          {testimonials.slice(3).map(({ name, title, text }, idx) => (
-            <div
-              key={idx + 3}
-              className="hidden md:block bg-cottage-bg-card/60 backdrop-blur-sm rounded-lg p-5 border-l-2 border-cottage-green-primary/50 hover:border-cottage-teal-primary transition-all duration-300"
-            >
-              {/* Testimonial text */}
-              <p className="text-sm text-cottage-text-muted mb-4 leading-relaxed">
-                {text}
-              </p>
-
-              {/* Client info */}
-              <div>
-                <p className="text-sm font-bold text-white font-gothic">
-                  {name}
-                </p>
-                <p className="text-xs text-cottage-text-muted uppercase tracking-wide">
-                  {title}
-                </p>
-              </div>
-            </div>
+              </footer>
+            </article>
           ))}
         </div>
-      </div>
+
+        <div className="flex flex-col items-center gap-5 mt-10 md:mt-12">
+          <div
+            className="flex justify-center items-center gap-2"
+            role="tablist"
+            aria-label="Testimonial slides"
+          >
+            {Array.from({ length: pageCount }, (_, i) => (
+              <button
+                key={i}
+                type="button"
+                role="tab"
+                aria-selected={i === page}
+                aria-label={`Go to testimonial slide ${i + 1} of ${pageCount}`}
+                onClick={() => setPage(i)}
+                className={`h-1.5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cottage-green-primary focus:ring-offset-2 focus:ring-offset-stone-950 ${
+                    i === page
+                      ? "w-8 bg-cottage-green-primary"
+                      : "w-1.5 bg-cottage-green-primary/25 hover:bg-cottage-green-primary/45"
+                  }`}
+              />
+            ))}
+          </div>
+          <div className="flex items-center gap-6 text-sm">
+            <Button
+              type="button"
+              variant="ghost"
+              size="md"
+              className="min-w-[5rem]"
+              onClick={() =>
+                setPage((p) => (p - 1 + pageCount) % pageCount)
+              }
+            >
+              Previous
+            </Button>
+            <Button
+              type="button"
+              variant="ghost"
+              size="md"
+              className="min-w-[5rem]"
+              onClick={() => setPage((p) => (p + 1) % pageCount)}
+            >
+              Next
+            </Button>
+          </div>
+        </div>
+      </HomeSection>
     </section>
   );
 };

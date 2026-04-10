@@ -229,8 +229,9 @@ const ContactForm = ({ cardMode = false }) => {
 
       <Button
         type="submit"
+        variant="primary"
         size="lg"
-        className="w-full bg-cottage-gradient from-cottage-green-secondary to-cottage-green-accent hover:from-cottage-green-hover hover:to-cottage-emerald-hover text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-cottage"
+        className="w-full"
       >
         {fc.submit}
       </Button>

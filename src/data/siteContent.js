@@ -10,41 +10,36 @@ export const siteContent = {
   },
 
   nav: {
-    logo: "TATTOO STUDIO",
+    logo: "Taylor Jae Tattoo",
     links: [
-      { path: "/", label: "HOME" },
-      { path: "/about", label: "ABOUT" },
-      { path: "/gallery", label: "GALLERY" },
-      { path: "/events", label: "EVENTS" },
-      { path: "/contact", label: "CONTACT" },
+      { path: "/", label: "Home" },
+      { path: "/about", label: "About" },
+      { path: "/gallery", label: "Gallery" },
+      { path: "/events", label: "Events" },
+      { path: "/contact", label: "Contact" },
       { path: "/faq", label: "FAQ" },
     ],
-    bookAppointment: "Book Appointment",
+    bookAppointment: "Book me",
   },
 
   footer: {
     brandInitial: "T",
-    brandName: "Tattoo Studio",
+    brandName: "Taylor Jae Tattoo",
     tagline:
-      "Creating unique, dark, and edgy artwork that tells your story. Specializing in gothic aesthetics with a cute twist.",
-    quickLinksTitle: "Quick Links",
+      "Dark, ornamental, sometimes unhinged—in a tasteful way. Custom work, flash when the mood hits, and the occasional cover-up rescue mission.",
+    quickLinksTitle: "On this site",
     quickLinks: [
       { path: "/", label: "Home" },
-      { path: "/about", label: "About Me" },
+      { path: "/about", label: "About" },
       { path: "/gallery", label: "Gallery" },
       { path: "/events", label: "Events" },
       { path: "/contact", label: "Contact" },
     ],
-    servicesTitle: "Services",
-    services: [
-      "Custom Tattoos",
-      "Flash Art",
-      "Cover-ups",
-      "Consultations",
-    ],
-    copyright: "© 2024 Tattoo Studio. All rights reserved.",
-    privacyPolicy: "Privacy Policy",
-    termsAndConditions: "Terms & Conditions",
+    servicesTitle: "What I do",
+    services: ["Custom tattoos", "Flash", "Cover-ups", "Consults"],
+    copyright: "© 2026 Taylor Jae Tattoo. All rights reserved.",
+    privacyPolicy: "Privacy",
+    termsAndConditions: "Terms",
   },
 
   home: {
@@ -52,41 +47,86 @@ export const siteContent = {
       imageAlt: "Taylor Jae Tattoo",
       title: "Taylor Jae Tattoo",
       subtitle:
-        "Where your tattoo vision becomes reality. Gothic, dark, and adorable artwork brought to life on your skin.",
-      primaryCta: "Book Your Session",
-      secondaryCta: "View Gallery",
+        "So yeah—this is my website. \n\nI tattoo dark, pretty-weird, sometimes-cute stuff. If you want something, cool. If you're just lurking, also cool. Half of this is for the bit anyway.",
+      primaryCta: "Okay, contact me",
+      secondaryCta: "Or peek the gallery",
     },
     process: {
-      title: "My Process",
+      title: "How this usually goes",
       steps: [
         {
           number: "1",
-          title: "Vision",
-          body: "We start with your idea, your story, your vision. Every tattoo begins with understanding what you want to express.",
+          title: "You explain the thing",
+          body: "Bring references, Pinterest boards, a vibe, a rant—whatever. I’ll nod a lot and ask annoying clarifying questions so we’re not guessing later.",
         },
         {
           number: "2",
-          title: "Consultation",
-          body: "We discuss placement, size, style, and bring your vision to life through sketches and planning.",
+          title: "We scheme",
+          body: "Placement, size, how much your calf can take before it files a complaint. Sketches happen here so appointment day isn’t a group panic.",
         },
         {
           number: "3",
-          title: "Creation",
-          body: "With precision and artistry, I bring your vision to life, creating a piece that's uniquely yours.",
+          title: "We actually tattoo",
+          body: "Needles, snacks, bad jokes, occasional silence. You leave with art; I leave with another story for group chat. Everyone wins.",
         },
       ],
     },
+    interstitials: [
+      {
+        image: "/assets/gallery/image7.jpeg",
+        alt: "Tattoo workstation with inks and supplies",
+        caption: "Organized for the thumbnail. The real table has opinions.",
+      },
+      {
+        image: "/assets/gallery/image9.jpeg",
+        alt: "Crowded tattoo convention floor",
+        caption: "Sometimes I leave the house on purpose. Wild concept.",
+      },
+    ],
+    beforeTestimonialsVisual: {
+      image: "/assets/gallery/image11.jpeg",
+      alt: "Healed linework tattoo detail",
+      caption: "Healed, not just fresh for the ’gram",
+    },
     featuredWork: {
-      title: "Featured Work",
+      title: "Some of my pieces",
       subtitle:
-        "A glimpse into the dark artistry and gothic elegance that defines my work",
-      items: [
-        { image: "/assets/gallery/image50.jpeg", label: "Gothic Artwork" },
-        { image: "/assets/gallery/image51.jpeg", label: "Dark Elegance" },
-        { image: "/assets/gallery/image46.jpeg", label: "Victorian Style" },
+        "So these are things I’ve put on actual humans. There’s more in the gallery if you’re trying to procrastinate at work.",
+      leadBlurb:
+        "Here’s one big so you can actually see the lines and detail. Below that: a grid of recent chaos—flash, customs, whatever I remembered to photograph.",
+      lead: {
+        image: "/assets/gallery/image50.jpeg",
+        alt: "Gothic ornamental tattoo piece",
+        label: "One I’m still proud of",
+      },
+      supporting: [
+        { image: "/assets/gallery/image51.jpeg", label: "Moody florals era" },
+        { image: "/assets/gallery/image46.jpeg", label: "Ornamental nonsense" },
+        { image: "/assets/gallery/image0.jpeg", label: "Flash I’d do again" },
+        { image: "/assets/gallery/image2.jpeg", label: "Lines survived" },
       ],
-      galleryCta: "View full gallery",
-      eventsCta: "Upcoming events",
+      lifestyleHeading: "Where the mess happens",
+      lifestyleSubtitle:
+        "Shop days, booth weekends, the rare time I remember to take a photo outside. It’s half documentation, half proof I touched grass.",
+      lifestyle: [
+        {
+          image: "/assets/gallery/image3.jpeg",
+          alt: "Tattoo session in progress",
+          caption: "Chair hours (send snacks)",
+        },
+        {
+          image: "/assets/gallery/image4.jpeg",
+          alt: "Tattoo shop interior with flash on the walls",
+          caption: "The walls judge you too",
+        },
+        {
+          image: "/assets/gallery/image5.jpeg",
+          alt: "Reference art and supplies on a work surface",
+          caption: "Prep table, organized chaos",
+        },
+      ],
+      galleryCta: "More art, more scrolling",
+      eventsCta: "Where I’ll be (maybe)",
       eventsPath: "/events",
     },
   },
@@ -122,7 +162,8 @@ export const siteContent = {
       {
         id: "shop_special",
         label: "Shop specials",
-        description: "Flash days, promotions, or studio-specific announcements.",
+        description:
+          "Flash days, promotions, or studio-specific announcements.",
       },
       {
         id: "community",
@@ -132,7 +173,8 @@ export const siteContent = {
     ],
     sectionUpcoming: "Coming up",
     sectionPast: "Earlier",
-    emptyFiltered: "Nothing in this category yet. Try another filter or check back soon.",
+    emptyFiltered:
+      "Nothing in this category yet. Try another filter or check back soon.",
     readDetails: "Read more",
     viewEventSite: "Official event link",
     backToEvents: "← All events",
@@ -213,83 +255,84 @@ export const siteContent = {
   },
 
   servicesSection: {
-    title: "My Services",
+    title: "What I actually do",
     subtitle:
-      "From dark and gothic to cute and cartoony, every piece is crafted with artistic vision and attention to detail",
+      "It’s all tattoo-adjacent. If you need a PowerPoint, you’re in the wrong place.",
     services: [
       {
-        title: "Custom Tattoo Designs",
+        title: "Custom pieces",
         description:
-          "Unique artwork created specifically for you, blending your ideas with my signature dark and cute aesthetic.",
+          "You bring a half-baked idea; I bring reference hoarding and opinions. Together we make something that isn’t a Pinterest clone.",
       },
       {
-        title: "Flash Art Collection",
+        title: "Flash",
         description:
-          "Pre-designed pieces in my signature style, ready to bring to life on your skin with precision and care.",
+          "Pre-drawn designs for when you want cool art and zero emotional labor. Pick one, we schedule, we go.",
       },
       {
-        title: "Cover-up Transformations",
+        title: "Cover-ups",
         description:
-          "Transform old tattoos into beautiful new pieces that you'll love, using advanced techniques and artistic vision.",
+          "That ex’s name? That barbed wire from 2009? We can talk. No promises until I see it in person—I'm awkward, not a wizard.",
       },
       {
-        title: "Consultation & Design",
+        title: "Consults & sketches",
         description:
-          "Personal consultation to discuss your vision, with custom sketches and design development for your perfect piece.",
+          "Sit-downs, DMs, rough comps—whatever gets us to a stencil without surprises the day of. Communication: it’s hot.",
       },
     ],
   },
 
   requestQuoteSection: {
-    title: "Request a Quote",
+    title: "Pitch me your idea",
     intro:
-      "Ready to bring your vision to life? Let's discuss your tattoo ideas and create something extraordinary together. Every great piece begins with a conversation.",
+      "Drop what you want, where it goes, and how patient you are. I’ll reply when I can—usually with follow-up questions because I’m like that. Ghosting is cringe; don’t do that to me either.",
     quote:
-      '"The best tattoos are born from collaboration between artist and client. Let\'s explore your ideas and create something uniquely yours."',
+      "“If you wanted a silent transaction you’d be at a vending machine. Tattoos are a conversation with extra needles.”",
   },
 
   testimonials: {
-    title: "What Clients Say",
-    subtitle: "Real ink, real stories",
+    title: "Nice things people said",
+    subtitle: "Unsolicited-ish. I didn’t pay them. Probably.",
     items: [
       {
-        name: "Emma Blackwood",
-        title: "Gothic Rose Enthusiast",
-        text: "The artist's attention to detail is incredible! My gothic rose tattoo is exactly what I envisioned - dark, elegant, and perfectly executed.",
+        name: "Emma K.",
+        title: "Rose girl",
+        text: "She acted unbothered the whole time and then the line work was stupid clean. 10/10 would sit through my own anxiety again.",
       },
       {
-        name: "Marcus Nightshade",
-        title: "Dark Art Collector",
-        text: "I've been getting tattoos for years, but this studio is something special. The artistic vision and attention to detail are unmatched.",
+        name: "Marcus",
+        title: "Has too many tattoos already",
+        text: "I’ve been tattooed everywhere; this was the first time someone explained aftercare without sounding like a brochure.",
       },
       {
-        name: "Luna Moon",
-        title: "Cute Demon Lover",
-        text: "My adorable demon tattoo is perfect! It's edgy but cute, exactly the style I was looking for. The artist really understood my vision.",
+        name: "Luna",
+        title: "Wanted a demon, got a mood",
+        text: "It’s cute, it’s cursed, it’s exactly the unhinged energy I asked for. My mom hates it. Success.",
       },
       {
-        name: "Raven Storm",
-        title: "Cover-up Success Story",
-        text: "Transformed my old tattoo into a beautiful new piece that I absolutely love. The artist's skill with cover-ups is remarkable.",
+        name: "Raven",
+        title: "Cover-up survivor",
+        text: "I walked in with regret and walked out with something I’d actually show strangers. Therapy could never.",
       },
       {
-        name: "Shadow Phoenix",
-        title: "Custom Design Client",
-        text: "From the initial consultation to the final result, every step was perfect. My custom design tells my story beautifully.",
+        name: "J.",
+        title: "Custom sleeve in progress",
+        text: "She sketches like she’s judging my life choices—in a supportive way. Sessions are long but the playlist slaps.",
       },
       {
-        name: "Violet Thorn",
-        title: "Gothic Style Admirer",
-        text: "The dark aesthetic and attention to detail make every visit feel special. My tattoos are works of art I'll treasure forever.",
+        name: "Vi",
+        title: "Chronic overthinker",
+        text: "I changed my mind three times and she didn’t even sigh audibly. The tattoo looks better than my personality.",
       },
     ],
   },
 
   finalCta: {
-    title: "Ready to Get Inked?",
-    subtitle: "Let's make your vision permanent",
-    primaryCta: "Book Your Session",
-    secondaryCta: "View Portfolio",
+    title: "Still here?",
+    subtitle:
+      "Cool. Weird. Anyway—if you want ink, say hi. If not, thanks for the traffic. Tell your friends. Or don’t. I’m not your supervisor.",
+    primaryCta: "Fine, let’s talk",
+    secondaryCta: "Just show me art",
   },
 
   about: {
@@ -362,7 +405,8 @@ export const siteContent = {
 
   faq: {
     heroTitle: "Frequently Asked Questions",
-    introBefore: "Here you'll find answers to our most frequently asked questions. If you still need help, ",
+    introBefore:
+      "Here you'll find answers to our most frequently asked questions. If you still need help, ",
     contactLinkText: "contact us",
     introAfter: " — we're happy to help.",
     questions: [
@@ -527,9 +571,9 @@ export const siteContent = {
         "* Required fields. I'll respond within 24-48 hours to discuss your tattoo idea and schedule a consultation.",
     },
     quote: {
-      title: "Request Your Quote",
-      subtitle: "Let's discuss your tattoo vision",
-      success: "Your quote request has been sent! I'll get back to you soon.",
+      title: "Project details",
+      subtitle: "The usual fields. Fill what you know—I’ll ask annoying follow-ups later.",
+      success: "Sent. I’ll dig through my inbox when I’m allowed to touch grass again.",
       fields: {
         firstName: "First Name",
         lastName: "Last Name",
@@ -550,8 +594,8 @@ export const siteContent = {
           "Describe your tattoo idea, any specific elements you want, colors, or inspiration...",
       },
       chooseOne: "Choose one...",
-      terms: "I agree to the terms and conditions",
-      submit: "Send Quote Request",
+      terms: "I’ve skimmed the terms and I’m not trying to cause problems",
+      submit: "Send it",
       tattooTypeOptions: [
         { value: "custom", label: "Custom Design" },
         { value: "flash", label: "Flash Art" },

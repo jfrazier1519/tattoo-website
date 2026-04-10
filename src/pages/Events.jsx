@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSiteContent } from "../hooks/useSiteContent.js";
 import FinalCTASection from "../components/home/FinalCTASection";
+import Button from "../components/shared/Button";
 import {
   eventHasDetailPage,
   formatEventDateDisplay,
@@ -138,15 +139,14 @@ const Events = () => {
                     .map((cat) => {
                       const active = filterId === cat.id;
                       return (
-                        <button
+                        <Button
                           key={cat.id}
                           type="button"
+                          variant="chip"
+                          selected={active}
+                          size="lg"
                           onClick={() => setFilterId(cat.id)}
-                          className={`text-left flex-shrink-0 lg:flex-shrink rounded-lg px-4 py-3 transition-all border ${
-                            active
-                              ? "border-cottage-teal-primary bg-cottage-teal-primary/10 text-white"
-                              : "border-cottage-bg-border bg-cottage-bg-accent/30 text-cottage-text-muted hover:border-cottage-green-primary/40 hover:text-cottage-cream-secondary"
-                          }`}
+                          className="w-full flex-shrink-0 text-left !inline-flex !flex-col !items-stretch !justify-start lg:flex-shrink"
                         >
                           <span className="block font-semibold text-sm md:text-base">
                             {cat.label}
@@ -156,7 +156,7 @@ const Events = () => {
                               {cat.description}
                             </span>
                           ) : null}
-                        </button>
+                        </Button>
                       );
                     })}
                 </nav>

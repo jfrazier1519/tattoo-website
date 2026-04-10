@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSiteContent } from "../hooks/useSiteContent.js";
 import FinalCTASection from "../components/home/FinalCTASection";
+import Button from "../components/shared/Button";
 
 const Gallery = () => {
   const { gallery } = useSiteContent();
@@ -34,17 +35,17 @@ const Gallery = () => {
         <div className="container mx-auto px-4 py-6 md:py-8">
           <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 md:mb-8">
             {gallery.categories.map((category) => (
-              <button
+              <Button
                 key={category.id}
+                type="button"
+                variant="chip"
+                selected={selectedCategory === category.id}
+                size="md"
                 onClick={() => setSelectedCategory(category.id)}
-                className={`px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold text-sm md:text-base transition-all duration-300 ${
-                  selectedCategory === category.id
-                    ? "bg-cottage-green-secondary text-white shadow-cottage shadow-cottage-green-secondary/50"
-                    : "bg-cottage-bg-card text-cottage-text-muted hover:bg-cottage-bg-border hover:text-white border border-cottage-bg-border"
-                }`}
+                className="font-normal md:px-6 md:py-2.5"
               >
                 {category.name}
-              </button>
+              </Button>
             ))}
           </div>
 

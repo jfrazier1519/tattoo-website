@@ -83,6 +83,7 @@ const About = () => {
       <div className="bg-[#0a0a0a]">
         <SiteCTASection
           variant="full"
+          showDivider={false}
           title={about.ctaTitle}
           subtitle={about.ctaSubtitle}
           primary={{ to: "/contact", label: about.getInTouch }}

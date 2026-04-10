@@ -67,6 +67,7 @@ export default {
         glow: "glow 2s ease-in-out infinite alternate",
         /** One-shot opacity twinkle; duration overridden per orb */
         "fairy-twinkle": "fairyTwinkle 22s ease-in-out forwards",
+        "testimonial-in": "testimonialIn 0.45s ease-out both",
       },
       keyframes: {
         flicker: {
@@ -92,6 +93,10 @@ export default {
         glow: {
           "0%": { boxShadow: "0 0 8px rgba(13, 148, 136, 0.35)" },
           "100%": { boxShadow: "0 0 28px rgba(13, 148, 136, 0.5)" },
+        },
+        testimonialIn: {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
     },

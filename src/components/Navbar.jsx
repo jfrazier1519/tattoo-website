@@ -28,97 +28,104 @@ const Navbar = () => {
     return location.pathname === path;
   };
 
+  const linkBase =
+    "relative pb-1 text-sm lg:text-[15px] whitespace-nowrap transition-colors";
+
+  const linkInactive = `${linkBase} text-stone-400 hover:text-stone-100`;
+  const linkActive = `${linkBase} text-cottage-green-primary`;
+
+  const underlineActive =
+    "after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:bg-cottage-green-primary";
+  const underlineHover =
+    "hover:after:absolute hover:after:-bottom-1 hover:after:left-0 hover:after:h-px hover:after:w-full hover:after:bg-white/25";
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-cottage-bg-accent/95 backdrop-blur-md shadow-cottage"
-          : "bg-transparent"
+          ? "border-b border-white/10 bg-stone-950/90 shadow-[0_1px_0_0_rgba(0,0,0,0.4)] backdrop-blur-md"
+          : "border-b border-transparent bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex flex-wrap items-center justify-between gap-y-2 min-h-16 md:min-h-[4.5rem] py-2 md:py-3">
-          {/* Logo */}
+        <div className="flex min-h-16 flex-wrap items-center justify-between gap-y-2 py-2 md:min-h-[4.5rem] md:py-3">
           <Link
             to="/"
-            className="text-lg sm:text-xl md:text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary shrink-0"
+            className="shrink-0 font-light tracking-tight text-stone-100 max-[380px]:text-[0.95rem] sm:text-lg md:text-xl"
           >
             {nav.logo}
           </Link>
 
-          {/* Desktop Navigation — centered, wraps so EVENTS etc. stay visible */}
-          <div className="hidden md:flex flex-1 justify-center items-center flex-wrap gap-x-4 lg:gap-x-6 gap-y-2 px-2 min-w-[40%] order-3 md:order-none w-full md:w-auto basis-full md:basis-auto">
+          <div className="order-3 hidden min-w-[40%] w-full flex-1 basis-full flex-wrap items-center justify-center gap-x-4 gap-y-2 px-2 md:order-none md:flex md:w-auto md:basis-auto">
             {nav.links.map(({ path, label }) => (
               <Link
                 key={path}
                 to={path}
-                className={`relative pb-1 text-sm lg:text-base whitespace-nowrap transition ${
+                className={
                   isActive(path)
-                    ? "text-cottage-green-primary after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-cottage-green-primary"
-                    : "text-white/80 hover:text-cottage-green-primary hover:after:absolute hover:after:-bottom-1 hover:after:left-0 hover:after:w-full hover:after:h-[2px] hover:after:bg-cottage-green-primary/50"
-                }`}
+                    ? `${linkActive} ${underlineActive}`
+                    : `${linkInactive} ${underlineHover}`
+                }
               >
                 {label}
               </Link>
             ))}
           </div>
 
-          <div className="flex items-center gap-2 shrink-0 ml-auto md:ml-0">
-            {/* Right: Book Appointment Button */}
+          <div className="ml-auto flex shrink-0 items-center gap-2 md:ml-0">
             <Button
               to="/contact"
+              variant="primary"
               size="sm"
-              className="hidden md:inline-block bg-cottage-gradient from-cottage-green-secondary to-cottage-green-accent hover:from-cottage-green-hover hover:to-cottage-emerald-hover shadow-cottage"
+              className="hidden md:inline-flex"
             >
               {nav.bookAppointment}
             </Button>
 
-            {/* Mobile menu button */}
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 text-white hover:text-cottage-green-primary transition-colors"
+              className="p-2 text-stone-300 transition-colors hover:text-cottage-green-primary md:hidden"
               aria-expanded={isOpen}
               aria-label={isOpen ? "Close menu" : "Open menu"}
             >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden bg-cottage-bg-accent/95 backdrop-blur-md border-t border-cottage-bg-border">
-            <div className="px-4 py-6 space-y-4">
+        {isOpen ? (
+          <div className="border-t border-white/10 bg-stone-950/95 backdrop-blur-md md:hidden">
+            <div className="space-y-1 px-4 py-6">
               {nav.links.map(({ path, label }) => (
                 <Link
                   key={path}
                   to={path}
-                  className={`block py-2 transition ${
+                  className={`block border-l-2 py-2.5 pl-4 text-[15px] transition-colors ${
                     isActive(path)
-                      ? "text-cottage-green-primary"
-                      : "text-white/80 hover:text-cottage-green-primary"
+                      ? "border-cottage-green-primary text-cottage-green-primary"
+                      : "border-transparent text-stone-400 hover:border-white/20 hover:text-stone-100"
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
@@ -128,8 +135,9 @@ const Navbar = () => {
               <div className="pt-4">
                 <Button
                   to="/contact"
+                  variant="primary"
                   size="sm"
-                  className="w-full bg-cottage-gradient from-cottage-green-secondary to-cottage-green-accent hover:from-cottage-green-hover hover:to-cottage-emerald-hover"
+                  className="w-full justify-center"
                   onClick={() => setIsOpen(false)}
                 >
                   {nav.bookAppointment}
@@ -137,7 +145,7 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-        )}
+        ) : null}
       </div>
     </nav>
   );
