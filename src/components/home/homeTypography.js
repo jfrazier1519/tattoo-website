@@ -40,6 +40,19 @@ export const homeSubtitle =
 export const homeCaption =
   "text-[11px] md:text-xs font-medium uppercase tracking-[0.18em] text-cottage-green-primary/55";
 
+/** Inner pages (About, Gallery, Events, Contact, FAQ) — panels and icons */
+export const editorialPanel =
+  "rounded-none border border-white/10 bg-stone-950/40";
+
+export const editorialPanelPadded =
+  "rounded-none border border-white/10 bg-stone-950/40 p-5 sm:p-6 md:p-8";
+
+export const editorialIconTile =
+  "inline-flex h-12 w-12 shrink-0 items-center justify-center border border-white/[0.12] bg-stone-950/80 text-lg text-stone-200";
+
+export const editorialInPageLink =
+  "text-stone-400 underline-offset-4 transition-colors hover:text-cottage-green-primary hover:underline decoration-cottage-green-primary/35";
+
 /** Editorial button paint — applied by `components/shared/Button.jsx` (`variant` primary / secondary). */
 export const homeButtonPrimary =
   "bg-cottage-gradient from-cottage-green-secondary to-cottage-green-accent hover:from-cottage-green-hover hover:to-cottage-emerald-hover shadow-cottage text-white font-medium border-0 focus:!ring-cottage-green-primary focus:ring-offset-2 focus:ring-offset-stone-950";

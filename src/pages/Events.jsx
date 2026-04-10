@@ -4,6 +4,14 @@ import { useSiteContent } from "../hooks/useSiteContent.js";
 import FinalCTASection from "../components/home/FinalCTASection";
 import Button from "../components/shared/Button";
 import {
+  homeBody,
+  homeCaption,
+  homeSectionTitle,
+  editorialInPageLink,
+  editorialPanel,
+  editorialPanelPadded,
+} from "../components/home/homeTypography.js";
+import {
   eventHasDetailPage,
   formatEventDateDisplay,
   sortEventsForTimeline,
@@ -42,34 +50,34 @@ const Events = () => {
     return (
       <article
         key={event.slug}
-        className="bg-cottage-bg-card/60 backdrop-blur-sm rounded-xl border border-cottage-bg-border shadow-cottage p-5 md:p-6 text-left"
+        className={`${editorialPanelPadded} text-left`}
       >
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
-          <h2 className="text-xl md:text-2xl font-bold text-white font-gothic">
+        <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+          <h2 className="text-xl font-medium text-stone-100 md:text-2xl">
             {event.title}
           </h2>
           {dateLine ? (
-            <p className="text-sm md:text-base text-cottage-teal-primary whitespace-nowrap sm:text-right font-elegant">
+            <p className="whitespace-nowrap text-sm text-stone-500 sm:text-right md:text-base">
               {dateLine}
             </p>
           ) : null}
         </div>
         {(event.location || event.times) && (
-          <div className="text-sm text-cottage-text-muted space-y-1 mb-3">
+          <div className="mb-3 space-y-1 text-sm text-stone-500">
             {event.location ? <p>{event.location}</p> : null}
             {event.times ? <p>{event.times}</p> : null}
           </div>
         )}
         {event.summary ? (
-          <p className="text-cottage-text-muted text-sm md:text-base leading-relaxed mb-4">
+          <p className={`${homeBody} mb-4 text-sm md:text-base`}>
             {event.summary}
           </p>
         ) : null}
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-4">
           {hasDetail ? (
             <Link
               to={`/events/${event.slug}`}
-              className="inline-flex items-center text-cottage-green-primary hover:text-cottage-green-light font-semibold text-sm md:text-base underline-offset-2 hover:underline"
+              className={editorialInPageLink}
             >
               {eventsPage.readDetails}
             </Link>
@@ -79,7 +87,7 @@ const Events = () => {
               href={ext}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-cottage-cream-secondary hover:text-cottage-teal-primary text-sm md:text-base underline-offset-2 hover:underline"
+              className={editorialInPageLink}
             >
               {eventsPage.viewEventSite}
             </a>
@@ -93,7 +101,9 @@ const Events = () => {
     if (!items.length) return null;
     return (
       <div className="mb-10 md:mb-14">
-        <h2 className="text-lg md:text-xl font-bold text-cottage-green-primary mb-4 md:mb-6 border-b border-cottage-bg-border pb-2">
+        <h2
+          className={`${homeCaption} mb-4 border-b border-white/10 pb-2 md:mb-6`}
+        >
           {title}
         </h2>
         <div className="flex flex-col gap-4 md:gap-6">
@@ -108,32 +118,32 @@ const Events = () => {
 
   return (
     <>
-      <div className="bg-[#1c1917]">
-        <section className="relative py-12 md:py-20">
-          <div className="relative z-10 container mx-auto px-4 text-center max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary">
+      <div className="bg-stone-950">
+        <section className="border-b border-white/10 py-12 md:py-20">
+          <div className="container relative z-10 mx-auto max-w-3xl px-4 text-center">
+            <p className={`mb-3 ${homeCaption}`}>Events</p>
+            <h1 className={`${homeSectionTitle} mb-4 md:mb-6`}>
               {eventsPage.heroTitle}
             </h1>
-            <p className="text-lg sm:text-xl text-cottage-text-secondary">
-              {eventsPage.heroSubtitle}
-            </p>
+            <p className={homeBody}>{eventsPage.heroSubtitle}</p>
           </div>
         </section>
       </div>
 
-      <div className="bg-gradient-to-b from-[#1c1917] to-[#0c0a09] flex-1">
+      <div className="flex-1 bg-stone-950">
         <div className="container mx-auto px-4 py-10 md:py-16">
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 xl:gap-16">
-            {/* Filter column — “compass” */}
-            <aside className="lg:w-72 xl:w-80 flex-shrink-0">
-              <div className="lg:sticky lg:top-24 rounded-xl border border-cottage-green-primary/20 bg-cottage-bg-card/40 backdrop-blur-sm p-5 md:p-6">
-                <p className="text-xs uppercase tracking-[0.2em] text-cottage-teal-primary mb-1">
+          <div className="flex flex-col gap-10 lg:flex-row lg:gap-12 xl:gap-16">
+            <aside className="flex-shrink-0 lg:w-72 xl:w-80">
+              <div
+                className={`lg:sticky lg:top-24 ${editorialPanel} p-5 md:p-6`}
+              >
+                <p className={`mb-1 ${homeCaption}`}>
                   {eventsPage.filterLegend}
                 </p>
-                <p className="text-sm text-cottage-text-muted mb-5 leading-relaxed">
+                <p className={`${homeBody} mb-5 text-sm`}>
                   {eventsPage.filterLegendSub}
                 </p>
-                <nav className="flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-1 lg:pb-0 -mx-1 px-1 lg:mx-0 lg:px-0">
+                <nav className="-mx-1 flex flex-row gap-2 overflow-x-auto px-1 pb-1 lg:mx-0 lg:flex-col lg:overflow-visible lg:px-0 lg:pb-0">
                   {[allCategory, ...categories]
                     .filter(Boolean)
                     .map((cat) => {
@@ -148,11 +158,11 @@ const Events = () => {
                           onClick={() => setFilterId(cat.id)}
                           className="w-full flex-shrink-0 text-left !inline-flex !flex-col !items-stretch !justify-start lg:flex-shrink"
                         >
-                          <span className="block font-semibold text-sm md:text-base">
+                          <span className="block text-sm font-medium md:text-base">
                             {cat.label}
                           </span>
                           {cat.description ? (
-                            <span className="block text-xs mt-1 opacity-90 leading-snug">
+                            <span className="mt-1 block text-xs leading-snug text-stone-500">
                               {cat.description}
                             </span>
                           ) : null}
@@ -163,10 +173,9 @@ const Events = () => {
               </div>
             </aside>
 
-            {/* Timeline */}
-            <div className="flex-1 min-w-0">
+            <div className="min-w-0 flex-1">
               {empty ? (
-                <p className="text-cottage-text-muted text-center lg:text-left py-12">
+                <p className={`${homeBody} py-12 text-center lg:text-left`}>
                   {eventsPage.emptyFiltered}
                 </p>
               ) : (
@@ -186,7 +195,7 @@ const Events = () => {
         </div>
       </div>
 
-      <div className="bg-[#0a0a0a]">
+      <div className="border-t border-white/10 bg-stone-950">
         <FinalCTASection />
       </div>
     </>

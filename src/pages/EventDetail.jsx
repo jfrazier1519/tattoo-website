@@ -4,6 +4,13 @@ import { useSiteContent } from "../hooks/useSiteContent.js";
 import Button from "../components/shared/Button";
 import FinalCTASection from "../components/home/FinalCTASection";
 import {
+  homeAccentHeading,
+  homeBody,
+  homeSectionTitle,
+  editorialInPageLink,
+  editorialPanel,
+} from "../components/home/homeTypography.js";
+import {
   eventHasDetailPage,
   formatEventDateDisplay,
 } from "../utils/eventUtils.js";
@@ -19,14 +26,14 @@ const EventDetail = () => {
 
   if (!event) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center bg-gradient-to-b from-[#1c1917] to-[#0a0a0a] px-6 text-center">
-        <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">
+      <div className="flex min-h-[60vh] flex-col items-center justify-center bg-stone-950 px-6 text-center">
+        <h1 className={`${homeAccentHeading} mb-3`}>
           {eventsPage.notFoundTitle}
         </h1>
-        <p className="text-cottage-text-muted mb-8 max-w-md">
+        <p className={`${homeBody} mb-8 max-w-md`}>
           {eventsPage.notFoundBody}
         </p>
-        <Button to="/events" size="lg">
+        <Button to="/events" variant="primary" size="lg">
           {eventsPage.notFoundCta}
         </Button>
       </div>
@@ -38,32 +45,28 @@ const EventDetail = () => {
     const ext = event.externalUrl?.trim();
     return (
       <>
-        <div className="min-h-[50vh] bg-gradient-to-b from-[#1c1917] to-[#0a0a0a] px-4 py-16">
+        <div className="min-h-[50vh] bg-stone-950 px-4 py-16">
           <div className="container mx-auto max-w-xl text-center">
             <Link
               to="/events"
-              className="inline-block text-cottage-teal-primary hover:text-cottage-green-light text-sm mb-8"
+              className={`mb-8 inline-block text-sm ${editorialInPageLink}`}
             >
               {eventsPage.backToEvents}
             </Link>
-            <h1 className="text-2xl md:text-4xl font-bold text-white mb-3 font-gothic">
-              {event.title}
-            </h1>
+            <h1 className={`${homeSectionTitle} mb-3`}>{event.title}</h1>
             {dateLine ? (
-              <p className="text-cottage-teal-primary mb-4">{dateLine}</p>
+              <p className="mb-4 text-sm text-stone-500">{dateLine}</p>
             ) : null}
             {(event.location || event.times) && (
-              <div className="text-cottage-text-muted text-sm space-y-1 mb-4">
+              <div className="mb-4 space-y-1 text-sm text-stone-500">
                 {event.location ? <p>{event.location}</p> : null}
                 {event.times ? <p>{event.times}</p> : null}
               </div>
             )}
             {event.summary ? (
-              <p className="text-cottage-text-muted leading-relaxed mb-6">
-                {event.summary}
-              </p>
+              <p className={`${homeBody} mb-6`}>{event.summary}</p>
             ) : null}
-            <p className="text-cottage-text-subtle text-sm mb-8">
+            <p className="mb-8 text-sm text-stone-500">
               {eventsPage.noDetailPageBody}
             </p>
             {ext ? (
@@ -71,19 +74,19 @@ const EventDetail = () => {
                 href={ext}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-cottage-green-primary font-semibold hover:underline mb-8"
+                className={`mb-8 inline-flex items-center ${editorialInPageLink}`}
               >
                 {eventsPage.viewEventSite}
               </a>
             ) : null}
             <div>
-              <Button to="/events" size="lg">
+              <Button to="/events" variant="primary" size="lg">
                 {eventsPage.notFoundCta}
               </Button>
             </div>
           </div>
         </div>
-        <div className="bg-[#0a0a0a]">
+        <div className="border-t border-white/10 bg-stone-950">
           <FinalCTASection />
         </div>
       </>
@@ -95,25 +98,21 @@ const EventDetail = () => {
 
   return (
     <>
-      <div className="bg-[#1c1917]">
-        <section className="relative py-8 md:py-12">
-          <div className="container mx-auto px-4 max-w-3xl">
+      <div className="border-b border-white/10 bg-stone-950">
+        <section className="py-8 md:py-12">
+          <div className="container mx-auto max-w-3xl px-4">
             <Link
               to="/events"
-              className="inline-block text-cottage-teal-primary hover:text-cottage-green-light text-sm md:text-base mb-6"
+              className={`mb-6 inline-block text-sm md:text-base ${editorialInPageLink}`}
             >
               {eventsPage.backToEvents}
             </Link>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary mb-4">
-              {event.title}
-            </h1>
+            <h1 className={`${homeSectionTitle} mb-4`}>{event.title}</h1>
             {dateLine ? (
-              <p className="text-lg text-cottage-teal-primary font-elegant mb-4">
-                {dateLine}
-              </p>
+              <p className="mb-4 text-lg text-stone-500">{dateLine}</p>
             ) : null}
             {(event.location || event.times) && (
-              <div className="text-cottage-text-muted space-y-1 mb-6">
+              <div className="mb-6 space-y-1 text-stone-500">
                 {event.location ? <p>{event.location}</p> : null}
                 {event.times ? <p>{event.times}</p> : null}
               </div>
@@ -123,7 +122,7 @@ const EventDetail = () => {
                 href={ext}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-cottage-green-primary hover:underline font-semibold"
+                className={`inline-flex items-center ${editorialInPageLink}`}
               >
                 {eventsPage.viewEventSite}
               </a>
@@ -132,16 +131,14 @@ const EventDetail = () => {
         </section>
       </div>
 
-      <div className="bg-gradient-to-b from-[#1c1917] to-[#0c0a09] pb-16 md:pb-24">
-        <div className="container mx-auto px-4 max-w-3xl prose prose-invert prose-p:text-cottage-text-muted prose-headings:text-white">
+      <div className="bg-stone-950 pb-16 md:pb-24">
+        <div className="container mx-auto max-w-3xl px-4">
           {event.summary ? (
-            <p className="text-cottage-text-muted text-lg leading-relaxed mb-8">
-              {event.summary}
-            </p>
+            <p className={`${homeBody} mb-8 text-lg`}>{event.summary}</p>
           ) : null}
 
           {event.detailIntro ? (
-            <p className="text-cottage-text-muted leading-relaxed mb-8 whitespace-pre-line">
+            <p className={`${homeBody} mb-8 whitespace-pre-line`}>
               {event.detailIntro}
             </p>
           ) : null}
@@ -149,13 +146,13 @@ const EventDetail = () => {
           {event.detailSections?.map((section, i) => (
             <section key={i} className="mb-8">
               {section.heading ? (
-                <h2 className="text-xl font-bold text-cottage-green-primary mb-3">
+                <h2 className="mb-3 text-xl font-medium text-stone-200">
                   {section.heading}
                 </h2>
               ) : (
                 <h2 className="sr-only">{eventsPage.detailFallbackTitle}</h2>
               )}
-              <p className="text-cottage-text-muted leading-relaxed whitespace-pre-line">
+              <p className={`${homeBody} whitespace-pre-line`}>
                 {section.body}
               </p>
             </section>
@@ -164,20 +161,20 @@ const EventDetail = () => {
           {event.artGallery?.items?.length ? (
             <section className="mb-10">
               {event.artGallery.caption ? (
-                <h2 className="text-xl font-bold text-cottage-green-primary mb-4">
+                <h2 className="mb-4 text-xl font-medium text-stone-200">
                   {event.artGallery.caption}
                 </h2>
               ) : null}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 {event.artGallery.items.map((img, idx) => (
                   <div
                     key={idx}
-                    className="rounded-lg overflow-hidden border border-cottage-bg-border bg-cottage-bg-card"
+                    className={`overflow-hidden ${editorialPanel}`}
                   >
                     <img
                       src={img.src}
                       alt={img.alt || ""}
-                      className="w-full max-h-80 object-contain"
+                      className="max-h-80 w-full object-contain"
                     />
                   </div>
                 ))}
@@ -187,7 +184,7 @@ const EventDetail = () => {
 
           {event.extraLinks?.length ? (
             <section>
-              <h2 className="text-xl font-bold text-cottage-green-primary mb-3">
+              <h2 className="mb-3 text-xl font-medium text-stone-200">
                 {eventsPage.linksHeading}
               </h2>
               <ul className="space-y-2">
@@ -197,7 +194,7 @@ const EventDetail = () => {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-cottage-teal-primary hover:underline"
+                      className={editorialInPageLink}
                     >
                       {link.label}
                     </a>
@@ -209,7 +206,7 @@ const EventDetail = () => {
         </div>
       </div>
 
-      <div className="bg-[#0a0a0a]">
+      <div className="border-t border-white/10 bg-stone-950">
         <FinalCTASection />
       </div>
     </>

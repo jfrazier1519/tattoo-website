@@ -6,7 +6,7 @@ const labelCls =
   "mb-2 block text-[11px] font-medium uppercase tracking-[0.14em] text-stone-500";
 
 const fieldCls =
-  "w-full rounded-md border border-white/[0.08] bg-stone-950/80 px-3 py-2.5 text-sm text-stone-200 placeholder:text-stone-600 transition-colors focus:border-cottage-green-primary/45 focus:outline-none focus:ring-2 focus:ring-cottage-green-primary/20";
+  "w-full rounded-none border border-white/[0.08] bg-stone-950/80 px-3 py-2.5 text-sm text-stone-200 placeholder:text-stone-600 transition-colors focus:border-cottage-green-primary/45 focus:outline-none focus:ring-2 focus:ring-cottage-green-primary/20";
 
 const QuoteForm = () => {
   const { forms } = useSiteContent();
@@ -73,7 +73,7 @@ const QuoteForm = () => {
 
         {status ? (
           <div
-            className="rounded-md border border-cottage-green-primary/25 bg-cottage-green-primary/10 px-4 py-3 text-center text-sm text-stone-200"
+            className="rounded-none border border-cottage-green-primary/25 bg-cottage-green-primary/10 px-4 py-3 text-center text-sm text-stone-200"
             role="status"
           >
             {message}

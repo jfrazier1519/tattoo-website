@@ -1,17 +1,23 @@
 import React from "react";
 import Button from "../components/shared/Button";
 import { useSiteContent } from "../hooks/useSiteContent.js";
+import {
+  homeBody,
+  homeCaption,
+  homeSectionTitle,
+} from "../components/home/homeTypography.js";
 
 const NotFound = () => {
   const { notFound } = useSiteContent();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-black via-[#214045] to-white text-center px-6">
-      <h1 className="text-6xl font-bold text-white mb-4 uppercase tracking-wider">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-stone-950 px-6 text-center">
+      <p className={`mb-3 ${homeCaption}`}>Error</p>
+      <h1 className={`${homeSectionTitle} mb-4 tabular-nums`}>
         {notFound.code}
       </h1>
-      <p className="text-xl text-gray-200 mb-6 max-w-md">{notFound.message}</p>
-      <Button to="/" size="lg">
+      <p className={`${homeBody} mb-8 max-w-md`}>{notFound.message}</p>
+      <Button to="/" variant="primary" size="lg">
         {notFound.goHome}
       </Button>
     </div>

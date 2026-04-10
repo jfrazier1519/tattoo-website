@@ -1,38 +1,51 @@
 import React from "react";
 import SiteCTASection from "../components/shared/SiteCTASection";
 import { useSiteContent } from "../hooks/useSiteContent.js";
+import {
+  homeAccentHeading,
+  homeBody,
+  homeCaption,
+  homeSectionTitle,
+  editorialIconTile,
+  editorialPanel,
+  editorialPanelPadded,
+} from "../components/home/homeTypography.js";
 
 const About = () => {
   const { about } = useSiteContent();
 
   return (
     <>
-      {/* My Story Section - Grey to Charcoal */}
-      <div className="bg-gradient-to-b from-[#1c1917] to-[#0c0a09]">
-        <section className="pt-20 md:pt-32 pb-12 md:pb-20">
+      <div className="bg-stone-950">
+        <section className="border-b border-white/10 pt-20 pb-12 md:pt-32 md:pb-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
-                <div className="text-center lg:text-left order-2 lg:order-1">
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-cottage-green-primary">
+            <div className="mx-auto max-w-6xl">
+              <div className="grid grid-cols-1 items-center gap-8 md:gap-16 lg:grid-cols-2">
+                <div className="order-2 text-center lg:order-1 lg:text-left">
+                  <p className={`mb-3 ${homeCaption}`}>About</p>
+                  <h1 className={`${homeSectionTitle} mb-6 md:mb-8`}>
                     {about.storyTitle}
                   </h1>
                   {about.storyParagraphs.map((paragraph, index) => (
                     <p
                       key={index}
-                      className="text-base sm:text-lg text-cottage-text-muted mb-4 md:mb-6 last:mb-0"
+                      className={`${homeBody} mb-4 md:mb-6 last:mb-0`}
                     >
                       {paragraph}
                     </p>
                   ))}
                 </div>
 
-                <div className="relative order-1 lg:order-2">
-                  <img
-                    src="/assets/about/about.jpg"
-                    alt={about.portraitAlt}
-                    className="h-auto w-full max-h-[24rem] md:max-h-[32rem] object-contain rounded-lg border border-cottage-bg-border shadow-cottage mx-auto lg:mx-0"
-                  />
+                <div className="order-1 lg:order-2">
+                  <div
+                    className={`mx-auto max-w-md overflow-hidden lg:mx-0 lg:max-w-none ${editorialPanel}`}
+                  >
+                    <img
+                      src="/assets/about/about.jpg"
+                      alt={about.portraitAlt}
+                      className="h-auto w-full max-h-[24rem] object-contain md:max-h-[32rem]"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -40,39 +53,33 @@ const About = () => {
         </section>
       </div>
 
-      {/* Why Choose Me Section - Charcoal to Black */}
-      <div className="bg-gradient-to-b from-[#0c0a09] to-[#0a0a0a]">
+      <div className="border-t border-white/10 bg-stone-950">
         <section className="py-12 md:py-20">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-8 md:mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4 md:mb-6 text-white">
+            <div className="mb-10 text-center md:mb-16">
+              <h2 className={`${homeAccentHeading} mb-4 md:mb-5`}>
                 {about.whyTitle}
               </h2>
-              <p className="text-lg sm:text-xl text-cottage-text-muted max-w-3xl mx-auto px-4">
+              <p className={`${homeBody} mx-auto max-w-3xl px-4`}>
                 {about.whyIntro}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-              {about.pillars.map((pillar, idx) => (
-                <div key={pillar.title} className="text-center">
-                  <div
-                    className={`w-16 h-16 bg-cottage-gradient rounded-full flex items-center justify-center mx-auto mb-4 ${
-                      idx === 0
-                        ? "from-cottage-green-primary to-cottage-green-secondary"
-                        : idx === 1
-                          ? "from-cottage-green-secondary to-cottage-green-primary"
-                          : idx === 2
-                            ? "from-cottage-green-accent to-cottage-green-secondary"
-                            : "from-cottage-green-secondary to-cottage-green-primary"
-                    }`}
-                  >
-                    <span className="text-white text-2xl">{pillar.emoji}</span>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6">
+              {about.pillars.map((pillar) => (
+                <div
+                  key={pillar.title}
+                  className={`${editorialPanelPadded} flex flex-col items-center text-center`}
+                >
+                  <div className={`${editorialIconTile} mb-4 h-14 w-14 text-2xl`}>
+                    <span aria-hidden>{pillar.emoji}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">
+                  <h3 className="mb-2 text-lg font-medium text-stone-200">
                     {pillar.title}
                   </h3>
-                  <p className="text-cottage-text-muted text-sm">{pillar.body}</p>
+                  <p className="text-sm leading-relaxed text-stone-500">
+                    {pillar.body}
+                  </p>
                 </div>
               ))}
             </div>
@@ -80,9 +87,10 @@ const About = () => {
         </section>
       </div>
 
-      <div className="bg-[#0a0a0a]">
+      <div className="border-t border-white/10 bg-stone-950">
         <SiteCTASection
           variant="full"
+          tone="editorial"
           showDivider={false}
           title={about.ctaTitle}
           subtitle={about.ctaSubtitle}

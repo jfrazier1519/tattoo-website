@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { useSiteContent } from "../hooks/useSiteContent.js";
 import FinalCTASection from "../components/home/FinalCTASection";
 import Button from "../components/shared/Button";
+import {
+  homeBody,
+  homeCaption,
+  homeSectionTitle,
+  editorialPanel,
+} from "../components/home/homeTypography.js";
 
 const Gallery = () => {
   const { gallery } = useSiteContent();
@@ -14,15 +20,15 @@ const Gallery = () => {
 
   return (
     <>
-      {/* Hero Section - Grey */}
-      <div className="bg-[#1c1917]">
-        <div className="relative min-h-48 md:h-64 py-12 md:py-0">
-          <div className="relative z-10 flex items-center justify-center h-full">
-            <div className="text-center px-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary">
+      <div className="bg-stone-950">
+        <div className="relative min-h-48 py-12 md:h-64 md:py-0">
+          <div className="relative z-10 flex h-full items-center justify-center">
+            <div className="px-4 text-center">
+              <p className={`mb-3 ${homeCaption}`}>Gallery</p>
+              <h1 className={`${homeSectionTitle} mb-3 md:mb-4`}>
                 {gallery.heroTitle}
               </h1>
-              <p className="text-base sm:text-lg md:text-xl text-cottage-text-secondary max-w-2xl mx-auto">
+              <p className={`${homeBody} mx-auto max-w-2xl`}>
                 {gallery.heroSubtitle}
               </p>
             </div>
@@ -30,10 +36,9 @@ const Gallery = () => {
         </div>
       </div>
 
-      {/* Category Filter & Gallery - Grey to Charcoal */}
-      <div className="bg-gradient-to-b from-[#1c1917] to-[#0c0a09]">
-        <div className="container mx-auto px-4 py-6 md:py-8">
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 md:mb-8">
+      <div className="bg-stone-950">
+        <div className="container mx-auto px-4 py-6 md:py-10">
+          <div className="mb-6 flex flex-wrap justify-center gap-2 sm:mb-8 sm:gap-3">
             {gallery.categories.map((category) => (
               <Button
                 key={category.id}
@@ -49,17 +54,16 @@ const Gallery = () => {
             ))}
           </div>
 
-          {/* Gallery Grid - Patchwork Style */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6">
+          <div className="columns-1 gap-4 space-y-4 sm:columns-2 md:gap-6 md:space-y-6 lg:columns-3">
             {filteredItems.map((item) => (
               <div
                 key={item.id}
-                className="group bg-cottage-bg-card rounded-lg overflow-hidden shadow-cottage hover:shadow-cottage-lg transition-all duration-300 hover:-translate-y-2 border border-cottage-bg-border break-inside-avoid mb-4 md:mb-6"
+                className={`group mb-4 break-inside-avoid overflow-hidden transition-colors duration-200 md:mb-6 ${editorialPanel} hover:border-cottage-green-primary/25`}
               >
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full max-h-96 min-h-48 object-contain bg-cottage-bg-card"
+                  className="max-h-96 min-h-48 w-full bg-stone-950 object-contain"
                 />
               </div>
             ))}
@@ -67,7 +71,7 @@ const Gallery = () => {
         </div>
       </div>
 
-      <div className="bg-[#0a0a0a]">
+      <div className="border-t border-white/10 bg-stone-950">
         <FinalCTASection />
       </div>
     </>

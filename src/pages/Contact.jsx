@@ -2,135 +2,119 @@ import React from "react";
 import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
 import ContactForm from "../components/contact/ContactForm";
 import { useSiteContent } from "../hooks/useSiteContent.js";
+import {
+  homeAccentHeading,
+  homeBody,
+  homeCaption,
+  homeSectionTitle,
+  editorialIconTile,
+  editorialPanelPadded,
+} from "../components/home/homeTypography.js";
 
 const Contact = () => {
   const { contact } = useSiteContent();
-  const [
-    locationBlock,
-    hoursBlock,
-    socialBlock,
-    expectBlock,
-  ] = contact.blocks;
+  const [locationBlock, hoursBlock, socialBlock, expectBlock] = contact.blocks;
+
+  const socialBtn =
+    "flex h-10 w-10 items-center justify-center border border-white/[0.1] text-stone-400 transition-colors hover:border-cottage-green-primary/35 hover:text-cottage-green-primary";
 
   return (
     <>
-      {/* Hero Section - Grey */}
-      <div className="bg-[#1c1917]">
-        <section className="relative py-12 md:py-20">
-          <div className="relative z-10 container mx-auto px-4 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary">
-            {contact.heroTitle}
-          </h1>
-          <p className="text-lg sm:text-xl text-cottage-text-secondary max-w-2xl mx-auto">
-            {contact.heroSubtitle}
-          </p>
-        </div>
+      <div className="bg-stone-950">
+        <section className="border-b border-white/10 py-12 md:py-20">
+          <div className="container relative z-10 mx-auto px-4 text-center">
+            <p className={`mb-3 ${homeCaption}`}>Contact</p>
+            <h1 className={`${homeSectionTitle} mb-4 md:mb-6`}>
+              {contact.heroTitle}
+            </h1>
+            <p className={`${homeBody} mx-auto max-w-2xl`}>
+              {contact.heroSubtitle}
+            </p>
+          </div>
         </section>
       </div>
 
-      {/* Contact Information - Grey to Charcoal */}
-      <div className="bg-gradient-to-b from-[#1c1917] to-[#0c0a09]">
+      <div className="bg-stone-950">
         <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
-            {/* Contact Details */}
-            <div className="order-2 lg:order-1">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-cottage-green-primary">
-                {contact.connectTitle}
-              </h2>
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 gap-10 md:gap-16 lg:grid-cols-2">
+              <div className="order-2 lg:order-1">
+                <h2 className={`${homeAccentHeading} mb-6 md:mb-8`}>
+                  {contact.connectTitle}
+                </h2>
 
-              <div className="space-y-8">
-                {/* Location */}
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xl">{locationBlock.icon}</span>
+                <div className="space-y-8">
+                  <div className="flex items-start gap-4">
+                    <div className={editorialIconTile} aria-hidden>
+                      {locationBlock.icon}
+                    </div>
+                    <div>
+                      <h3 className="mb-2 text-lg font-medium text-stone-200">
+                        {locationBlock.title}
+                      </h3>
+                      <p className={homeBody}>{locationBlock.body}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
-                      {locationBlock.title}
-                    </h3>
-                    <p className="text-cottage-text-muted">
-                      {locationBlock.body}
-                    </p>
-                  </div>
-                </div>
 
-                {/* Hours */}
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-cottage-gradient from-cottage-green-secondary to-cottage-green-primary rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xl">{hoursBlock.icon}</span>
+                  <div className="flex items-start gap-4">
+                    <div className={editorialIconTile} aria-hidden>
+                      {hoursBlock.icon}
+                    </div>
+                    <div>
+                      <h3 className="mb-2 text-lg font-medium text-stone-200">
+                        {hoursBlock.title}
+                      </h3>
+                      <p className={homeBody}>{hoursBlock.body}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
-                      {hoursBlock.title}
-                    </h3>
-                    <p className="text-cottage-text-muted">
-                      {hoursBlock.body}
-                    </p>
-                  </div>
-                </div>
 
-                {/* Social Media */}
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-cottage-gradient from-cottage-green-accent to-cottage-green-secondary rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xl">{socialBlock.icon}</span>
+                  <div className="flex items-start gap-4">
+                    <div className={editorialIconTile} aria-hidden>
+                      {socialBlock.icon}
+                    </div>
+                    <div>
+                      <h3 className="mb-2 text-lg font-medium text-stone-200">
+                        {socialBlock.title}
+                      </h3>
+                      <p className={`${homeBody} mb-4`}>{socialBlock.body}</p>
+                      <div className="flex flex-wrap gap-2">
+                        <a href="#" className={socialBtn} aria-label="Instagram">
+                          <FaInstagram className="text-base" />
+                        </a>
+                        <a href="#" className={socialBtn} aria-label="Facebook">
+                          <FaFacebook className="text-base" />
+                        </a>
+                        <a href="#" className={socialBtn} aria-label="TikTok">
+                          <FaTiktok className="text-base" />
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
-                      {socialBlock.title}
-                    </h3>
-                    <p className="text-cottage-text-muted mb-4">
-                      {socialBlock.body}
-                    </p>
-                    <div className="flex space-x-4">
-                      <a
-                        href="#"
-                        className="w-12 h-12 bg-cottage-gradient from-cottage-green-primary to-cottage-green-secondary rounded-full flex items-center justify-center hover:from-cottage-green-hover hover:to-cottage-emerald-hover transition-all duration-300"
-                      >
-                        <FaInstagram className="text-white text-xl" />
-                      </a>
-                      <a
-                        href="#"
-                        className="w-12 h-12 bg-cottage-gradient from-cottage-green-secondary to-cottage-green-primary rounded-full flex items-center justify-center hover:from-cottage-emerald-hover hover:to-cottage-green-hover transition-all duration-300"
-                      >
-                        <FaFacebook className="text-white text-xl" />
-                      </a>
-                      <a
-                        href="#"
-                        className="w-12 h-12 bg-cottage-gradient from-cottage-green-accent to-cottage-green-secondary rounded-full flex items-center justify-center hover:from-cottage-green-hover hover:to-cottage-emerald-hover transition-all duration-300"
-                      >
-                        <FaTiktok className="text-white text-xl" />
-                      </a>
+
+                  <div className="flex items-start gap-4">
+                    <div className={editorialIconTile} aria-hidden>
+                      {expectBlock.icon}
+                    </div>
+                    <div>
+                      <h3 className="mb-2 text-lg font-medium text-stone-200">
+                        {expectBlock.title}
+                      </h3>
+                      <p className={homeBody}>{expectBlock.body}</p>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                {/* What to Expect */}
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-cottage-gradient from-cottage-green-secondary to-cottage-green-primary rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xl">{expectBlock.icon}</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
-                      {expectBlock.title}
-                    </h3>
-                    <p className="text-cottage-text-muted">
-                      {expectBlock.body}
-                    </p>
-                  </div>
+              <div className="order-1 lg:order-2">
+                <h2 className={`${homeAccentHeading} mb-6 md:mb-8`}>
+                  {contact.formColumnTitle}
+                </h2>
+                <div className={editorialPanelPadded}>
+                  <ContactForm />
                 </div>
               </div>
             </div>
-
-            {/* Contact Form */}
-            <div className="order-1 lg:order-2">
-              <h2 className="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-cottage-green-primary">
-                {contact.formColumnTitle}
-              </h2>
-              <ContactForm />
-            </div>
           </div>
-        </div>
         </section>
       </div>
     </>
