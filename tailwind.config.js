@@ -65,6 +65,8 @@ export default {
         flicker: "flicker 3s infinite alternate",
         float: "float 6s ease-in-out infinite",
         glow: "glow 2s ease-in-out infinite alternate",
+        /** One-shot opacity twinkle; duration overridden per orb */
+        "fairy-twinkle": "fairyTwinkle 22s ease-in-out forwards",
       },
       keyframes: {
         flicker: {
@@ -77,9 +79,19 @@ export default {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        /** Soft fairy-light breathe — opacity only (transform stays on element) */
+        fairyTwinkle: {
+          "0%": { opacity: "0" },
+          "14%": { opacity: "0.11" },
+          "32%": { opacity: "0.04" },
+          "52%": { opacity: "0.14" },
+          "72%": { opacity: "0.06" },
+          "90%": { opacity: "0.1" },
+          "100%": { opacity: "0" },
+        },
         glow: {
-          "0%": { boxShadow: "0 0 5px rgba(217, 119, 6, 0.5)" },
-          "100%": { boxShadow: "0 0 20px rgba(217, 119, 6, 0.8)" },
+          "0%": { boxShadow: "0 0 8px rgba(13, 148, 136, 0.35)" },
+          "100%": { boxShadow: "0 0 28px rgba(13, 148, 136, 0.5)" },
         },
       },
     },

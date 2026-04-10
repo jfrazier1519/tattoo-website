@@ -24,10 +24,7 @@ const HeroSection = ({ backgroundImage }) => {
 
       {/* Main Content */}
       <div className="relative z-20 px-4 md:px-6 max-w-5xl mx-auto text-white">
-        {/* Accent dots */}
-        <span className="absolute top-20 left-10 w-8 h-8 bg-teal-400 rounded-full opacity-20 z-10"></span>
-        <span className="absolute top-32 right-16 w-4 h-4 bg-teal-300 rounded-full opacity-30 z-10"></span>
-        <span className="absolute bottom-40 left-1/4 w-6 h-6 bg-teal-200 rounded-full opacity-25 z-10"></span>
+        {/* Ambient glow lives on the page background (e.g. HomeBackground), not here */}
 
         {/* Top rating row */}
         <div className="mb-4 flex flex-wrap justify-center items-center gap-4 text-sm font-medium text-white/90">

@@ -8,19 +8,8 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="py-12 md:py-16 lg:py-20 relative overflow-hidden z-10"
+      className="py-12 md:py-16 lg:py-20 relative z-10"
     >
-      {/* Artistic floating elements */}
-      <div className="absolute top-20 left-8 w-12 h-12 bg-cottage-teal-primary rounded-full opacity-10 animate-float blur-xl"></div>
-      <div
-        className="absolute top-40 right-12 w-10 h-10 bg-cottage-green-primary rounded-full opacity-10 animate-float blur-xl"
-        style={{ animationDelay: "1s" }}
-      ></div>
-      <div
-        className="absolute bottom-20 left-1/3 w-8 h-8 bg-cottage-green-secondary rounded-full opacity-10 animate-float blur-xl"
-        style={{ animationDelay: "2s" }}
-      ></div>
-
       <div className="max-w-7xl mx-auto w-full relative z-10 px-4 sm:px-6 md:px-12">
         {/* Decorative Divider */}
         <div className="flex items-center justify-center gap-3 mb-8 md:mb-12">

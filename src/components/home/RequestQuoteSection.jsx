@@ -6,12 +6,7 @@ const RequestQuoteSection = () => {
   const { requestQuoteSection } = useSiteContent();
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 relative overflow-hidden z-10">
-
-      {/* Artistic floating elements */}
-      <div className="absolute top-20 left-20 w-4 h-4 bg-cottage-teal-primary rounded-full opacity-20 animate-float blur-sm"></div>
-      <div className="absolute bottom-40 right-32 w-3 h-3 bg-cottage-green-primary rounded-full opacity-20 animate-float blur-sm" style={{ animationDelay: "1s" }}></div>
-
+    <section className="py-12 md:py-16 lg:py-20 relative z-10">
       <div className="max-w-7xl mx-auto w-full relative z-10 px-4 sm:px-6 md:px-12">
         {/* Decorative Divider */}
         <div className="flex items-center justify-center gap-3 mb-8 md:mb-12">
@@ -37,19 +32,6 @@ const RequestQuoteSection = () => {
             <p className="text-cottage-text-muted italic">
               {requestQuoteSection.quote}
             </p>
-          </div>
-
-          {/* Decorative elements */}
-          <div className="flex items-center gap-4 mt-8">
-            <div className="w-2 h-2 bg-cottage-teal-primary/60 rounded-full animate-pulse"></div>
-            <div
-              className="w-2 h-2 bg-cottage-green-primary/60 rounded-full animate-pulse"
-              style={{ animationDelay: "0.5s" }}
-            ></div>
-            <div
-              className="w-2 h-2 bg-cottage-green-secondary/60 rounded-full animate-pulse"
-              style={{ animationDelay: "1s" }}
-            ></div>
           </div>
         </div>
 
