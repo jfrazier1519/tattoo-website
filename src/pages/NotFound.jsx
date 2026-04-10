@@ -1,18 +1,13 @@
 import React from "react";
 import Button from "../components/shared/Button";
 import { useSiteContent } from "../hooks/useSiteContent.js";
-import {
-  homeBody,
-  homeCaption,
-  homeSectionTitle,
-} from "../components/home/homeTypography.js";
+import { homeBody, homeSectionTitle } from "../components/home/homeTypography.js";
 
 const NotFound = () => {
   const { notFound } = useSiteContent();
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-stone-950 px-6 text-center">
-      <p className={`mb-3 ${homeCaption}`}>Error</p>
       <h1 className={`${homeSectionTitle} mb-4 tabular-nums`}>
         {notFound.code}
       </h1>

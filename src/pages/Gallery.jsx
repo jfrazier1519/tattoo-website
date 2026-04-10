@@ -4,7 +4,6 @@ import FinalCTASection from "../components/home/FinalCTASection";
 import Button from "../components/shared/Button";
 import {
   homeBody,
-  homeCaption,
   homeSectionTitle,
   editorialPanel,
 } from "../components/home/homeTypography.js";
@@ -24,7 +23,6 @@ const Gallery = () => {
         <div className="relative min-h-48 py-12 md:h-64 md:py-0">
           <div className="relative z-10 flex h-full items-center justify-center">
             <div className="px-4 text-center">
-              <p className={`mb-3 ${homeCaption}`}>Gallery</p>
               <h1 className={`${homeSectionTitle} mb-3 md:mb-4`}>
                 {gallery.heroTitle}
               </h1>

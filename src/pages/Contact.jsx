@@ -5,7 +5,6 @@ import { useSiteContent } from "../hooks/useSiteContent.js";
 import {
   homeAccentHeading,
   homeBody,
-  homeCaption,
   homeSectionTitle,
   editorialIconTile,
   editorialPanelPadded,
@@ -23,7 +22,6 @@ const Contact = () => {
       <div className="bg-stone-950">
         <section className="border-b border-white/10 py-12 md:py-20">
           <div className="container relative z-10 mx-auto px-4 text-center">
-            <p className={`mb-3 ${homeCaption}`}>Contact</p>
             <h1 className={`${homeSectionTitle} mb-4 md:mb-6`}>
               {contact.heroTitle}
             </h1>

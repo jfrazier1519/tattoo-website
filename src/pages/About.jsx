@@ -4,7 +4,6 @@ import { useSiteContent } from "../hooks/useSiteContent.js";
 import {
   homeAccentHeading,
   homeBody,
-  homeCaption,
   homeSectionTitle,
   editorialIconTile,
   editorialPanel,
@@ -22,7 +21,6 @@ const About = () => {
             <div className="mx-auto max-w-6xl">
               <div className="grid grid-cols-1 items-center gap-8 md:gap-16 lg:grid-cols-2">
                 <div className="order-2 text-center lg:order-1 lg:text-left">
-                  <p className={`mb-3 ${homeCaption}`}>About</p>
                   <h1 className={`${homeSectionTitle} mb-6 md:mb-8`}>
                     {about.storyTitle}
                   </h1>

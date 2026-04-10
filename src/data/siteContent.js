@@ -136,55 +136,55 @@ export const siteContent = {
    * unless you use dateDisplay instead of startDate for sorting (startDate still used for sort).
    */
   eventsPage: {
-    heroTitle: "Events & appearances",
+    heroTitle: "Where I might actually show up",
     heroSubtitle:
-      "Conventions, guest spots, shop happenings, and shout-outs to artists I love. Filter on the left, or scroll the timeline—each card is only as detailed as it needs to be.",
-    filterLegend: "Key",
+      "Conventions, guest spots, shop chaos, and stuff I’m not hosting but still care about. Use the filters if you’re picky; otherwise scroll and pretend it’s a calendar.",
+    filterLegend: "Narrow it down",
     filterLegendSub:
-      "Pick a category to narrow the list. Choose “All” to see everything in date order.",
+      "Tap a category or hit “everything” and scroll like a normal person.",
     filterAllId: "all",
     categories: [
       {
         id: "all",
-        label: "All appearances",
-        description: "Everything coming up and recent, in order.",
+        label: "Everything",
+        description: "Upcoming + past, no gatekeeping.",
       },
       {
         id: "convention",
         label: "Conventions",
-        description: "Weekend shows, expos, and travel ink.",
+        description: "Big rooms, bad coffee, good people-watching.",
       },
       {
         id: "shop",
         label: "Shop & guest spots",
-        description: "Days at the booth, guest spots, and shop-hosted events.",
+        description: "Me in a chair that isn’t my usual one.",
       },
       {
         id: "shop_special",
         label: "Shop specials",
-        description:
-          "Flash days, promotions, or studio-specific announcements.",
+        description: "Flash days, promos, collective panic.",
       },
       {
         id: "community",
         label: "Friends & other artists",
-        description: "Events I’m not running—but want you to know about.",
+        description: "Not my circus—still worth your time.",
       },
     ],
-    sectionUpcoming: "Coming up",
-    sectionPast: "Earlier",
+    sectionUpcoming: "Still in the future",
+    sectionPast: "Already happened",
     emptyFiltered:
-      "Nothing in this category yet. Try another filter or check back soon.",
-    readDetails: "Read more",
-    viewEventSite: "Official event link",
-    backToEvents: "← All events",
+      "Nothing here for that filter. Pick another one or touch grass and try later.",
+    readDetails: "More than this blurb",
+    viewEventSite: "Their site (opens new tab, don’t panic)",
+    backToEvents: "← Back to the list",
     detailFallbackTitle: "Details",
-    notFoundTitle: "Event not found",
-    notFoundBody: "That event isn’t here anymore, or the link is wrong.",
-    notFoundCta: "Back to events",
+    notFoundTitle: "That event ghosted us",
+    notFoundBody:
+      "Link’s wrong, event got yeeted, or I typo’d something. It happens. The list still loves you.",
+    notFoundCta: "Fine, take me back",
     noDetailPageBody:
-      "There isn’t a long write-up for this one—everything we’re sharing is on the card. Head back to the list anytime.",
-    linksHeading: "Links",
+      "No essay for this one—what you see is what you get. The card said it all; I’m not writing a thesis.",
+    linksHeading: "Extra links",
     items: [
       {
         slug: "example-tattoo-con-2026",
@@ -193,24 +193,24 @@ export const siteContent = {
         startDate: "2026-06-12",
         endDate: "2026-06-14",
         summary:
-          "Three-day show—I'll have select flash sheets, booking slots for small pieces, and a few one-off designs.",
+          "Three-day circus. I’ll have flash, tiny booking slots, and the energy of someone who packed too many stickers.",
         location: "Salt Lake City, UT",
         times: "Vendor floor Sat–Sun 10am–6pm; setup Friday",
         externalUrl: "https://example.com",
         detailIntro:
-          "I'm sharing a booth with a friend; half the table is my gothic-cute flash and half is their neotrad work. Stop by early if you want a same-day small piece—slots are limited.",
+          "Split booth with a friend—my half is dark-pretty-weird, theirs is neotrad. Same-day tiny stuff is first-come cope; don’t roll up at 5pm expecting miracles.",
         detailSections: [
           {
             heading: "Booth & hours",
-            body: "Booth 412, main hall. I'll be at the table most of Saturday and Sunday; Friday is mostly setup but say hi if you see me.",
+            body: "Booth 412, main hall. Sat–Sun I’m actually at the table; Friday is mostly me pretending I know where the extension cord went.",
           },
           {
             heading: "Art I’m bringing",
-            body: "New flash sheets (dark florals + critters), a binder of customs for inspiration, and stickers for tips.",
+            body: "Fresh flash (moody florals, unhinged critters), a binder of “no we’re not copying that Pinterest pin exactly,” and stickers if you tip like a legend.",
           },
         ],
         artGallery: {
-          caption: "Some of the sheets I’m packing",
+          caption: "Stuff that’s actually in the bag",
           items: [
             { src: "/assets/gallery/image0.jpeg", alt: "Flash sample" },
             { src: "/assets/gallery/image1.jpeg", alt: "Flash sample" },
@@ -226,7 +226,7 @@ export const siteContent = {
         title: "Friday the 13th flash day",
         startDate: "2026-11-13",
         summary:
-          "Classic flash specials at the shop—first come, limited designs. I'll post the sheet the week before.",
+          "Friday the 13th flash chaos—first come, limited sheet, zero drama (lol). I’ll post designs the week before so nobody’s surprised.",
         location: "At the shop (details when you book)",
         times: "All day by appointment + limited walk-in",
       },
@@ -248,7 +248,7 @@ export const siteContent = {
         title: "Pop-up: friend’s art market (not my booth)",
         startDate: "2026-05-17",
         summary:
-          "I'm not vending—just want to support a talented friend. Amazing prints and small originals.",
+          "I’m not vending—just showing up for a friend with good taste. Prints, small originals, zero credit taken by me.",
         externalUrl: "https://example.com/friend-event",
       },
     ],
@@ -336,123 +336,124 @@ export const siteContent = {
   },
 
   about: {
-    storyTitle: "My Story",
+    storyTitle: "So yeah—I’m Taylor",
     storyParagraphs: [
-      "I've always been drawn to the darker side of art—the mysterious, the edgy, the things that make people look twice. But I also have a soft spot for the cute and adorable, especially when it has a dark twist.",
-      "My journey as a tattoo artist began with a passion for creating unique pieces that blend gothic aesthetics with elements that make people smile. I love working with clients to bring their vision to life, whether it's a dark rose with intricate shading or an adorable demon character.",
+      "I like stuff that’s dark, pretty, a little weird, sometimes cute in a way that worries your relatives. If you want safe beige energy, I’m probably not your person—and that’s okay.",
+      "I tattoo because I like lines that survive healing and ideas that don’t sound like everyone’s Pinterest board. We’ll talk a lot up front so appointment day isn’t a group meltdown. Bring references, bring chaos, bring snacks.",
     ],
-    portraitAlt: "Taylor Jae - Tattoo Artist",
-    whyTitle: "Why Choose Me?",
+    portraitAlt: "Taylor Jae, tattoo artist",
+    whyTitle: "Why me (optional)",
     whyIntro:
-      "I'm not just a tattoo artist—I'm a collaborator, a creative partner, and someone who genuinely cares about your experience.",
+      "You’ve got options. Here’s what you get if you pick the one who over-communicates and under-promises fairy tales.",
     pillars: [
       {
         emoji: "🎨",
-        title: "Unique Style",
-        body: "My dark, edgy, and cute aesthetic is unlike anything else you'll find.",
+        title: "A real style",
+        body: "Ornamental, moody, occasionally unhinged—and yes, hand-drawn: stylus on glass, layers, and me losing a fight to a Bézier curve at 1am. If it looks like a person drew it, that’s because one did—bad posture and all.",
       },
       {
         emoji: "🤝",
-        title: "Collaborative",
-        body: "I work with you to create exactly what you envision, not just what I want to do.",
+        title: "Actual collaboration",
+        body: "You’re allowed to have opinions. I’m allowed to veto bad ideas. Friendship.",
       },
       {
         emoji: "✨",
-        title: "Quality Focus",
-        body: "Every piece is created with attention to detail and a commitment to excellence.",
+        title: "Lines that behave",
+        body: "I care how it heals, not just how it photographs at 9pm with a ring light.",
       },
       {
         emoji: "💖",
-        title: "Client Care",
-        body: "Your comfort, safety, and satisfaction are my top priorities throughout the process.",
+        title: "Human in the chair",
+        body: "Consent, breaks, dumb jokes—tattooing is already enough of a vibe check.",
       },
     ],
-    ctaTitle: "Ready to Work Together?",
-    ctaSubtitle: "Let's make your vision permanent.",
-    getInTouch: "Get In Touch",
-    viewGallery: "View Gallery",
+    ctaTitle: "Still curious?",
+    ctaSubtitle:
+      "Cool. Weird. Send a message or stare at the gallery until you’re emotionally ready.",
+    getInTouch: "Okay, message me",
+    viewGallery: "Or just look at art",
   },
 
   contact: {
-    heroTitle: "Get In Touch",
+    heroTitle: "Say hi (for real)",
     heroSubtitle:
-      "Ready to start your tattoo journey? Let's discuss your ideas and create something beautiful together.",
-    connectTitle: "Let's Connect",
+      "Forms are boring but useful. Drop what you’re thinking—I’ll reply when I’m not elbow-deep in ink or pretending I have inbox zero.",
+    connectTitle: "The practical stuff",
     blocks: [
       {
         icon: "📍",
-        title: "Location",
-        body: "I rent a booth at a local tattoo shop. The exact location will be provided when you book your appointment.",
+        title: "Where",
+        body: "I work from a booth at a local shop. Exact address shows up when we actually book—internet strangers don’t get a map pin. Sorry/not sorry.",
       },
       {
         icon: "🕐",
-        title: "Hours",
-        body: "By appointment only. I'm flexible with scheduling and can work around your availability.",
+        title: "When",
+        body: "By appointment. I’m not a walk-in vending machine. We’ll find a time that doesn’t ruin both our schedules.",
       },
       {
         icon: "📱",
-        title: "Follow My Work",
-        body: "Check out my latest artwork and behind-the-scenes content.",
+        title: "Stalking (professional)",
+        body: "Socials for fresh work, shop chaos, and the occasional proof I left the house.",
       },
       {
         icon: "💬",
-        title: "What to Expect",
-        body: "We'll start with a consultation to discuss your ideas, placement, and style preferences. I'll create a custom design just for you.",
+        title: "What happens next",
+        body: "You ramble, I ask annoying questions, we sketch/plan so the needle day isn’t improv comedy. Custom means we talk first.",
       },
     ],
-    formColumnTitle: "Send Me a Message",
+    formColumnTitle: "The form nobody loves filling out",
   },
 
   faq: {
-    heroTitle: "Frequently Asked Questions",
+    heroTitle: "Questions I get a lot",
     introBefore:
-      "Here you'll find answers to our most frequently asked questions. If you still need help, ",
-    contactLinkText: "contact us",
-    introAfter: " — we're happy to help.",
+      "Short answers so you don’t have to DM “quick question” at 11pm. Still lost? ",
+    contactLinkText: "hit the contact page",
+    introAfter: " and I’ll pretend my inbox is under control.",
     questions: [
       {
-        question: "What is your tattoo style?",
+        question: "What’s your style, actually?",
         answer:
-          "I specialize in gothic, dark, and adorable artwork. My style combines Victorian elegance with modern edge, creating unique pieces that are both beautiful and meaningful.",
+          "Dark, ornamental, sometimes cute in a concerning way—moody lines, weird pretty, not “whatever TikTok liked last Tuesday.” I work on a tablet, which is really just a very expensive sketchbook that judges my line weight. Everything’s hand-drawn by me, wobbles included; you’re hiring the shaky human, not a slot machine.",
       },
       {
-        question: "How do I book a consultation?",
+        question: "How do I book?",
         answer:
-          "You can book a consultation through our contact form or by calling the studio directly. We'll discuss your vision, placement, and design ideas to create the perfect piece for you.",
+          "Contact form is the move. Ramble about your idea; I’ll reply with follow-ups like the organized gremlin I am. If you hate forms, we’ll figure it out—just don’t expect psychic booking.",
       },
       {
-        question: "What should I bring to my appointment?",
+        question: "What should I bring?",
         answer:
-          "Please bring a valid ID, any reference images you have, and wear comfortable clothing that allows easy access to the tattoo area. We'll provide everything else you need.",
+          "ID (non-negotiable), references if you have them, clothes that expose the spot without a contortion act. I’ve got the rest—needles, ink, questionable playlist.",
       },
       {
-        question: "How long does a tattoo session take?",
+        question: "How long will we be in the chair?",
         answer:
-          "Session length varies depending on the size and complexity of your design. Small pieces might take 1-2 hours, while larger pieces can take multiple sessions. We'll give you a time estimate during consultation.",
+          "Depends how big and how fussy the piece is. Tiny stuff: a couple hours. Big stuff: multiple sessions so we don’t hate each other. I’ll ballpark it when we plan.",
       },
       {
-        question: "Do you do cover-up tattoos?",
+        question: "Cover-ups?",
         answer:
-          "Yes! I specialize in transforming old tattoos into beautiful new pieces. During consultation, we'll discuss your options and create a design that works with your existing ink.",
+          "Yep. Bring the old tattoo in good lighting; I’ll tell you what’s realistic. Magic has limits; lasers exist for a reason.",
       },
       {
-        question: "What are your rates?",
+        question: "What’s it cost?",
         answer:
-          "Pricing varies based on size, complexity, and session time. I offer competitive rates and will provide a detailed quote during your consultation. No two pieces are exactly alike, so pricing is customized to your specific design.",
+          "Size, detail, how many times I have to redraw your ex’s name out of the concept—it all matters. I’ll quote after we talk; no random numbers in DMs that age poorly.",
       },
     ],
   },
 
   gallery: {
-    heroTitle: "Art Gallery",
+    heroTitle: "Things I’ve put on skin (and paper)",
     heroSubtitle:
-      "Explore my dark, edgy, and cute artwork. From gothic tattoos to adorable demons.",
+      "A wall of proof I do more than scroll. Filter if you want; otherwise enjoy the chaos grid.",
     categories: [
-      { id: "all", name: "All Artwork" },
+      { id: "all", name: "Everything" },
       { id: "tattoos", name: "Tattoos" },
       { id: "drawings", name: "Drawings" },
-      { id: "flash", name: "Flash Art" },
-      { id: "custom", name: "Custom Designs" },
+      { id: "flash", name: "Flash" },
+      { id: "custom", name: "Custom" },
     ],
     items: [
       {
@@ -502,8 +503,9 @@ export const siteContent = {
 
   notFound: {
     code: "404",
-    message: "Oops! The page you're looking for doesn't exist.",
-    goHome: "Go Home",
+    message:
+      "This page doesn’t exist. Neither does my patience for broken links—let’s start over.",
+    goHome: "Take me home",
   },
 
   forms: {
@@ -521,18 +523,18 @@ export const siteContent = {
         message: "Additional Message",
       },
       placeholders: {
-        name: "Your full name",
-        email: "your.email@example.com",
-        phone: "(555) 123-4567",
+        name: "Name your human",
+        email: "email you actually check",
+        phone: "optional but helpful",
         description:
-          "Describe your tattoo idea, style preferences, colors, and any specific elements you'd like included...",
-        message: "Any other details, questions, or special requests...",
+          "The idea, vibe, placement thoughts, references—ramble welcome.",
+        message: "Allergies, anxiety level, favorite snack—whatever helps.",
       },
       selectPlaceholder: {
-        tattooType: "Select tattoo type",
-        bodyLocation: "Select location",
-        size: "Select size",
-        budget: "Select budget range",
+        tattooType: "Pick one",
+        bodyLocation: "Where on the meat suit",
+        size: "Rough size",
+        budget: "Ballpark (no judgment)",
       },
       tattooTypeOptions: [
         { value: "custom", label: "Custom Design" },
@@ -564,16 +566,18 @@ export const siteContent = {
         { value: "800-1200", label: "$800 - $1,200" },
         { value: "1200+", label: "$1,200+" },
       ],
-      submit: "Send Message",
+      submit: "Send it",
       success:
-        "Thank you for your message! I'll get back to you within 24-48 hours to discuss your tattoo idea.",
+        "Got it. I’ll dig out of my inbox soon—expect questions, not a novel.",
       footerNote:
-        "* Required fields. I'll respond within 24-48 hours to discuss your tattoo idea and schedule a consultation.",
+        "* Required bits only. I’ll reply when I can; spam the form and we’re not friends.",
     },
     quote: {
       title: "Project details",
-      subtitle: "The usual fields. Fill what you know—I’ll ask annoying follow-ups later.",
-      success: "Sent. I’ll dig through my inbox when I’m allowed to touch grass again.",
+      subtitle:
+        "The usual fields. Fill what you know—I’ll ask annoying follow-ups later.",
+      success:
+        "Sent. I’ll dig through my inbox when I’m allowed to touch grass again.",
       fields: {
         firstName: "First Name",
         lastName: "Last Name",
