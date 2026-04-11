@@ -67,7 +67,7 @@ export const siteContent = {
         {
           number: "3",
           title: "We actually tattoo",
-          body: "Needles, snacks, bad jokes, occasional silence. You leave with art; I leave with another story for group chat. Everyone wins.",
+          body: "Needles, snacks, bad jokes, the bit where your leg goes numb and we both pretend it’s fine. Afterward you’re wrapped up and I’m cleaning the station—normal end to a normal day.",
         },
       ],
     },
@@ -377,7 +377,7 @@ export const siteContent = {
   contact: {
     heroTitle: "Say hi (for real)",
     heroSubtitle:
-      "Forms are boring but useful. Drop what you’re thinking—I’ll reply when I’m not elbow-deep in ink or pretending I have inbox zero.",
+      "Forms are boring but useful. Drop what you’re thinking—I’ll reply when I’m not elbow-deep in ink or pretending I have a life.",
     connectTitle: "The practical stuff",
     blocks: [
       {
@@ -388,7 +388,7 @@ export const siteContent = {
       {
         icon: "🕐",
         title: "When",
-        body: "By appointment. I’m not a walk-in vending machine. We’ll find a time that doesn’t ruin both our schedules.",
+        body: "Default mode is appointments—pretend we’re adults with calendars. Every so often I’ll do walk-ins, but only when I feel like it; I’ll yell about it on social first.",
       },
       {
         icon: "📱",
@@ -414,7 +414,7 @@ export const siteContent = {
       {
         question: "What’s your style, actually?",
         answer:
-          "Dark, ornamental, sometimes cute in a concerning way—moody lines, weird pretty, not “whatever TikTok liked last Tuesday.” I work on a tablet, which is really just a very expensive sketchbook that judges my line weight. Everything’s hand-drawn by me, wobbles included; you’re hiring the shaky human, not a slot machine.",
+          "Dark, ornamental, sometimes cute in a concerning way—moody lines, weird pretty. Default taste, not a veto: bring your idea and we’ll shape it together. I draw on a tablet—still all hand-built by me—and I don’t pass off generic AI slop as my work. Short version: you’re getting my lines, not a prompt dump.",
       },
       {
         question: "How do I book?",
@@ -424,7 +424,7 @@ export const siteContent = {
       {
         question: "What should I bring?",
         answer:
-          "ID (non-negotiable), references if you have them, clothes that expose the spot without a contortion act. I’ve got the rest—needles, ink, questionable playlist.",
+          "ID (non-negotiable), references if you have them, clothes that expose the spot without a contortion act. I’ve got the rest—needles, ink, awkward silence.",
       },
       {
         question: "How long will we be in the chair?",

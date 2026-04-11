@@ -7,7 +7,7 @@ const NotFound = () => {
   const { notFound } = useSiteContent();
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-stone-950 px-6 text-center">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-stone-950 px-6 pb-16 pt-28 text-center md:pt-24">
       <h1 className={`${homeSectionTitle} mb-4 tabular-nums`}>
         {notFound.code}
       </h1>

@@ -26,7 +26,7 @@ const EventDetail = () => {
 
   if (!event) {
     return (
-      <div className="flex min-h-[60vh] flex-col items-center justify-center bg-stone-950 px-6 text-center">
+      <div className="flex min-h-[60vh] flex-col items-center justify-center bg-stone-950 px-6 pb-16 pt-28 text-center md:pt-24">
         <h1 className={`${homeAccentHeading} mb-3`}>
           {eventsPage.notFoundTitle}
         </h1>
@@ -45,7 +45,7 @@ const EventDetail = () => {
     const ext = event.externalUrl?.trim();
     return (
       <>
-        <div className="min-h-[50vh] bg-stone-950 px-4 py-16">
+        <div className="min-h-[50vh] bg-stone-950 px-4 pb-16 pt-24 md:pt-20">
           <div className="container mx-auto max-w-xl text-center">
             <Link
               to="/events"
@@ -99,7 +99,7 @@ const EventDetail = () => {
   return (
     <>
       <div className="border-b border-white/10 bg-stone-950">
-        <section className="py-8 md:py-12">
+        <section className="pb-8 pt-24 md:py-12">
           <div className="container mx-auto max-w-3xl px-4">
             <Link
               to="/events"

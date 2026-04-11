@@ -16,7 +16,7 @@ const About = () => {
   return (
     <>
       <div className="bg-stone-950">
-        <section className="border-b border-white/10 pt-20 pb-12 md:pt-32 md:pb-20">
+        <section className="border-b border-white/10 pb-12 pt-24 md:pb-20 md:pt-32">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-6xl">
               <div className="grid grid-cols-1 items-center gap-8 md:gap-16 lg:grid-cols-2">

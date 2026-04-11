@@ -65,32 +65,33 @@ const Home = () => {
         <div>
           <section
             ref={visionRef}
-            className="relative min-h-screen flex items-center overflow-hidden transition-opacity duration-1000 py-20 md:py-0"
+            className="relative flex min-h-[100dvh] items-center overflow-hidden pb-14 pt-28 transition-opacity duration-1000 md:min-h-screen md:py-0 md:pb-0"
           >
-            <div className="absolute right-0 top-0 w-full md:w-1/2 h-full">
+            <div className="absolute right-0 top-0 h-full w-full md:w-1/2">
               <img
                 src="/assets/home/hero.jpg"
                 alt={home.hero.imageAlt}
-                className="w-full h-full object-cover opacity-40 grayscale"
+                className="h-full w-full object-cover opacity-30 grayscale md:opacity-40"
               />
-              <div className="absolute inset-0 bg-gradient-to-l from-black/20 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-stone-950/55 via-stone-950/25 to-stone-950/70 md:bg-gradient-to-l md:from-black/30 md:via-transparent md:to-transparent" />
             </div>
 
-            <div className="absolute inset-0 bg-wood-texture opacity-20"></div>
+            <div className="pointer-events-none absolute inset-0 bg-wood-texture opacity-[0.08] md:opacity-20" />
 
-            <div className="relative z-10 w-full md:w-1/2 flex items-center justify-center px-4 md:px-8">
-              <div className="text-center max-w-2xl mx-auto">
+            {/* max-md: translucent panel over full-bleed image; md+ split layout, no panel */}
+            <div className="relative z-10 flex w-full items-center justify-center px-4 sm:px-5 md:w-1/2 md:px-8">
+              <div className="mx-auto w-full max-w-2xl text-center max-md:border max-md:border-white/15 max-md:bg-stone-950/72 max-md:px-5 max-md:py-9 max-md:shadow-[0_12px_40px_rgba(0,0,0,0.35)] max-md:backdrop-blur-md md:border-0 md:bg-transparent md:px-0 md:py-0 md:shadow-none md:backdrop-blur-none">
                 <h1 className={`${homeHeroTitle} mb-5 md:mb-7`}>
                   {home.hero.title}
                 </h1>
 
                 <p
-                  className={`${homeHeroSubtitle} mb-8 md:mb-10 max-w-xl mx-auto text-balance whitespace-pre-line`}
+                  className={`${homeHeroSubtitle} mx-auto mb-8 max-w-xl text-balance whitespace-pre-line md:mb-10`}
                 >
                   {home.hero.subtitle}
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
                   <Button
                     to="/contact"
                     variant="primary"

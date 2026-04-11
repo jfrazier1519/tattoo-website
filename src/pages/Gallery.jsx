@@ -20,8 +20,8 @@ const Gallery = () => {
   return (
     <>
       <div className="bg-stone-950">
-        <div className="relative min-h-48 py-12 md:h-64 md:py-0">
-          <div className="relative z-10 flex h-full items-center justify-center">
+        <div className="relative min-h-48 pb-12 pt-24 md:flex md:h-64 md:items-center md:pb-0 md:pt-0">
+          <div className="relative z-10 flex h-full w-full items-center justify-center">
             <div className="px-4 text-center">
               <h1 className={`${homeSectionTitle} mb-3 md:mb-4`}>
                 {gallery.heroTitle}
