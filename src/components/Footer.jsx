@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
 import { useSiteContent } from "../hooks/useSiteContent.js";
 import { homeBody, homeCaption } from "./home/homeTypography.js";
+import BrandMark from "./shared/BrandMark.jsx";
 
 const linkClass =
   "text-[15px] text-stone-400 transition-colors hover:text-stone-200 underline-offset-4 hover:underline decoration-cottage-green-primary/50";
@@ -17,14 +18,7 @@ const Footer = () => {
           {/* Brand — editorial column */}
           <div className="lg:col-span-5 lg:pr-8 xl:pr-12">
             <div className="mb-8 flex items-start gap-5">
-              <div
-                className="flex h-14 w-14 shrink-0 items-center justify-center border border-white/[0.12] bg-stone-950/80"
-                aria-hidden
-              >
-                <span className="font-light text-xl tabular-nums tracking-tight text-stone-100">
-                  {footer.brandInitial}
-                </span>
-              </div>
+              <BrandMark variant="footer" />
               <div className="min-w-0 pt-0.5">
                 <p className="font-light text-2xl tracking-tight text-stone-100 sm:text-[1.65rem] md:text-3xl">
                   {footer.brandName}

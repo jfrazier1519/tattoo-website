@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Button from "./shared/Button";
+import BrandMark from "./shared/BrandMark.jsx";
 import { useSiteContent } from "../hooks/useSiteContent.js";
 
 const Navbar = () => {
@@ -51,9 +52,10 @@ const Navbar = () => {
         <div className="flex min-h-16 flex-wrap items-center justify-between gap-y-2 py-2 md:min-h-[4.5rem] md:py-3">
           <Link
             to="/"
-            className="shrink-0 font-light tracking-tight text-stone-100 max-[380px]:text-[0.95rem] sm:text-lg md:text-xl"
+            className="flex shrink-0 items-center gap-2.5 font-light tracking-tight text-stone-100 max-[380px]:text-[0.95rem] sm:gap-3 sm:text-lg md:text-xl"
           >
-            {nav.logo}
+            <BrandMark variant="nav" />
+            <span>{nav.logo}</span>
           </Link>
 
           <div className="order-3 hidden min-w-[40%] w-full flex-1 basis-full flex-wrap items-center justify-center gap-x-4 gap-y-2 px-2 md:order-none md:flex md:w-auto md:basis-auto">
