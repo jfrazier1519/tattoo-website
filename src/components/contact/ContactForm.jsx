@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../shared/Button";
 import { useSiteContent } from "../../hooks/useSiteContent.js";
+import { createAppointmentFromContactForm } from "../../services/appointmentsService.js";
 
 const labelCls =
   "mb-2 block text-[11px] font-medium uppercase tracking-[0.14em] text-stone-500";
@@ -11,8 +12,7 @@ const fieldCls =
 const ContactForm = () => {
   const { forms } = useSiteContent();
   const fc = forms.contact;
-
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     name: "",
     email: "",
     phone: "",
@@ -23,9 +23,12 @@ const ContactForm = () => {
     preferredDate: "",
     description: "",
     message: "",
-  });
+  };
 
+  const [formData, setFormData] = useState(initialFormData);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,26 +38,27 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
+    if (isSubmitting) return;
 
-    setTimeout(() => {
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      await createAppointmentFromContactForm(formData);
+      setSubmitted(true);
+      setFormData(initialFormData);
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      console.error("Failed to submit contact form:", error);
+      setSubmitError("Could not submit right now. Please try again.");
       setSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        tattooType: "",
-        bodyLocation: "",
-        size: "",
-        budget: "",
-        preferredDate: "",
-        description: "",
-        message: "",
-      });
-    }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClass = fieldCls;
@@ -260,8 +264,9 @@ const ContactForm = () => {
         variant="primary"
         size="lg"
         className="w-full"
+        disabled={isSubmitting}
       >
-        {fc.submit}
+        {isSubmitting ? "Sending..." : fc.submit}
       </Button>
 
       {submitted ? (
@@ -270,6 +275,15 @@ const ContactForm = () => {
           role="status"
         >
           {fc.success}
+        </div>
+      ) : null}
+
+      {submitError ? (
+        <div
+          className="mt-4 rounded-none border border-red-500/25 bg-red-500/10 px-4 py-3 text-center text-sm text-red-100"
+          role="alert"
+        >
+          {submitError}
         </div>
       ) : null}
 

@@ -79,11 +79,30 @@ function applyPlacementOverrides(content, placements) {
 function applyContentBlockOverrides(content, contentBlocks) {
   if (!contentBlocks.length) return content;
 
-  contentBlocks.forEach((block) => {
-    if (!block.slotKey || typeof block.payload !== "object" || block.payload === null) {
+  const orderedBlocks = [...contentBlocks].sort((a, b) => {
+    const aOrder = Number.isFinite(a.sortOrder) ? a.sortOrder : Number.MAX_SAFE_INTEGER;
+    const bOrder = Number.isFinite(b.sortOrder) ? b.sortOrder : Number.MAX_SAFE_INTEGER;
+    return aOrder - bOrder;
+  });
+
+  orderedBlocks.forEach((block) => {
+    if (!block.slotKey) {
       return;
     }
-    setByPath(content, block.slotKey, block.payload);
+
+    const nextValue = {};
+    if (typeof block.title === "string") {
+      nextValue.title = block.title;
+    }
+    if (typeof block.body === "string") {
+      nextValue.body = block.body;
+    }
+    if (typeof block.payload === "object" && block.payload !== null) {
+      Object.assign(nextValue, block.payload);
+    }
+
+    if (Object.keys(nextValue).length === 0) return;
+    setByPath(content, block.slotKey, nextValue);
   });
 
   return content;
@@ -96,23 +115,45 @@ async function readPublishedCollection(db, collectionName) {
     .filter((item) => item.isPublished !== false);
 }
 
+function applyPortfolioOverrides(content, portfolioItems) {
+  if (!portfolioItems.length) return content;
+
+  const ordered = [...portfolioItems].sort((a, b) => {
+    const aOrder = Number.isFinite(a.sortOrder) ? a.sortOrder : Number.MAX_SAFE_INTEGER;
+    const bOrder = Number.isFinite(b.sortOrder) ? b.sortOrder : Number.MAX_SAFE_INTEGER;
+    return aOrder - bOrder;
+  });
+
+  content.gallery.items = ordered.map((item, index) => ({
+    id: item.id ?? index + 1,
+    title: item.title ?? "Untitled",
+    category: item.category ?? "tattoos",
+    image: item.image ?? item.downloadURL ?? "",
+    description: item.description ?? "",
+  }));
+
+  return content;
+}
+
 export async function fetchFirestoreWebsiteContent(staticContent) {
   const db = getFirestoreDb();
   if (!db) {
     return null;
   }
 
-  const [contentBlocks, placements] = await Promise.all([
+  const [contentBlocks, placements, portfolioItems] = await Promise.all([
     readPublishedCollection(db, "contentBlocks"),
     readPublishedCollection(db, "placements"),
+    readPublishedCollection(db, "portfolioItems"),
   ]);
 
-  if (!contentBlocks.length && !placements.length) {
+  if (!contentBlocks.length && !placements.length && !portfolioItems.length) {
     return null;
   }
 
   const merged = cloneStaticContent(staticContent);
   applyContentBlockOverrides(merged, contentBlocks);
   applyPlacementOverrides(merged, placements);
+  applyPortfolioOverrides(merged, portfolioItems);
   return merged;
 }

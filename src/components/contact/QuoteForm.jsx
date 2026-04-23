@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../shared/Button";
 import { useSiteContent } from "../../hooks/useSiteContent.js";
+import { createAppointmentFromQuoteForm } from "../../services/appointmentsService.js";
 
 const labelCls =
   "mb-2 block text-[11px] font-medium uppercase tracking-[0.14em] text-stone-500";
@@ -28,6 +29,7 @@ const QuoteForm = () => {
   const [values, setValues] = useState(initialState);
   const [status, setStatus] = useState(null);
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const tattooTypeOptions = [
     { value: "", label: fq.chooseOne },
@@ -47,13 +49,28 @@ const QuoteForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("success");
-    setMessage(fq.success);
-    setValues(initialState);
-    setTimeout(() => {
-      setStatus(null);
-      setMessage("");
-    }, 5000);
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setStatus(null);
+    setMessage("");
+
+    try {
+      await createAppointmentFromQuoteForm(values);
+      setStatus("success");
+      setMessage(fq.success);
+      setValues(initialState);
+      setTimeout(() => {
+        setStatus(null);
+        setMessage("");
+      }, 5000);
+    } catch (error) {
+      console.error("Failed to submit quote form:", error);
+      setStatus("error");
+      setMessage("Could not submit right now. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -73,8 +90,12 @@ const QuoteForm = () => {
 
         {status ? (
           <div
-            className="rounded-none border border-cottage-green-primary/25 bg-cottage-green-primary/10 px-4 py-3 text-center text-sm text-stone-200"
-            role="status"
+            className={
+              status === "error"
+                ? "rounded-none border border-red-500/25 bg-red-500/10 px-4 py-3 text-center text-sm text-red-100"
+                : "rounded-none border border-cottage-green-primary/25 bg-cottage-green-primary/10 px-4 py-3 text-center text-sm text-stone-200"
+            }
+            role={status === "error" ? "alert" : "status"}
           >
             {message}
           </div>
@@ -282,8 +303,9 @@ const QuoteForm = () => {
           variant="primary"
           size="lg"
           className="mt-1 w-full justify-center"
+          disabled={isSubmitting}
         >
-          {fq.submit}
+          {isSubmitting ? "Sending..." : fq.submit}
         </Button>
       </form>
     </div>
