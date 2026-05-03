@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
 import ContactForm from "../components/contact/ContactForm";
 import { useSiteContent } from "../hooks/useSiteContent.js";
+import { siteContent } from "../data/siteContent.js";
 import {
   homeAccentHeading,
   homeBody,
@@ -10,9 +11,42 @@ import {
   editorialPanelPadded,
 } from "../components/home/homeTypography.js";
 
+const CONTACT_ROW_ICONS = ["📍", "🕐", "📱", "💬"];
+
+function normalizeContactBlocks(raw) {
+  let list = raw;
+  if (typeof list === "string") {
+    try {
+      const parsed = JSON.parse(list.trim());
+      list = Array.isArray(parsed) ? parsed : [];
+    } catch {
+      list = [];
+    }
+  } else if (!Array.isArray(list)) {
+    list = [];
+  }
+
+  const withCopy = list.map((item, index) => ({
+    title: item?.title ?? "",
+    body: item?.body ?? "",
+    icon: CONTACT_ROW_ICONS[index] ?? item?.icon ?? "",
+  }));
+
+  if (withCopy.length > 0) return withCopy;
+  const fallback = siteContent.contact?.blocks ?? [];
+  return fallback.map((item, index) => ({
+    title: item?.title ?? "",
+    body: item?.body ?? "",
+    icon: CONTACT_ROW_ICONS[index] ?? item?.icon ?? "",
+  }));
+}
+
 const Contact = () => {
   const { contact } = useSiteContent();
-  const [locationBlock, hoursBlock, socialBlock, expectBlock] = contact.blocks;
+  const infoBlocks = useMemo(
+    () => normalizeContactBlocks(contact.blocks),
+    [contact.blocks],
+  );
 
   const socialBtn =
     "flex h-10 w-10 items-center justify-center border border-white/[0.1] text-stone-400 transition-colors hover:border-cottage-green-primary/35 hover:text-cottage-green-primary";
@@ -42,64 +76,55 @@ const Contact = () => {
                 </h2>
 
                 <div className="space-y-8">
-                  <div className="flex items-start gap-4">
-                    <div className={editorialIconTile} aria-hidden>
-                      {locationBlock.icon}
-                    </div>
-                    <div>
-                      <h3 className="mb-2 text-lg font-medium text-stone-200">
-                        {locationBlock.title}
-                      </h3>
-                      <p className={homeBody}>{locationBlock.body}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className={editorialIconTile} aria-hidden>
-                      {hoursBlock.icon}
-                    </div>
-                    <div>
-                      <h3 className="mb-2 text-lg font-medium text-stone-200">
-                        {hoursBlock.title}
-                      </h3>
-                      <p className={homeBody}>{hoursBlock.body}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className={editorialIconTile} aria-hidden>
-                      {socialBlock.icon}
-                    </div>
-                    <div>
-                      <h3 className="mb-2 text-lg font-medium text-stone-200">
-                        {socialBlock.title}
-                      </h3>
-                      <p className={`${homeBody} mb-4`}>{socialBlock.body}</p>
-                      <div className="flex flex-wrap gap-2">
-                        <a href="#" className={socialBtn} aria-label="Instagram">
-                          <FaInstagram className="text-base" />
-                        </a>
-                        <a href="#" className={socialBtn} aria-label="Facebook">
-                          <FaFacebook className="text-base" />
-                        </a>
-                        <a href="#" className={socialBtn} aria-label="TikTok">
-                          <FaTiktok className="text-base" />
-                        </a>
+                  {infoBlocks.map((block, index) => (
+                    <div
+                      key={`${block.title}-${index}`}
+                      className="flex items-start gap-4"
+                    >
+                      <div className={editorialIconTile} aria-hidden>
+                        {block.icon}
+                      </div>
+                      <div>
+                        <h3 className="mb-2 text-lg font-medium text-stone-200">
+                          {block.title}
+                        </h3>
+                        <p
+                          className={
+                            index === 2
+                              ? `${homeBody} mb-4`
+                              : homeBody
+                          }
+                        >
+                          {block.body}
+                        </p>
+                        {index === 2 ? (
+                          <div className="flex flex-wrap gap-2">
+                            <a
+                              href="#"
+                              className={socialBtn}
+                              aria-label="Instagram"
+                            >
+                              <FaInstagram className="text-base" />
+                            </a>
+                            <a
+                              href="#"
+                              className={socialBtn}
+                              aria-label="Facebook"
+                            >
+                              <FaFacebook className="text-base" />
+                            </a>
+                            <a
+                              href="#"
+                              className={socialBtn}
+                              aria-label="TikTok"
+                            >
+                              <FaTiktok className="text-base" />
+                            </a>
+                          </div>
+                        ) : null}
                       </div>
                     </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className={editorialIconTile} aria-hidden>
-                      {expectBlock.icon}
-                    </div>
-                    <div>
-                      <h3 className="mb-2 text-lg font-medium text-stone-200">
-                        {expectBlock.title}
-                      </h3>
-                      <p className={homeBody}>{expectBlock.body}</p>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 

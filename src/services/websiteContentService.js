@@ -1,4 +1,5 @@
 import { siteContent } from "../data/siteContent.js";
+import { isFirebaseConfigured } from "../lib/firebaseClient.js";
 import { fetchFirestoreWebsiteContent } from "./firestoreContentService.js";
 
 /**
@@ -8,12 +9,32 @@ import { fetchFirestoreWebsiteContent } from "./firestoreContentService.js";
 export async function fetchWebsiteContent() {
   // Keep call sites async-friendly even when data is local.
   await Promise.resolve();
+  const fallbackEnabled =
+    import.meta.env.VITE_ENABLE_STATIC_CONTENT_FALLBACK === "true";
+  const firebaseConfigured = isFirebaseConfigured();
+
+  if (!firebaseConfigured) {
+    return siteContent;
+  }
 
   try {
     const firestoreContent = await fetchFirestoreWebsiteContent(siteContent);
-    return firestoreContent ?? siteContent;
+    if (!firestoreContent) {
+      throw new Error(
+        "Firestore content is empty. Create/publish docs in contentBlocks, placements, or portfolioItems.",
+      );
+    }
+
+    return firestoreContent;
   } catch (error) {
-    console.warn("Falling back to static site content:", error);
-    return siteContent;
+    if (fallbackEnabled) {
+      console.warn(
+        "[content] Firestore read failed; using static fallback because VITE_ENABLE_STATIC_CONTENT_FALLBACK=true",
+        error,
+      );
+      return siteContent;
+    }
+
+    throw error;
   }
 }

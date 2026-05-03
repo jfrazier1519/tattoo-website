@@ -23,8 +23,12 @@ function cloneStaticContent(content) {
 
 function sortByOrderThenLabel(items) {
   return [...items].sort((a, b) => {
-    const aOrder = Number.isFinite(a.sortOrder) ? a.sortOrder : Number.MAX_SAFE_INTEGER;
-    const bOrder = Number.isFinite(b.sortOrder) ? b.sortOrder : Number.MAX_SAFE_INTEGER;
+    const aOrder = Number.isFinite(a.sortOrder)
+      ? a.sortOrder
+      : Number.MAX_SAFE_INTEGER;
+    const bOrder = Number.isFinite(b.sortOrder)
+      ? b.sortOrder
+      : Number.MAX_SAFE_INTEGER;
     if (aOrder !== bOrder) return aOrder - bOrder;
     return String(a.label || "").localeCompare(String(b.label || ""));
   });
@@ -37,7 +41,9 @@ function toOption(item) {
 function applyPlacementOverrides(content, placements) {
   if (!placements.length) return content;
 
-  const active = placements.filter((p) => p.isActive !== false && p.id && p.label);
+  const active = placements.filter(
+    (p) => p.isActive !== false && p.id && p.label,
+  );
   if (!active.length) return content;
 
   const byType = active.reduce((acc, item) => {
@@ -61,16 +67,22 @@ function applyPlacementOverrides(content, placements) {
   }
 
   if (byType.style?.length) {
-    content.forms.quote.styleOptions = sortByOrderThenLabel(byType.style).map(toOption);
+    content.forms.quote.styleOptions = sortByOrderThenLabel(byType.style).map(
+      toOption,
+    );
   }
 
   if (byType.galleryCategory?.length) {
-    const options = sortByOrderThenLabel(byType.galleryCategory).map((item) => ({
-      id: item.id,
-      name: item.label,
-    }));
+    const options = sortByOrderThenLabel(byType.galleryCategory).map(
+      (item) => ({
+        id: item.id,
+        name: item.label,
+      }),
+    );
     const hasAll = options.some((item) => item.id === "all");
-    content.gallery.categories = hasAll ? options : [{ id: "all", name: "Everything" }, ...options];
+    content.gallery.categories = hasAll
+      ? options
+      : [{ id: "all", name: "Everything" }, ...options];
   }
 
   return content;
@@ -80,8 +92,12 @@ function applyContentBlockOverrides(content, contentBlocks) {
   if (!contentBlocks.length) return content;
 
   const orderedBlocks = [...contentBlocks].sort((a, b) => {
-    const aOrder = Number.isFinite(a.sortOrder) ? a.sortOrder : Number.MAX_SAFE_INTEGER;
-    const bOrder = Number.isFinite(b.sortOrder) ? b.sortOrder : Number.MAX_SAFE_INTEGER;
+    const aOrder = Number.isFinite(a.sortOrder)
+      ? a.sortOrder
+      : Number.MAX_SAFE_INTEGER;
+    const bOrder = Number.isFinite(b.sortOrder)
+      ? b.sortOrder
+      : Number.MAX_SAFE_INTEGER;
     return aOrder - bOrder;
   });
 
@@ -99,6 +115,14 @@ function applyContentBlockOverrides(content, contentBlocks) {
     }
     if (typeof block.payload === "object" && block.payload !== null) {
       Object.assign(nextValue, block.payload);
+    }
+
+    if (block.slotKey === "contact" && Array.isArray(nextValue.blocks)) {
+      const staticBlocks = content.contact?.blocks ?? [];
+      nextValue.blocks = nextValue.blocks.map((item, index) => ({
+        ...item,
+        icon: staticBlocks[index]?.icon ?? item.icon,
+      }));
     }
 
     if (Object.keys(nextValue).length === 0) return;
@@ -119,8 +143,12 @@ function applyPortfolioOverrides(content, portfolioItems) {
   if (!portfolioItems.length) return content;
 
   const ordered = [...portfolioItems].sort((a, b) => {
-    const aOrder = Number.isFinite(a.sortOrder) ? a.sortOrder : Number.MAX_SAFE_INTEGER;
-    const bOrder = Number.isFinite(b.sortOrder) ? b.sortOrder : Number.MAX_SAFE_INTEGER;
+    const aOrder = Number.isFinite(a.sortOrder)
+      ? a.sortOrder
+      : Number.MAX_SAFE_INTEGER;
+    const bOrder = Number.isFinite(b.sortOrder)
+      ? b.sortOrder
+      : Number.MAX_SAFE_INTEGER;
     return aOrder - bOrder;
   });
 
